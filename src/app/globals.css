@@ -16,9 +16,36 @@ body {
   background-color: #F7F4D5;
   color: #2C2C2A;
   -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
 }
 
 ::selection {
   background-color: #CB9289;
   color: #F7F4D5;
+}
+
+
+/* Scrollbar custom */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F4D5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #125464;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1C7A8F;
+}
+
+/* Hide scrollbar on marquee */
+.overflow-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

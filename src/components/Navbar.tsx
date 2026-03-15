@@ -63,7 +63,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden transition-all duration-300 overflow-hidden ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
+      <div className={`md:hidden transition-all duration-300 overflow-hidden ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none"}`}>
         <div className="bg-beige border-t border-charcoal/10 px-6 py-5 flex flex-col gap-4">
           {navLinks.map((link) => (
             <a
