@@ -3,12 +3,12 @@ import { Profile } from "@/types";
 export const profile: Profile = {
   name: "Aisya Nur Syakbani",
   firstName: "Aisya",
-  role: "Frontend Developer",
+  role: "Frontend Engineer & Product Strategist",
   location: "Semarang, Indonesia",
   email: "aisyafirst@gmail.com",
-  cvUrl: "/cv_aisya.pdf",
+  cvUrl: "/cv-aisya.pdf",
   available: true,
-  bio: "A passionate Frontend Developer & Tech Leader with a hustler mindset. I bridge the gap between clean code and products that people actually use.",
+  bio: "Vice President di DNCC dan Frontend Engineer yang berfokus pada transformasi digital. Dari mengoptimalkan logistik SaaS hingga memenangkan penghargaan 'Best Speaker' dalam pitching produk, saya membangun teknologi yang menyelesaikan masalah nyata.",
   socials: [
     {
       label: "github.com/aiaja",
@@ -33,9 +33,8 @@ export const profile: Profile = {
     { value: "12+", label: "Tech stack" },
   ],
   activities: [
-    { prefix: "Interning at", highlight: "Bengkel Koding" },
     { prefix: "Vice President at", highlight: "DNCC" },
-    { prefix: "Building", highlight: "Nexa Diesel Track" },
-    { prefix: "Computer Science Student at", highlight: "UDINUS" },
+    { prefix: "Winner/Finalist at", highlight: "5+ National Hackathons" },
+    { prefix: "Lead Developer at", highlight: "Nexa Diesel Track" },
   ],
 };
