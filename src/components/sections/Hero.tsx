@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowDown, ExternalLink } from "lucide-react";
 import BentoCard from "@/components/ui/BentoCard";
 import { profile } from "@/data/profile";
+import { motion } from "framer-motion";
 
 const iconMap = {
   github: <Github size={16} />,
@@ -11,150 +14,172 @@ const iconMap = {
 
 const Hero = () => {
   return (
-    <section id="hero" className="pt-20 pb-0 flex flex-col justify-center">
+    <section id="hero" className="pt-24 pb-8 flex flex-col justify-center">
       {/* Bento Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
-        {/* Card 1 — Intro (large) */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-stretch">
+        
+        {/* Card 1 — Main Intro (large) */}
         <BentoCard
           variant="green"
-          className="md:col-span-2 flex flex-col justify-between"
+          className="md:col-span-3 flex flex-col justify-between min-h-[400px] p-10 relative overflow-hidden"
         >
-          <div>
-            <span className="inline-block text-pink-primary text-xs font-semibold tracking-widest uppercase mb-3">
-              {profile.role}
-            </span>
-            <h1 className="text-beige text-2xl md:text-3xl font-bold leading-tight my-6">
-              <span className="block">Hi, I&apos;m{" "}</span>
-              <span className="text-pink-primary text-3xl md:text-4xl">
-                {profile.firstName}
-              </span> {profile.name.split(profile.firstName)[1]} 👋
-            </h1>
-            <p className="text-beige/80 text-sm leading-relaxed max-w-lg">
+          {/* Abstract Background Decoration */}
+          <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-pink-primary rounded-full blur-[100px] opacity-20 pointer-events-none" />
+          
+          <div className="relative z-10">
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/10 mb-6"
+            >
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span className="text-beige text-[10px] font-bold uppercase tracking-widest">
+                {profile.available ? 'Available for work' : 'Busy'}
+              </span>
+            </motion.div>
+
+            <motion.h1 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-beige text-4xl md:text-6xl font-black leading-none tracking-tighter mb-6 italic"
+            >
+              {profile.firstName} {profile.name.split(profile.firstName)[1]}
+            </motion.h1>
+
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-beige/70 text-lg md:text-xl font-medium leading-relaxed max-w-xl"
+            >
               {profile.bio}
-            </p>
+            </motion.p>
           </div>
-          <div className="flex flex-wrap gap-3">
+
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-wrap gap-4 relative z-10"
+          >
             <a
               href={`mailto:${profile.email}`}
-              className="inline-flex items-center gap-2 bg-beige text-green-primary text-sm font-semibold rounded-full hover:bg-pink-primary hover:text-beige transition-all duration-200 no-underline"
-              style={{ padding: "8px 20px" }}
+              className="inline-flex items-center gap-2 bg-pink-primary text-beige text-sm font-bold rounded-full hover:scale-105 active:scale-95 transition-all no-underline px-8 py-3 shadow-lg shadow-pink-primary/20"
             >
-              <Mail size={14} />
-              Hire Me
+              <Mail size={16} />
+              Let&apos;s talk
             </a>
             <a
               href={profile.cvUrl}
               download
-              className="inline-flex items-center gap-2 border-2 border-beige text-beige text-sm font-semibold rounded-full hover:bg-beige hover:text-green-primary transition-all duration-200 no-underline"
-              style={{ padding: "8px 20px" }}
+              className="inline-flex items-center gap-2 border border-white/20 text-beige text-sm font-bold rounded-full hover:bg-white/10 active:scale-95 transition-all no-underline px-8 py-3"
             >
-              <ArrowDown size={14} />
-              Download CV
+              <ArrowDown size={16} />
+              Resume
             </a>
-          </div>
+          </motion.div>
         </BentoCard>
 
-        {/* Card 2 — Photo */}
+        {/* Card 2 — Photo/Location */}
         <BentoCard
           variant="pink"
-          className="flex flex-col items-center justify-between pb-6 overflow-hidden relative"
+          className="flex flex-col items-center justify-between p-8 overflow-hidden relative"
         >
-          {/* Foto di atas */}
-          <div
-            className="relative w-full"
-            style={{ minHeight: "220px", zIndex: 2 }}
-          >
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-pink-primary/40 pointer-events-none" />
+          
+          <div className="relative w-full h-full min-h-[250px] z-10">
             <Image
               src="/images/profile.svg"
               alt={profile.name}
               fill
-              sizes="280px"
-              className="object-contain object-top"
+              sizes="300px"
+              className="object-contain object-bottom group-hover:scale-105 transition-transform duration-500"
               priority
             />
           </div>
 
-          {/* Text di bawah */}
-          <div className="text-center relative shrink-0" style={{ zIndex: 3 }}>
-            <p className="text-beige font-bold text-base">{profile.name}</p>
-            <p className="text-beige/75 text-sm mt-1">{profile.location} 🇮🇩</p>
-            <span
-              className="inline-flex items-center gap-1.5 mt-2 bg-beige/20 text-beige text-xs font-medium rounded-full"
-              style={{ padding: "4px 12px" }}
-            >
-              <span className={`w-1.5 h-1.5 rounded-full ${profile.available ? 'bg-green-400 animate-pulse' : 'bg-gray-400'}`} />
-              {profile.available ? 'Available for work' : 'Busy'}
-            </span>
+          <div className="text-center relative z-20 mt-4">
+            <p className="text-beige font-black text-lg tracking-tight leading-none uppercase">{profile.firstName}</p>
+            <div className="flex items-center justify-center gap-1 text-beige/60 text-xs mt-1 font-bold tracking-widest">
+              <span>{profile.location}</span>
+              <span>🇮🇩</span>
+            </div>
           </div>
         </BentoCard>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 items-stretch">
-        {/* Card 3 — Social */}
+
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4 items-stretch">
+        {/* Card 3 — Social Connect */}
         <BentoCard
           variant="charcoal"
-          className="flex flex-col justify-between min-h-[180px]"
+          className="md:col-span-1 flex flex-col justify-between p-8"
         >
-          <p className="text-beige/40 text-xs font-semibold tracking-widest uppercase mb-4">
-            Find me on
+          <p className="text-beige/30 text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+            Connect
           </p>
-          <div className="flex flex-col gap-3 flex-1 justify-center">
+          <div className="flex flex-col gap-4">
             {profile.socials.map((social) => (
               <a
                 key={social.label}
                 href={social.href}
-                target={social.href.startsWith("http") ? "_blank" : undefined}
+                target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-beige/70 hover:text-pink-primary transition-colors no-underline group"
+                className="flex items-center justify-between text-beige/60 hover:text-pink-primary transition-all no-underline group"
               >
-                <span className="shrink-0">{iconMap[social.icon as keyof typeof iconMap]}</span>
-                <span className="text-sm group-hover:translate-x-1 transition-transform duration-200">
-                  {social.label}
-                </span>
+                <div className="flex items-center gap-3">
+                  <span className="p-2 bg-white/5 rounded-lg group-hover:bg-pink-primary/20 group-hover:text-pink-primary transition-colors">
+                    {iconMap[social.icon as keyof typeof iconMap]}
+                  </span>
+                  <span className="text-xs font-bold uppercase tracking-wider">
+                    {social.icon}
+                  </span>
+                </div>
+                <ExternalLink size={12} className="opacity-0 group-hover:opacity-100 -translate-y-1 group-hover:translate-y-0 transition-all" />
               </a>
             ))}
           </div>
         </BentoCard>
 
-        {/* Card 4 — Stats */}
+        {/* Card 4 — Dynamic Activities */}
         <BentoCard
-          variant="pink-light"
-          className="flex flex-col justify-between min-h-[180px]"
+          variant="beige"
+          className="md:col-span-2 flex flex-col justify-between p-8"
         >
-          <p className="text-charcoal/40 text-xs font-semibold tracking-widest uppercase mb-4">
-            At a glance
+          <p className="text-charcoal/30 text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+            Focus & Activities
           </p>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-4 flex-1 content-center">
-            {profile.stats.map(({ value, label }) => (
-              <div key={label}>
-                <p className="text-green-primary text-2xl font-bold leading-none">
-                  {value}
+          <div className="space-y-4">
+            {profile.activities.map(({ prefix, highlight }) => (
+              <div key={highlight} className="group flex items-center gap-3 border-b border-charcoal/5 pb-3 last:border-0 last:pb-0">
+                <div className="w-1.5 h-1.5 rounded-full bg-pink-primary group-hover:scale-150 transition-transform" />
+                <p className="text-charcoal/60 text-sm font-medium">
+                  {prefix}{" "}
+                  <span className="text-charcoal font-black uppercase tracking-tight">
+                    {highlight}
+                  </span>
                 </p>
-                <p className="text-charcoal/60 text-xs mt-1">{label}</p>
               </div>
             ))}
           </div>
         </BentoCard>
 
-        {/* Card 5 — Currently */}
+        {/* Card 5 — Core Stats */}
         <BentoCard
-          variant="beige"
-          className="flex flex-col justify-between min-h-[180px]"
+          variant="pink-light"
+          className="md:col-span-1 flex flex-col justify-between p-8"
         >
-          <p className="text-charcoal/40 text-xs font-semibold tracking-widest uppercase mb-4">
-            Currently
+          <p className="text-charcoal/30 text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+            Overview
           </p>
-          <div className="flex flex-col gap-2.5 flex-1 justify-center">
-            {profile.activities.map(({ prefix, highlight }) => (
-              <div key={highlight} className="flex items-start gap-2">
-                <span className="text-pink-primary text-sm mt-0.5 shrink-0">
-                  →
-                </span>
-                <p className="text-charcoal text-sm">
-                  {prefix}{" "}
-                  <span className="font-semibold text-green-primary">
-                    {highlight}
-                  </span>
+          <div className="grid grid-cols-2 gap-4">
+            {profile.stats.map(({ value, label }) => (
+              <div key={label} className="group">
+                <p className="text-charcoal text-2xl font-black leading-none group-hover:text-pink-primary transition-colors">
+                  {value}
                 </p>
+                <p className="text-charcoal/40 text-[9px] font-bold uppercase tracking-wider mt-1">{label}</p>
               </div>
             ))}
           </div>

@@ -1,243 +1,176 @@
+"use client";
+
+import Link from "next/link";
 import Image from "next/image";
-import { ExternalLink, Github, Clock } from "lucide-react";
+import { ExternalLink, Github, ArrowRight, Activity } from "lucide-react";
 import BentoCard from "@/components/ui/BentoCard";
 import SectionTitle from "@/components/ui/SectionTitle";
-import Badge from "@/components/ui/Badge";
 import { projects } from "@/data/project";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-8">
-      <SectionTitle label="My Work" title="Featured Projects" />
+    <section id="projects" className="py-24">
+      <SectionTitle label="Selected Works" title="Featured Projects" />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
 
-        {/* Project 1 — Large featured */}
+        {/* Project 1 — Nexa Diesel (Large Feature) */}
         <BentoCard
           variant="charcoal"
-          className="md:col-span-2 flex flex-col justify-between min-h-[320px]"
+          className="md:col-span-3 flex flex-col justify-between min-h-[500px] group p-0"
         >
-          {/* Image */}
-          <div
-            className="relative w-full rounded-xl overflow-hidden mb-4"
-            style={{ height: "180px" }}
-          >
+          <div className="relative w-full h-[300px] overflow-hidden">
             <Image
               src={projects[0].image}
               alt={projects[0].title}
               fill
-              sizes="600px"
-              className="object-cover"
+              className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-100"
             />
-            {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent" />
-            {/* Status badge */}
-            <div className="absolute top-3 right-3">
-              {projects[0].status === "ongoing" ? (
-                <span
-                  className="inline-flex items-center gap-1.5 bg-pink-primary text-beige text-xs font-semibold rounded-full"
-                  style={{ padding: "4px 10px" }}
-                >
-                  <Clock size={10} />
-                  Ongoing
-                </span>
-              ) : (
-                <span
-                  className="inline-flex items-center gap-1.5 bg-green-primary text-beige text-xs font-semibold rounded-full"
-                  style={{ padding: "4px 10px" }}
-                >
-                  Done
-                </span>
-              )}
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="flex flex-col gap-3 flex-1">
-            <h3 className="text-beige font-bold text-xl">{projects[0].title}</h3>
-            <p className="text-beige/70 text-sm leading-relaxed">{projects[0].description}</p>
-            <div className="flex flex-wrap gap-2 mt-1">
-              {projects[0].tags.map((tag) => (
-                <Badge key={tag} label={tag} variant="outline" size="sm" />
-              ))}
-            </div>
-          </div>
-
-          {/* Links */}
-          <div className="flex items-center gap-3 mt-4">
-            {projects[0].githubUrl && (
-              <a
-                href={projects[0].githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-beige/70 hover:text-pink-primary transition-colors no-underline text-sm"
-              >
-                <Github size={16} />
-                Source
-              </a>
-            )}
-            {projects[0].liveUrl && (
-              <a
-                href={projects[0].liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-beige/70 hover:text-pink-primary transition-colors no-underline text-sm"
-              >
-                <ExternalLink size={16} />
-                Live Demo
-              </a>
-            )}
-            {projects[0].status === "ongoing" && !projects[0].liveUrl && (
-              <span className="text-beige/40 text-xs italic">Private project</span>
-            )}
-          </div>
-        </BentoCard>
-
-        {/* Project 2 — Small */}
-        <BentoCard
-          variant="green"
-          className="flex flex-col justify-between min-h-[320px]"
-        >
-          <div
-            className="relative w-full rounded-xl overflow-hidden mb-4"
-            style={{ height: "140px" }}
-          >
-            <Image
-              src={projects[1].image}
-              alt={projects[1].title}
-              fill
-              sizes="300px"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-green-primary/60 to-transparent" />
-            <div className="absolute top-3 right-3">
-              <span
-                className="inline-flex items-center bg-beige/20 text-beige text-xs font-semibold rounded-full"
-                style={{ padding: "4px 10px" }}
-              >
-                Done
+            <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/20 to-transparent" />
+            
+            <div className="absolute top-8 left-8 flex gap-2">
+              <span className="px-3 py-1 bg-pink-primary text-beige text-[10px] font-black uppercase tracking-widest rounded-full flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                {projects[0].status}
               </span>
             </div>
           </div>
-          <div className="flex flex-col gap-2 flex-1">
-            <h3 className="text-beige font-bold text-lg">{projects[1].title}</h3>
-            <p className="text-beige/70 text-sm leading-relaxed line-clamp-3">{projects[1].description}</p>
-            <div className="flex flex-wrap gap-1.5 mt-1">
-              {projects[1].tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs bg-beige/10 text-beige/80 rounded-full"
-                  style={{ padding: "3px 10px" }}
-                >
-                  {tag}
-                </span>
-              ))}
+
+          <div className="p-10 flex flex-col md:flex-row justify-between items-end gap-6">
+            <div className="flex-1">
+              <h3 className="text-beige text-4xl font-black italic tracking-tighter mb-4 uppercase">
+                {projects[0].title}
+              </h3>
+              <p className="text-beige/60 text-sm font-medium leading-relaxed max-w-xl line-clamp-2">
+                {projects[0].description}
+              </p>
+              <div className="flex flex-wrap gap-2 mt-6">
+                {projects[0].tags.map((tag) => (
+                  <span key={tag} className="text-[10px] font-bold text-beige/40 uppercase tracking-widest border border-white/10 px-3 py-1 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="flex items-center gap-3 mt-4">
-            {projects[1].githubUrl && (
-              <a
-                href={projects[1].githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-beige/70 hover:text-pink-primary transition-colors no-underline text-sm"
-              >
-                <Github size={16} />
-                Source
-              </a>
-            )}
+            
+            <Link 
+              href={`/projects/${projects[0].slug}`}
+              className="group/btn flex items-center justify-center w-16 h-16 rounded-full bg-pink-primary text-beige hover:scale-110 active:scale-95 transition-all shadow-xl shadow-pink-primary/20"
+            >
+              <ArrowRight className="group-hover/btn:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </BentoCard>
 
-        {/* Project 3 */}
+        {/* Project 2 — ECOPOS (Vertical) */}
         <BentoCard
-          variant="pink-light"
-          className="flex flex-col justify-between min-h-[280px]"
+          variant="green"
+          className="md:col-span-1 flex flex-col justify-between p-8 group"
         >
-          <div
-            className="relative w-full rounded-xl overflow-hidden mb-4"
-            style={{ height: "130px" }}
-          >
-            <Image
-              src={projects[2].image}
-              alt={projects[2].title}
-              fill
-              sizes="300px"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-pink-light/60 to-transparent" />
-          </div>
-          <div className="flex flex-col gap-2 flex-1">
-            <h3 className="text-charcoal font-bold text-lg">{projects[2].title}</h3>
-            <p className="text-charcoal/70 text-sm leading-relaxed line-clamp-2">{projects[2].description}</p>
-            <div className="flex flex-wrap gap-1.5 mt-1">
-              {projects[2].tags.map((tag) => (
-                <Badge key={tag} label={tag} variant="green" size="sm" />
-              ))}
+          <div className="space-y-4">
+            <div className="flex justify-between items-start">
+              <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-beige font-black text-xl">
+                E
+              </div>
+              <span className="text-[10px] font-black text-beige/40 uppercase tracking-widest">Done</span>
             </div>
-          </div>
-        </BentoCard>
-
-        {/* Project 4 */}
-        <BentoCard
-          variant="pink"
-          className="flex flex-col justify-between min-h-[280px]"
-        >
-          <div
-            className="relative w-full rounded-xl overflow-hidden mb-4"
-            style={{ height: "130px" }}
-          >
-            <Image
-              src={projects[3].image}
-              alt={projects[3].title}
-              fill
-              sizes="300px"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-pink-primary/60 to-transparent" />
-          </div>
-          <div className="flex flex-col gap-2 flex-1">
-            <h3 className="text-beige font-bold text-lg">{projects[3].title}</h3>
-            <p className="text-beige/70 text-sm leading-relaxed line-clamp-2">{projects[3].description}</p>
-            <div className="flex flex-wrap gap-1.5 mt-1">
-              {projects[3].tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs bg-beige/20 text-beige rounded-full"
-                  style={{ padding: "3px 10px" }}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        </BentoCard>
-
-        {/* CTA Card */}
-        <BentoCard
-          variant="beige"
-          className="flex flex-col items-center justify-center text-center gap-4 min-h-[280px]"
-        >
-          <div
-            className="w-12 h-12 rounded-full bg-green-primary flex items-center justify-center"
-          >
-            <Github size={22} className="text-beige" />
-          </div>
-          <div>
-            <p className="text-charcoal font-bold text-lg">See more projects</p>
-            <p className="text-charcoal/60 text-sm mt-1">
-              Check out my GitHub for more work
+            <h3 className="text-2xl font-black italic tracking-tight uppercase leading-none">
+              {projects[1].title}
+            </h3>
+            <p className="text-beige/60 text-xs font-medium leading-relaxed line-clamp-3">
+              {projects[1].description}
             </p>
           </div>
-          <a
-            href="https://github.com/aiaja"
-            target="_blank"
+
+          <div className="mt-8 space-y-6">
+            <div className="flex flex-wrap gap-2">
+              {projects[1].tags.slice(0, 2).map((tag) => (
+                <span key={tag} className="text-[9px] font-bold text-beige/30 uppercase tracking-widest border border-white/10 px-2 py-1 rounded">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <Link 
+              href={`/projects/${projects[1].slug}`}
+              className="flex items-center justify-between w-full p-4 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-all text-xs font-bold uppercase tracking-widest no-underline"
+            >
+              <span>Case Study</span>
+              <ArrowRight size={14} />
+            </Link>
+          </div>
+        </BentoCard>
+
+        {/* Project 3 & 4 (Grid items) */}
+        <div className="md:col-span-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+          {projects.slice(2).map((project, index) => (
+            <BentoCard
+              key={project.slug}
+              variant={index === 0 ? "pink" : "beige"}
+              className="flex items-center justify-between p-8 group"
+            >
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-2">
+                  <h3 className={cn(
+                    "text-xl font-black italic uppercase tracking-tight",
+                    index === 0 ? "text-beige" : "text-charcoal"
+                  )}>
+                    {project.title}
+                  </h3>
+                  <span className={cn(
+                    "text-[9px] font-black uppercase tracking-[0.2em] opacity-40",
+                    index === 0 ? "text-beige" : "text-charcoal"
+                  )}>
+                    / 2024
+                  </span>
+                </div>
+                <p className={cn(
+                  "text-xs font-medium max-w-md line-clamp-1",
+                  index === 0 ? "text-beige/60" : "text-charcoal/60"
+                )}>
+                  {project.description}
+                </p>
+              </div>
+              
+              <Link 
+                href={`/projects/${project.slug}`}
+                className={cn(
+                  "w-10 h-10 rounded-full flex items-center justify-center transition-all",
+                  index === 0 
+                    ? "bg-beige text-pink-primary hover:bg-white" 
+                    : "bg-charcoal text-beige hover:bg-black"
+                )}
+              >
+                <ArrowRight size={18} />
+              </Link>
+            </BentoCard>
+          ))}
+        </div>
+
+        {/* Github CTA (Full Width) */}
+        <BentoCard
+          variant="white"
+          className="md:col-span-4 flex flex-col md:flex-row items-center justify-between p-10 group cursor-pointer border-dashed border-2 border-charcoal/10 bg-transparent hover:bg-white transition-all"
+        >
+          <div className="flex items-center gap-6">
+            <div className="w-14 h-14 rounded-full bg-charcoal flex items-center justify-center text-beige">
+              <Github size={24} />
+            </div>
+            <div>
+              <h4 className="text-charcoal font-black text-xl uppercase tracking-tighter italic leading-none mb-2">Want to see more experimentation?</h4>
+              <p className="text-charcoal/50 text-xs font-bold uppercase tracking-widest">Check out my other repositories on GitHub</p>
+            </div>
+          </div>
+          
+          <a 
+            href="https://github.com/aiaja" 
+            target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-green-primary text-beige text-sm font-semibold rounded-full hover:bg-green-secondary transition-colors no-underline"
-            style={{ padding: "8px 20px" }}
+            className="mt-6 md:mt-0 flex items-center gap-3 px-8 py-4 bg-charcoal text-beige rounded-full font-black uppercase tracking-widest text-xs hover:scale-105 active:scale-95 transition-all no-underline"
           >
-            <Github size={14} />
-            Visit GitHub
+            Explore Repos
+            <ExternalLink size={14} />
           </a>
         </BentoCard>
 

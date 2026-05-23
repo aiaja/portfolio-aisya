@@ -1,4 +1,5 @@
 export type Project = {
+  slug: string;
   title: string;
   description: string;
   image: string;
@@ -6,6 +7,16 @@ export type Project = {
   liveUrl?: string;
   githubUrl?: string;
   status: "done" | "ongoing";
+  role: string;
+  timeline: string;
+  content: {
+    challenge: string;
+    process: string;
+    impact: {
+      label: string;
+      value: string;
+    }[];
+  };
 };
 
 export type Experience = {
@@ -71,4 +82,3 @@ export type Education = {
   degree: string;
   gpa: string;
 };
-

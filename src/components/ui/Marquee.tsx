@@ -1,37 +1,58 @@
-type MarqueeProps = {
+"use client";
+
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+
+interface MarqueeProps {
   items: string[];
   direction?: "left" | "right";
   speed?: number;
-};
+  className?: string;
+}
 
-const Marquee = ({ items, direction = "left", speed = 30 }: MarqueeProps) => {
-  const doubled = [...items, ...items];
-
+const Marquee = ({
+  items,
+  direction = "left",
+  speed = 40,
+  className,
+}: MarqueeProps) => {
+  const isRight = direction === "right";
+  
   return (
-    <div className="overflow-hidden w-full">
-      <style>{`
-        @keyframes marquee-left {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        @keyframes marquee-right {
-          0% { transform: translateX(-50%); }
-          100% { transform: translateX(0); }
-        }
-        .marquee-left { animation: marquee-left ${speed}s linear infinite; }
-        .marquee-right { animation: marquee-right ${speed}s linear infinite; }
-      `}</style>
-      <div className={`flex w-max gap-3 ${direction === "left" ? "marquee-left" : "marquee-right"}`}>
-        {doubled.map((item, i) => (
+    <div className={cn("overflow-hidden flex whitespace-nowrap mask-marquee", className)}>
+      <motion.div
+        animate={{
+          x: isRight ? ["-50%", "0%"] : ["0%", "-50%"],
+        }}
+        transition={{
+          duration: speed,
+          ease: "linear",
+          repeat: Infinity,
+        }}
+        className="flex gap-4 pr-4"
+      >
+        {/* Duplicate items for seamless loop */}
+        {[...items, ...items, ...items, ...items].map((item, i) => (
           <span
             key={i}
-            className="inline-flex items-center rounded-full bg-green-primary text-beige text-sm font-medium whitespace-nowrap"
-            style={{ padding: "6px 16px" }}
+            className="text-sm font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-charcoal/10 bg-white/50 backdrop-blur-sm whitespace-nowrap"
           >
             {item}
           </span>
         ))}
-      </div>
+      </motion.div>
+      
+      <style jsx>{`
+        .mask-marquee {
+          mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 10%,
+            black 90%,
+            transparent
+          );
+        }
+      `}</style>
     </div>
   );
 };
