@@ -2,20 +2,9 @@ import BentoCard from "@/components/ui/BentoCard";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Marquee from "@/components/ui/Marquee";
 import { techStack } from "@/data/techstack";
+import { marqueeSkills, softSkills } from "@/data/skills";
+import { certifications } from "@/data/certifications";
 import Image from "next/image";
-
-const skills = [
-  "Frontend Development",
-  "UI/UX Design",
-  "Responsive Web Design",
-  "Project Management",
-  "Team Leadership",
-  "REST API Integration",
-  "Version Control (Git)",
-  "Wireframing & Mockups",
-  "Design Systems",
-  "Agile / Scrum",
-];
 
 const frameworks = techStack.filter((t) => t.category === "framework");
 const languages = techStack.filter((t) => t.category === "language");
@@ -34,8 +23,8 @@ const Skills = () => {
             Skill set
           </p>
           <div className="flex flex-col gap-3">
-            <Marquee items={skills} direction="left" speed={60} />
-            <Marquee items={skills} direction="right" speed={60} />
+            <Marquee items={marqueeSkills} direction="left" speed={60} />
+            <Marquee items={marqueeSkills} direction="right" speed={60} />
           </div>
         </BentoCard>
 
@@ -129,11 +118,7 @@ const Skills = () => {
             Certifications
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            {[
-              { title: "Associate Data Scientist", issuer: "BNSP", year: "2025" },
-              { title: "Getting Started with Deep Learning", issuer: "NVIDIA", year: "2024" },
-              { title: "Backend Developer", issuer: "Doscom University", year: "2024" },
-            ].map((cert) => (
+            {certifications.map((cert) => (
               <div
                 key={cert.title}
                 className="bg-white/50 rounded-xl p-3 flex flex-col gap-1"
@@ -154,14 +139,7 @@ const Skills = () => {
             Soft Skills
           </p>
           <div className="flex flex-col gap-2">
-            {[
-              "Project Management",
-              "Team Leadership",
-              "Effective Communication",
-              "Problem Solving",
-              "Critical Thinking",
-              "Organizational Skills",
-            ].map((skill) => (
+            {softSkills.map((skill) => (
               <div key={skill} className="flex items-center gap-2">
                 <span className="text-pink-primary text-sm shrink-0">→</span>
                 <span className="text-beige/80 text-sm">{skill}</span>

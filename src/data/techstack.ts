@@ -1,8 +1,4 @@
-export type Tech = {
-  name: string;
-  icon: string;
-  category: "framework" | "language" | "tool";
-};
+import { Tech } from "@/types";
 
 export const techStack: Tech[] = [
 { 

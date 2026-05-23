@@ -1,12 +1,4 @@
-export type Project = {
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-  liveUrl?: string;
-  githubUrl?: string;
-  status: "done" | "ongoing";
-};
+import { Project } from "@/types";
 
 export const projects: Project[] = [
   {

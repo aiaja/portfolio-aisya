@@ -1,10 +1,4 @@
-export type Experience = {
-  company: string;
-  companyUrl: string;
-  role: string;
-  type: string;
-  period: string;
-};
+import { Experience } from "@/types";
 
 export const experiences: Experience[] = [
   {

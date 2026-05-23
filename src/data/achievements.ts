@@ -1,10 +1,4 @@
-export type Achievement = {
-  title: string;
-  event: string;
-  organizer: string;
-  year: string;
-  description: string;
-};
+import { Achievement } from "@/types";
 
 export const achievements: Achievement[] = [
   {

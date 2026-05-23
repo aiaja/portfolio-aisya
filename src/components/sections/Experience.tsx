@@ -2,7 +2,9 @@ import BentoCard from "../ui/BentoCard";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { experiences } from "@/data/experience";
 import { achievements } from "@/data/achievements";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { education } from "@/data/education";
+import { profile } from "@/data/profile";
+import { ArrowRight } from "lucide-react";
 
 const Experience = () => {
   return (
@@ -71,9 +73,9 @@ const Experience = () => {
               About Me
             </p>
             <p className="text-charcoal text-sm leading-relaxed">
-              Active student in semester 6 of Informatics Engineering at{" "}
+              Active student at{" "}
               <span className="font-semibold text-green-primary">
-                Universitas Dian Nuswantoro
+                {education.school}
               </span>
               , with a strong interest in{" "}
               <span className="font-semibold text-green-primary">
@@ -86,10 +88,7 @@ const Experience = () => {
               .
             </p>
             <p className="text-charcoal text-sm leading-relaxed mt-3">
-              Experienced in website development, project management, and
-              actively involved in tech organizations and leadership roles. I
-              love bridging the gap between writing clean code and shipping
-              products that people actually use.
+              {profile.bio}
             </p>
           </div>
           <div className="flex flex-col gap-2">
@@ -98,15 +97,15 @@ const Experience = () => {
             </p>
             <div className="bg-white/50 rounded-xl p-4">
               <p className="text-green-primary font-bold text-sm">
-                Universitas Dian Nuswantoro
+                {education.school}
               </p>
               <p className="text-charcoal/70 text-xs mt-0.5">
-                S1 Informatics Engineering
+                {education.degree}
               </p>
               <div className="flex items-center justify-between mt-2">
                 <span className="text-charcoal/50 text-xs">GPA</span>
                 <span className="text-green-primary font-bold text-sm">
-                  3.78
+                  {education.gpa}
                 </span>
               </div>
             </div>
@@ -125,7 +124,7 @@ const Experience = () => {
             </p>
             
               <a
-                href="/cv_aisya.pdf"
+                href={profile.cvUrl}
                 download
                 className="flex flex-wrap w-fit items-center bg-beige/10 text-beige/70 text-xs font-medium rounded-full"
                 style={{ padding: "3px 10px" }}
