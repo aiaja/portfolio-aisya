@@ -1,6 +1,6 @@
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className="mt-16 border-t border-charcoal/10">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-8">
@@ -49,4 +49,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

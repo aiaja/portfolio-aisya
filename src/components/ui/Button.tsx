@@ -24,7 +24,7 @@ const variantClasses: Record<string, string> = {
   ghost: "bg-transparent text-green-primary border-2 border-transparent hover:border-green-primary",
 };
 
-export default function Button({
+const Button = ({
   children,
   href,
   onClick,
@@ -34,7 +34,7 @@ export default function Button({
   target,
   download,
   icon,
-}: ButtonProps) {
+}: ButtonProps) => {
   const baseClass = [
     "inline-flex items-center justify-center font-semibold rounded-full",
     "transition-all duration-200 no-underline cursor-pointer select-none",
@@ -71,4 +71,6 @@ export default function Button({
       {children}
     </button>
   );
-}
+};
+
+export default Button;

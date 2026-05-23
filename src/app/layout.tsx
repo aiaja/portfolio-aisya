@@ -22,12 +22,14 @@ export const metadata: Metadata = {
   authors: [{ name: "Aisya Nur Syakbani" }],
 };
 
-export default function RootLayout({
+const RootLayout = ({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html lang="en" className={inter.variable}>
       <body>{children}</body>
     </html>
   );
-}
+};
+
+export default RootLayout;

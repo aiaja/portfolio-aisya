@@ -5,7 +5,7 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import Badge from "@/components/ui/Badge";
 import { projects } from "@/data/project";
 
-export default function Projects() {
+const Projects = () => {
   return (
     <section id="projects" className="py-8">
       <SectionTitle label="My Work" title="Featured Projects" />
@@ -244,4 +244,6 @@ export default function Projects() {
       </div>
     </section>
   );
-}
+};
+
+export default Projects;

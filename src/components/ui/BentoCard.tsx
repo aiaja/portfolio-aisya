@@ -14,11 +14,11 @@ const variantStyles: Record<string, string> = {
   "pink-light": "bg-pink-light text-charcoal",
 };
 
-export default function BentoCard({
+const BentoCard = ({
   children,
   className = "",
   variant = "beige",
-}: BentoCardProps) {
+}: BentoCardProps) => {
   return (
     <div
       className={`
@@ -32,4 +32,6 @@ export default function BentoCard({
       {children}
     </div>
   );
-}
+};
+
+export default BentoCard;

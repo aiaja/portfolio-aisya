@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import BentoCard from "@/components/ui/BentoCard";
 
-export default function Hero() {
+const Hero = () => {
   return (
     <section id="hero" className="pt-20 pb-0 flex flex-col justify-center">
       {/* Bento Grid */}
@@ -137,7 +137,7 @@ export default function Hero() {
             {[
               { value: "4+", label: "Projects done" },
               { value: "6+", label: "Achievements" },
-              { value: "3.72", label: "GPA" },
+              { value: "3.78", label: "GPA" },
               { value: "12+", label: "Tech stack" },
             ].map(({ value, label }) => (
               <div key={label}>
@@ -161,9 +161,9 @@ export default function Hero() {
           <div className="flex flex-col gap-2.5 flex-1 justify-center">
             {[
               { prefix: "Interning at", highlight: "Bengkel Koding" },
-              { prefix: "VP at", highlight: "DNCC" },
+              { prefix: "Vice President at", highlight: "DNCC" },
               { prefix: "Building", highlight: "Nexa Diesel Track" },
-              { prefix: "Studying at", highlight: "UDINUS — Sem. 5" },
+              { prefix: "Computer Science Student at", highlight: "UDINUS" },
             ].map(({ prefix, highlight }) => (
               <div key={highlight} className="flex items-start gap-2">
                 <span className="text-pink-primary text-sm mt-0.5 shrink-0">
@@ -182,4 +182,6 @@ export default function Hero() {
       </div>
     </section>
   );
-}
+};
+
+export default Hero;

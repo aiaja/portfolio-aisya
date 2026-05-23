@@ -6,7 +6,7 @@ import Hero from "@/components/sections/Hero";
 import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
 
-export default function Home() {
+const Home = () => {
   return (
     <main className="min-h-screen bg-beige">
       <Navbar />
@@ -20,4 +20,6 @@ export default function Home() {
       <Footer/>
     </main>
   );
-}
+};
+
+export default Home;

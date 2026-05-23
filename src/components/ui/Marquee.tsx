@@ -4,7 +4,7 @@ type MarqueeProps = {
   speed?: number;
 };
 
-export default function Marquee({ items, direction = "left", speed = 30 }: MarqueeProps) {
+const Marquee = ({ items, direction = "left", speed = 30 }: MarqueeProps) => {
   const doubled = [...items, ...items];
 
   return (
@@ -34,4 +34,6 @@ export default function Marquee({ items, direction = "left", speed = 30 }: Marqu
       </div>
     </div>
   );
-}
+};
+
+export default Marquee;

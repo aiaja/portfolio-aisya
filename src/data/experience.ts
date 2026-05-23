@@ -15,6 +15,13 @@ export const experiences: Experience[] = [
     period: "Aug 2024 - Present",
   },
   {
+    company: "Bengkel Koding",
+    companyUrl: "https://bengkelkoding.dinus.ac.id/",
+    role: "Teaching Assistant",
+    type: "Internship",
+    period: "Aug 2024 - Present",
+  },
+  {
     company: "Dian Nuswantoro Computer Club",
     companyUrl: "https://dncc.dinus.ac.id/",
     role: "Vice President",

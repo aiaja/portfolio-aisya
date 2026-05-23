@@ -21,7 +21,7 @@ const frameworks = techStack.filter((t) => t.category === "framework");
 const languages = techStack.filter((t) => t.category === "language");
 const tools = techStack.filter((t) => t.category === "tool");
 
-export default function Skills() {
+const Skills = () => {
   return (
     <section id="skills" className="py-16">
       <SectionTitle label="What I Know" title="Skills & Tech Stack" />
@@ -173,4 +173,6 @@ export default function Skills() {
       </div>
     </section>
   );
-}
+};
+
+export default Skills;

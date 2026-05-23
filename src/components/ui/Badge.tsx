@@ -16,7 +16,7 @@ const sizeStyles: Record<string, string> = {
   md: "text-xs px-3 py-1",
 };
 
-export default function Badge({ label, variant = "green", size = "md" }: BadgeProps) {
+const Badge = ({ label, variant = "green", size = "md" }: BadgeProps) => {
   return (
     <span
       className={`inline-flex items-center font-medium rounded-full whitespace-nowrap ${variantStyles[variant]} ${sizeStyles[size]}`}
@@ -24,4 +24,6 @@ export default function Badge({ label, variant = "green", size = "md" }: BadgePr
       {label}
     </span>
   );
-}
+};
+
+export default Badge;

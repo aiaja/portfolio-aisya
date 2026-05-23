@@ -2,7 +2,7 @@ import { Mail, Github, Linkedin, MapPin, Send } from "lucide-react";
 import BentoCard from "@/components/ui/BentoCard";
 import SectionTitle from "@/components/ui/SectionTitle";
 
-export default function Contact() {
+const Contact = () => {
   return (
     <section id="contact" className="py-16">
       <SectionTitle label="Get In Touch" title="Contact Me" />
@@ -156,4 +156,6 @@ export default function Contact() {
       </div>
     </section>
   );
-}
+};
+
+export default Contact;
