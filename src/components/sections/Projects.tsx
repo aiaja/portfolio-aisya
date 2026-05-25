@@ -12,14 +12,13 @@ import { cn } from "@/lib/utils";
 const Projects = () => {
   return (
     <section id="projects" className="py-24">
-      <SectionTitle label="Selected Works" title="Featured Projects" />
+      <SectionTitle label="Product & Changelog" title="Featured Works" />
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-
-        {/* Project 1 — Nexa Diesel (Large Feature) */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-fr">
+        {/* 1. HERO HIGHLIGHT (2x2 Span) */}
         <BentoCard
           variant="charcoal"
-          className="md:col-span-3 flex flex-col justify-between min-h-[500px] group p-0"
+          className="md:col-span-2 md:row-span-2 flex flex-col group p-0"
         >
           <div className="relative w-full h-[300px] overflow-hidden">
             <Image
@@ -30,151 +29,176 @@ const Projects = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/20 to-transparent" />
             
-            <div className="absolute top-8 left-8 flex gap-2">
-              <span className="px-3 py-1 bg-pink-primary text-beige text-[10px] font-black uppercase tracking-widest rounded-full flex items-center gap-2">
+            <div className="absolute top-6 left-6 flex gap-2">
+              <span className="px-3 py-1 bg-pink-primary text-beige text-[9px] font-black uppercase tracking-widest rounded-full flex items-center gap-2 shadow-lg">
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                {projects[0].status}
+                Latest
+              </span>
+              <span className="px-3 py-1 bg-white/10 backdrop-blur-sm text-beige text-[9px] font-black uppercase tracking-widest rounded-full">
+                SaaS
               </span>
             </div>
           </div>
 
-          <div className="p-10 flex flex-col md:flex-row justify-between items-end gap-6">
-            <div className="flex-1">
-              <h3 className="text-beige text-4xl font-black italic tracking-tighter mb-4 uppercase">
+          <div className="p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 className="text-beige text-3xl font-black italic tracking-tighter uppercase leading-none mb-3">
                 {projects[0].title}
               </h3>
-              <p className="text-beige/60 text-sm font-medium leading-relaxed max-w-xl line-clamp-2">
+              <p className="text-beige/60 text-xs font-medium leading-relaxed line-clamp-2">
                 {projects[0].description}
               </p>
-              <div className="flex flex-wrap gap-2 mt-6">
-                {projects[0].tags.map((tag) => (
-                  <span key={tag} className="text-[10px] font-bold text-beige/40 uppercase tracking-widest border border-white/10 px-3 py-1 rounded-full">
+            </div>
+            
+            <div className="flex justify-between items-center mt-6">
+              <div className="flex gap-2">
+                {projects[0].tags.slice(0, 2).map((tag) => (
+                  <span key={tag} className="px-2 py-1 rounded bg-white/10 text-beige/40 text-[9px] font-bold uppercase">
                     {tag}
                   </span>
                 ))}
               </div>
+              <Link 
+                href={`/projects/${projects[0].slug}`}
+                className="w-12 h-12 rounded-full bg-pink-primary text-beige flex items-center justify-center hover:scale-110 active:scale-95 transition-all shadow-xl shadow-pink-primary/20"
+              >
+                <ArrowRight size={20} className="group-hover:translate-x-0.5 transition-transform" />
+              </Link>
             </div>
-            
-            <Link 
-              href={`/projects/${projects[0].slug}`}
-              className="group/btn flex items-center justify-center w-16 h-16 rounded-full bg-pink-primary text-beige hover:scale-110 active:scale-95 transition-all shadow-xl shadow-pink-primary/20"
-            >
-              <ArrowRight className="group-hover/btn:translate-x-1 transition-transform" />
-            </Link>
           </div>
         </BentoCard>
 
-        {/* Project 2 — ECOPOS (Vertical) */}
+        {/* 2. MINI HIGHLIGHT A (1x1 Span) */}
         <BentoCard
           variant="green"
-          className="md:col-span-1 flex flex-col justify-between p-8 group"
+          className="md:col-span-1 flex flex-col justify-between p-6 group"
         >
-          <div className="space-y-4">
-            <div className="flex justify-between items-start">
-              <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-beige font-black text-xl">
-                E
-              </div>
-              <span className="text-[10px] font-black text-beige/40 uppercase tracking-widest">Done</span>
+          <div className="flex justify-between items-start">
+            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-beige font-black text-lg">
+              {projects[1].title.charAt(0)}
             </div>
-            <h3 className="text-2xl font-black italic tracking-tight uppercase leading-none">
-              {projects[1].title}
-            </h3>
-            <p className="text-beige/60 text-xs font-medium leading-relaxed line-clamp-3">
-              {projects[1].description}
-            </p>
+            <span className="px-2 py-0.5 bg-beige/10 text-beige/60 text-[8px] font-black uppercase tracking-widest rounded">
+              {projects[1].status === "done" ? "Fintech" : "SaaS"}
+            </span>
           </div>
-
-          <div className="mt-8 space-y-6">
-            <div className="flex flex-wrap gap-2">
-              {projects[1].tags.slice(0, 2).map((tag) => (
-                <span key={tag} className="text-[9px] font-bold text-beige/30 uppercase tracking-widest border border-white/10 px-2 py-1 rounded">
-                  {tag}
-                </span>
-              ))}
+          <div className="flex justify-between items-end gap-2">
+            <div className="flex-1">
+              <h3 className="text-xl font-black italic uppercase leading-none text-beige mb-2">
+                {projects[1].title}
+              </h3>
+              <p className="text-beige/60 text-[10px] font-medium line-clamp-2">
+                {projects[1].description}
+              </p>
             </div>
             <Link 
               href={`/projects/${projects[1].slug}`}
-              className="flex items-center justify-between w-full p-4 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-all text-xs font-bold uppercase tracking-widest no-underline"
+              className="w-8 h-8 rounded-full bg-white/10 text-beige flex items-center justify-center hover:bg-pink-primary transition-all shrink-0"
             >
-              <span>Case Study</span>
               <ArrowRight size={14} />
             </Link>
           </div>
         </BentoCard>
 
-        {/* Project 3 & 4 (Grid items) */}
-        <div className="md:col-span-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-          {projects.slice(2).map((project, index) => (
-            <BentoCard
-              key={project.slug}
-              variant={index === 0 ? "pink" : "beige"}
-              className="flex items-center justify-between p-8 group"
-            >
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-2">
-                  <h3 className={cn(
-                    "text-xl font-black italic uppercase tracking-tight",
-                    index === 0 ? "text-beige" : "text-charcoal"
-                  )}>
-                    {project.title}
-                  </h3>
-                  <span className={cn(
-                    "text-[9px] font-black uppercase tracking-[0.2em] opacity-40",
-                    index === 0 ? "text-beige" : "text-charcoal"
-                  )}>
-                    / 2024
-                  </span>
-                </div>
-                <p className={cn(
-                  "text-xs font-medium max-w-md line-clamp-1",
-                  index === 0 ? "text-beige/60" : "text-charcoal/60"
-                )}>
-                  {project.description}
-                </p>
-              </div>
-              
-              <Link 
-                href={`/projects/${project.slug}`}
-                className={cn(
-                  "w-10 h-10 rounded-full flex items-center justify-center transition-all",
-                  index === 0 
-                    ? "bg-beige text-pink-primary hover:bg-white" 
-                    : "bg-charcoal text-beige hover:bg-black"
-                )}
-              >
-                <ArrowRight size={18} />
-              </Link>
-            </BentoCard>
-          ))}
-        </div>
-
-        {/* Github CTA (Full Width) */}
+        {/* 3. PROJECT LOG (1x2 Span - BOXED LIST) */}
         <BentoCard
           variant="white"
-          className="md:col-span-4 flex flex-col md:flex-row items-center justify-between p-10 group cursor-pointer border-dashed border-2 border-charcoal/10 bg-transparent hover:bg-white transition-all"
+          className="md:col-span-1 md:row-span-2 flex flex-col gap-6 h-full shadow-2xl overflow-hidden"
+          noHover
         >
-          <div className="flex items-center gap-6">
-            <div className="w-14 h-14 rounded-full bg-charcoal flex items-center justify-center text-beige">
-              <Github size={24} />
-            </div>
-            <div>
-              <h4 className="text-charcoal font-black text-xl uppercase tracking-tighter italic leading-none mb-2">Want to see more experimentation?</h4>
-              <p className="text-charcoal/50 text-xs font-bold uppercase tracking-widest">Check out my other repositories on GitHub</p>
-            </div>
+          <div className="flex justify-between items-center">
+            <p className="text-charcoal/30 text-[10px] font-black uppercase tracking-[0.2em]">
+              Dev Log
+            </p>
+            <Activity size={16} className="text-pink-primary animate-pulse" />
           </div>
           
-          <a 
-            href="https://github.com/aiaja" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="mt-6 md:mt-0 flex items-center gap-3 px-8 py-4 bg-charcoal text-beige rounded-full font-black uppercase tracking-widest text-xs hover:scale-105 active:scale-95 transition-all no-underline"
-          >
-            Explore Repos
-            <ExternalLink size={14} />
-          </a>
+          <div className="flex-1 overflow-y-auto pr-2 space-y-4 custom-scrollbar">
+            {projects.map((project, i) => (
+              <Link
+                key={project.slug}
+                href={`/projects/${project.slug}`}
+                className="group/item block p-5 bg-charcoal/5 rounded-2xl border border-charcoal/5 hover:border-pink-primary/30 transition-all no-underline"
+              >
+                <div className="flex justify-between items-start mb-3">
+                  <span
+                    className={cn(
+                      "px-2 py-0.5 text-[8px] font-black uppercase tracking-widest rounded text-beige",
+                      i % 2 === 0 ? "bg-pink-primary" : "bg-green-primary",
+                    )}
+                  >
+                    {project.status}
+                  </span>
+                  <ArrowRight size={10} className="text-charcoal/20 group-hover/item:text-pink-primary group-hover/item:translate-x-0.5 transition-all" />
+                </div>
+                <h4 className="text-xs font-black uppercase tracking-tight mb-1 group-hover/item:text-pink-primary transition-colors text-charcoal leading-tight">
+                  {project.title}
+                </h4>
+                <p className="text-[9px] text-charcoal/40 leading-relaxed line-clamp-2">
+                  {project.description}
+                </p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="pt-4 border-t border-charcoal/5 mt-auto">
+            <Link 
+              href="https://github.com/aiaja" 
+              target="_blank"
+              className="w-full inline-flex justify-center items-center px-4 py-3 bg-charcoal/5 border border-charcoal/10 rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-pink-primary hover:text-beige transition-all no-underline text-charcoal"
+            >
+              Github Profile
+            </Link>
+          </div>
         </BentoCard>
 
+        {/* 4. MINI HIGHLIGHT B (1x1 Span) */}
+        <BentoCard
+          variant="pink-light"
+          className="md:col-span-1 flex flex-col justify-between p-6 group"
+        >
+          <div className="flex justify-between items-start">
+            <div className="w-10 h-10 rounded-xl bg-charcoal/5 flex items-center justify-center text-charcoal font-black text-lg">
+              <Activity size={20} strokeWidth={2.5} />
+            </div>
+            <span className="px-2 py-0.5 bg-charcoal/5 text-charcoal/40 text-[8px] font-black uppercase tracking-widest rounded">
+              Automation
+            </span>
+          </div>
+          <div className="flex justify-between items-end gap-2">
+            <div className="flex-1">
+              <h3 className="text-xl font-black italic uppercase leading-none text-charcoal mb-2">
+                {projects[3].title}
+              </h3>
+              <p className="text-charcoal/60 text-[10px] font-medium line-clamp-2">
+                {projects[3].description}
+              </p>
+            </div>
+            <Link 
+              href={`/projects/${projects[3].slug}`}
+              className="w-8 h-8 rounded-full bg-charcoal/5 text-charcoal flex items-center justify-center hover:bg-pink-primary hover:text-beige transition-all shrink-0"
+            >
+              <ArrowRight size={14} />
+            </Link>
+          </div>
+        </BentoCard>
       </div>
+
+      <style jsx global>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.02);
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(203, 146, 137, 0.2);
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: rgba(203, 146, 137, 0.4);
+        }
+      `}</style>
     </section>
   );
 };
