@@ -1,158 +1,113 @@
-import { Mail, Github, Linkedin, MapPin, Send } from "lucide-react";
+import { Mail, Github, Linkedin, MapPin, Download, ExternalLink, Activity } from "lucide-react";
 import BentoCard from "@/components/ui/BentoCard";
 import SectionTitle from "@/components/ui/SectionTitle";
+import { profile } from "@/data/profile";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-16">
-      <SectionTitle label="Get In Touch" title="Contact Me" />
+    <section id="contact" className="py-24">
+      <SectionTitle label="Get In Touch" title="Let&apos;s Connect" />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-
-        {/* Card 1 — CTA utama */}
-        <BentoCard variant="green" className="md:col-span-2 flex flex-col justify-between min-h-[220px]">
-          <div>
-            <p className="text-beige/50 text-xs font-semibold tracking-widest uppercase mb-3">
-              Open for opportunities
-            </p>
-            <h3 className="text-beige text-2xl md:text-3xl font-bold leading-tight mb-3">
-              Let&apos;s work <span className="text-pink-primary">together!</span> ✨
-            </h3>
-            <p className="text-beige/75 text-sm leading-relaxed max-w-md">
-              I&apos;m currently open for internship, freelance, and collaboration opportunities.
-              Feel free to reach out — I&apos;d love to connect!
-            </p>
-          </div>
-          <a
-            href="mailto:aisyafirst@gmail.com"
-            className="inline-flex items-center gap-2 bg-beige text-green-primary text-sm font-semibold rounded-full hover:bg-pink-primary hover:text-beige transition-all duration-200 no-underline self-start mt-6"
-            style={{ padding: "10px 24px" }}
-          >
-            <Send size={14} />
-            Send me an email
-          </a>
-        </BentoCard>
-
-        {/* Card 2 — Info */}
-        <BentoCard variant="pink" className="flex flex-col justify-between">
-          <p className="text-beige/50 text-xs font-semibold tracking-widest uppercase mb-4">
-            Find me
-          </p>
-          <div className="flex flex-col gap-4 flex-1 justify-center">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-beige/20 flex items-center justify-center shrink-0">
-                <MapPin size={14} className="text-beige" />
-              </div>
-              <div>
-                <p className="text-beige font-medium text-sm">Location</p>
-                <p className="text-beige/70 text-xs">Semarang, Indonesia 🇮🇩</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-beige/20 flex items-center justify-center shrink-0">
-                <Mail size={14} className="text-beige" />
-              </div>
-              <div>
-                <p className="text-beige font-medium text-sm">Email</p>
-                <a
-                  href="mailto:aisyafirst@gmail.com"
-                  className="text-beige/70 text-xs hover:text-beige transition-colors no-underline"
-                >
-                  aisyafirst@gmail.com
-                </a>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-beige/20 flex items-center justify-center shrink-0">
-                <Linkedin size={14} className="text-beige" />
-              </div>
-              <div>
-                <p className="text-beige font-medium text-sm">LinkedIn</p>
-                <a
-                  href="https://linkedin.com/in/aisyanrs"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-beige/70 text-xs hover:text-beige transition-colors no-underline"
-                >
-                  linkedin.com/in/aisyanrs
-                </a>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-beige/20 flex items-center justify-center shrink-0">
-                <Github size={14} className="text-beige" />
-              </div>
-              <div>
-                <p className="text-beige font-medium text-sm">GitHub</p>
-                <a
-                  href="https://github.com/aiaja"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-beige/70 text-xs hover:text-beige transition-colors no-underline"
-                >
-                  github.com/aiaja
-                </a>
-              </div>
-            </div>
-          </div>
-        </BentoCard>
-
-        {/* Card 3 — Response time */}
-        <BentoCard variant="charcoal" className="flex flex-col justify-center items-center text-center gap-3">
-          <div className="w-12 h-12 rounded-full bg-pink-primary/20 flex items-center justify-center">
-            <Mail size={20} className="text-pink-primary" />
-          </div>
-          <div>
-            <p className="text-beige font-bold text-lg">Quick Response</p>
-            <p className="text-beige/60 text-sm mt-1">
-              Usually replies within <span className="text-pink-primary font-semibold">24 hours</span>
-            </p>
-          </div>
-        </BentoCard>
-
-        {/* Card 4 — Availability */}
-        <BentoCard variant="pink-light" className="flex flex-col justify-center gap-3">
-          <p className="text-charcoal/50 text-xs font-semibold tracking-widest uppercase">
-            Availability
-          </p>
-          <div className="flex flex-col gap-2.5">
-            {[
-              { type: "Internship", available: true },
-              { type: "Freelance", available: true },
-              { type: "Full-time", available: false },
-              { type: "Collaboration", available: true },
-            ].map(({ type, available }) => (
-              <div key={type} className="flex items-center justify-between">
-                <span className="text-charcoal text-sm">{type}</span>
-                <span
-                  className="inline-flex items-center gap-1.5 text-xs font-medium rounded-full"
-                  style={{ padding: "3px 10px",
-                    backgroundColor: available ? "rgba(18,84,100,0.1)" : "rgba(44,44,42,0.08)",
-                    color: available ? "#125464" : "#9a9a96"
-                  }}
-                >
-                  <span
-                    className="w-1.5 h-1.5 rounded-full"
-                    style={{ backgroundColor: available ? "#125464" : "#9a9a96" }}
-                  />
-                  {available ? "Open" : "Not now"}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-fr">
+        {/* 1. REFINED MAIN CTA (3x1) */}
+        <BentoCard
+          variant="green"
+          className="md:col-span-3 flex flex-col justify-between min-h-[350px] border border-white/5 shadow-2xl p-8 md:p-12 relative"
+        >
+          <div className="flex flex-col gap-6">
+            <div className="max-w-xl">
+              <p className="text-beige/30 text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+                Let&apos;s work together
+              </p>
+              <h3 className="text-beige text-4xl md:text-6xl font-black italic tracking-tighter uppercase leading-[0.85] mb-6">
+                Designing for <br />{" "}
+                <span className="text-pink-primary underline decoration-4 underline-offset-8">
+                  human impact.
                 </span>
-              </div>
+              </h3>
+              <p className="text-beige/60 text-sm font-medium leading-relaxed max-w-sm">
+                Blending engineering execution with product strategy. I build
+                tools that empower users and solve real-world problems.
+              </p>
+            </div>
+
+            {/* Action Row: Side-by-Side Buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
+              <a
+                href={`mailto:${profile.email}`}
+                className="w-full sm:w-auto px-10 py-4 bg-beige text-green-primary rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-pink-primary hover:text-beige transition-all shadow-xl no-underline text-center"
+              >
+                Start a Conversation
+              </a>
+              
+              <a 
+                href={profile.cvUrl} 
+                download
+                className="w-full sm:w-auto flex items-center justify-center gap-3 px-10 py-4 bg-charcoal text-beige rounded-full font-black uppercase tracking-widest text-[10px] border border-white/10 hover:border-pink-primary transition-all shadow-xl no-underline group/cv"
+              >
+                <Download size={14} className="text-beige group-hover/cv:-translate-y-0.5 transition-transform" strokeWidth={3} />
+                Get My CV
+              </a>
+            </div>
+          </div>
+
+          {/* Location Anchor (Bottom Right) */}
+          <div className="md:absolute bottom-12 right-12 text-right mt-8 md:mt-0">
+            <p className="text-beige/30 text-[8px] font-black uppercase tracking-widest mb-1">
+              Based in
+            </p>
+            <h4 className="text-beige font-black text-xs uppercase tracking-widest leading-none">
+              {profile.location.split(",")[0]}, {profile.location.split(",")[1]}
+            </h4>
+          </div>
+        </BentoCard>
+
+        {/* 2. SOCIAL LIST (1x1 Vertical) */}
+        <BentoCard
+          variant="white"
+          className="md:col-span-1 flex flex-col gap-6 h-full shadow-2xl overflow-hidden p-8"
+          noHover
+        >
+          <div className="flex justify-between items-center">
+            <p className="text-charcoal/30 text-[10px] font-black uppercase tracking-[0.2em]">
+              Socials
+            </p>
+            <Activity size={16} className="text-pink-primary animate-pulse" />
+          </div>
+
+          <div className="flex-1 flex flex-col gap-3">
+            {profile.socials.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/item block p-4 bg-charcoal/5 rounded-2xl border border-charcoal/5 hover:border-pink-primary/30 transition-all no-underline"
+              >
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-charcoal font-black text-[9px] uppercase tracking-widest">
+                    {social.icon}
+                  </span>
+                  <ExternalLink
+                    size={10}
+                    className="text-charcoal/20 group-hover/item:text-pink-primary transition-colors"
+                  />
+                </div>
+                <p className="text-charcoal/40 text-[8px] font-mono font-bold truncate">
+                  {social.label}
+                </p>
+              </a>
             ))}
           </div>
-        </BentoCard>
 
-        {/* Card 5 — Quote */}
-        <BentoCard variant="beige" className="flex flex-col justify-center gap-3">
-          <p className="text-charcoal/40 text-xs font-semibold tracking-widest uppercase">
-            My motto
-          </p>
-          <blockquote className="text-charcoal text-base font-medium leading-relaxed">
-            &ldquo;Bridging the gap between writing clean code and shipping products that people actually use.&rdquo;
-          </blockquote>
-          <p className="text-charcoal/50 text-sm">— Aisya Nur Syakbani</p>
+          <div className="pt-4 border-t border-charcoal/5 mt-auto text-center">
+            <p className="text-charcoal/30 text-[8px] font-black uppercase tracking-[0.2em]">
+              Usually replies in &lt; 24h
+            </p>
+          </div>
         </BentoCard>
-
       </div>
     </section>
   );
