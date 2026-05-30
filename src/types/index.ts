@@ -20,12 +20,22 @@ export type Project = {
   role: Translatable;
   timeline: string;
   content: {
-    challenge: Translatable;
-    process: Translatable;
-    impact: {
-      label: Translatable;
-      value: string;
+    problem: {
+      summary: Translatable;
+      details: Translatable[];
+    };
+    decision: {
+      title: Translatable;
+      description: Translatable;
     }[];
+    result: {
+      summary: Translatable;
+      learnings?: Translatable[];
+      metrics?: {
+        label: Translatable;
+        value: string;
+      }[];
+    };
   };
 };
 
