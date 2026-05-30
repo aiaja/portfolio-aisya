@@ -6,8 +6,11 @@ import BentoCard from "@/components/ui/BentoCard";
 import { profile } from "@/data/profile";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="hero" className="pt-24 pb-8 flex flex-col justify-center">
       {/* Top Row: Main Intro & Photo */}
@@ -30,7 +33,7 @@ const Hero = () => {
             >
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
               <span className="text-beige text-[10px] font-bold uppercase tracking-widest">
-                {profile.available ? 'Available for work' : 'Busy'}
+                {profile.available ? t({ id: "Tersedia untuk bekerja", en: "Available for work" }) : t({ id: "Sibuk", en: "Busy" })}
               </span>
             </motion.div>
 
@@ -43,7 +46,7 @@ const Hero = () => {
                 {profile.name}
               </h1>
               <p className="text-beige/40 text-lg md:text-xl font-bold italic tracking-tight mb-8">
-                Engineering Solutions for Real-World Impact.
+                {t({ id: "Solusi Rekayasa untuk Dampak Dunia Nyata.", en: "Engineering Solutions for Real-World Impact." })}
               </p>
             </motion.div>
 
@@ -53,7 +56,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-beige/70 text-base md:text-lg font-medium leading-relaxed max-w-xl"
             >
-              {profile.bio}
+              {t(profile.bio)}
             </motion.p>
           </div>
 
@@ -68,7 +71,7 @@ const Hero = () => {
               className="inline-flex items-center gap-2 bg-pink-primary text-beige text-sm font-bold rounded-full hover:scale-105 active:scale-95 transition-all no-underline px-8 py-3 shadow-lg shadow-pink-primary/20"
             >
               <Mail size={16} />
-              Let&apos;s talk
+              {t({ id: "Mari berdiskusi", en: "Let's talk" })}
             </a>
             <a
               href={profile.cvUrl}
@@ -101,7 +104,7 @@ const Hero = () => {
           <div className="text-center relative z-20 mt-6 shrink-0">
             <p className="text-beige font-black text-xl tracking-tight leading-none uppercase">{profile.firstName}</p>
             <div className="flex items-center justify-center gap-1 text-beige/80 text-[10px] mt-1 font-bold tracking-widest uppercase">
-              <span>{profile.location}</span>
+              <span>{t(profile.location)}</span>
               <span>🇮🇩</span>
             </div>
           </div>
@@ -117,16 +120,16 @@ const Hero = () => {
           className="md:col-span-1 flex flex-col justify-between p-8"
         >
           <p className="text-charcoal/30 text-[10px] font-black uppercase tracking-[0.2em] mb-6">
-            Focus & Activities
+            {t({ id: "Fokus & Aktivitas", en: "Focus & Activities" })}
           </p>
           <div className="space-y-4">
             {profile.activities.map(({ prefix, highlight }) => (
-              <div key={highlight} className="group flex items-center gap-3 border-b border-charcoal/5 pb-3 last:border-0 last:pb-0">
+              <div key={t(highlight)} className="group flex items-center gap-3 border-b border-charcoal/5 pb-3 last:border-0 last:pb-0">
                 <div className="w-1.5 h-1.5 rounded-full bg-pink-primary group-hover:scale-150 transition-transform" />
                 <p className="text-charcoal/60 text-sm font-medium">
-                  {prefix}{" "}
+                  {t(prefix)}{" "}
                   <span className="text-charcoal font-black uppercase tracking-tight">
-                    {highlight}
+                    {t(highlight)}
                   </span>
                 </p>
               </div>
@@ -144,14 +147,14 @@ const Hero = () => {
           </p>
           <div className="grid grid-cols-2 gap-4">
             {profile.stats.map(({ value, label }) => (
-              <div key={label} className="group">
+              <div key={t(label)} className="group">
                 <p className={cn(
                   "text-3xl font-black leading-none transition-colors",
-                  label === "Achievements" ? "text-pink-primary animate-pulse" : "text-charcoal group-hover:text-pink-primary"
+                  t(label) === "Achievements" || t(label) === "Penghargaan" ? "text-pink-primary animate-pulse" : "text-charcoal group-hover:text-pink-primary"
                 )}>
                   {value}
                 </p>
-                <p className="text-charcoal/40 text-[9px] font-bold uppercase tracking-wider mt-1">{label}</p>
+                <p className="text-charcoal/40 text-[9px] font-bold uppercase tracking-wider mt-1">{t(label)}</p>
               </div>
             ))}
           </div>

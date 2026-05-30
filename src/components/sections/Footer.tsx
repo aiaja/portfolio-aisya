@@ -1,5 +1,8 @@
+"use client";
+
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
 import { profile } from "@/data/profile";
+import { useLanguage } from "@/context/LanguageContext";
 
 const iconMap = {
   github: Github,
@@ -8,6 +11,8 @@ const iconMap = {
 };
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="mt-16 border-t border-charcoal/10">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-8">
@@ -17,7 +22,7 @@ const Footer = () => {
           <div className="text-center md:text-left">
             <p className="text-green-primary font-bold text-lg">{profile.firstName.toLowerCase()}.dev</p>
             <p className="text-charcoal/50 text-xs mt-1 flex items-center gap-1 justify-center md:justify-start">
-              Built with <Heart size={10} className="text-pink-primary fill-pink-primary" /> by {profile.name}
+              {t({ id: "Dibuat dengan", en: "Built with" })} <Heart size={10} className="text-pink-primary fill-pink-primary" /> {t({ id: "oleh", en: "by" })} {profile.name}
             </p>
           </div>
 
@@ -42,7 +47,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <p className="text-charcoal/40 text-xs">
-            © {new Date().getFullYear()} {profile.name}. All rights reserved.
+            © {new Date().getFullYear()} {profile.name}. {t({ id: "Hak cipta dilindungi undang-undang.", en: "All rights reserved." })}
           </p>
 
         </div>

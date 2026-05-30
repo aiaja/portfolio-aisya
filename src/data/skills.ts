@@ -12,10 +12,10 @@ export const marqueeSkills = [
 ];
 
 export const softSkills = [
-  "Project Management",
-  "Team Leadership",
-  "Effective Communication",
-  "Problem Solving",
-  "Critical Thinking",
-  "Organizational Skills",
+  { id: "Manajemen Proyek", en: "Project Management" },
+  { id: "Kepemimpinan Tim", en: "Team Leadership" },
+  { id: "Komunikasi Efektif", en: "Effective Communication" },
+  { id: "Penyelesaian Masalah", en: "Problem Solving" },
+  { id: "Berpikir Kritis", en: "Critical Thinking" },
+  { id: "Keterampilan Organisasi", en: "Organizational Skills" },
 ];

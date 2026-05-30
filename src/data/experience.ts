@@ -1,52 +1,108 @@
 import { Experience } from "@/types";
 
-export interface ExperienceWithPoints extends Experience {
-  points?: string[];
-}
-
-export const experiences: ExperienceWithPoints[] = [
+export const experiences: Experience[] = [
   {
     company: "Bengkel Koding",
     companyUrl: "https://bengkelkoding.dinus.ac.id/",
-    role: "Frontend Developer",
-    type: "Internship",
-    period: "Aug 2024 - Present",
+    role: {
+      id: "Frontend Developer",
+      en: "Frontend Developer",
+    },
+    type: {
+      id: "Magang",
+      en: "Internship",
+    },
+    period: {
+      id: "Agu 2024 - Sekarang",
+      en: "Aug 2024 - Present",
+    },
     points: [
-      "Membangun antarmuka web yang modern dan responsif menggunakan stack Next.js dan TypeScript untuk proyek dunia nyata.",
-      "Berkolaborasi dengan tim untuk mengimplementasikan desain UI/UX menjadi komponen kode yang fungsional dan performan."
-    ]
+      {
+        id: "Membangun antarmuka web yang modern dan responsif menggunakan stack Next.js dan TypeScript untuk proyek dunia nyata.",
+        en: "Built modern and responsive web interfaces using Next.js and TypeScript for real-world projects.",
+      },
+      {
+        id: "Berkolaborasi dengan tim untuk mengimplementasikan desain UI/UX menjadi komponen kode yang fungsional dan performan.",
+        en: "Collaborated with teams to implement UI/UX designs into functional and performant code components.",
+      },
+    ],
   },
   {
     company: "Bengkel Koding",
     companyUrl: "https://bengkelkoding.dinus.ac.id/",
-    role: "Teaching Assistant",
-    type: "Internship",
-    period: "Aug 2024 - Present",
+    role: {
+      id: "Asisten Dosen",
+      en: "Teaching Assistant",
+    },
+    type: {
+      id: "Magang",
+      en: "Internship",
+    },
+    period: {
+      id: "Agu 2024 - Sekarang",
+      en: "Aug 2024 - Present",
+    },
     points: [
-      "Membimbing mahasiswa dalam memahami konsep dasar hingga lanjutan pengembangan web frontend.",
-      "Membantu dalam evaluasi tugas dan memberikan feedback teknis untuk meningkatkan kualitas kode mahasiswa."
-    ]
+      {
+        id: "Membimbing mahasiswa dalam memahami konsep dasar hingga lanjutan pengembangan web frontend.",
+        en: "Mentored students in understanding basic to advanced frontend web development concepts.",
+      },
+      {
+        id: "Membantu dalam evaluasi tugas dan memberikan feedback teknis untuk meningkatkan kualitas kode mahasiswa.",
+        en: "Assisted in assignment evaluation and provided technical feedback to improve student code quality.",
+      },
+    ],
   },
   {
     company: "Dian Nuswantoro Computer Club",
     companyUrl: "https://dncc.dinus.ac.id/",
-    role: "Vice President",
-    type: "Organization",
-    period: "Aug 2025 - Present",
+    role: {
+      id: "Wakil Ketua",
+      en: "Vice President",
+    },
+    type: {
+      id: "Organisasi",
+      en: "Organization",
+    },
+    period: {
+      id: "Agu 2025 - Sekarang",
+      en: "Aug 2025 - Present",
+    },
     points: [
-      "Memimpin tim pengembang dan antusias teknologi yang beragam untuk mendorong budaya inovasi di dalam organisasi.",
-      "Mengimbangkan strategi tingkat tinggi dengan eksekusi teknis langsung untuk pengembangan aset digital organisasi."
-    ]
+      {
+        id: "Memimpin tim pengembang dan antusias teknologi yang beragam untuk mendorong budaya inovasi di dalam organisasi.",
+        en: "Leading a diverse team of developers and tech enthusiasts to drive a culture of innovation within the organization.",
+      },
+      {
+        id: "Menyeimbangkan strategi tingkat tinggi dengan eksekusi teknis langsung untuk pengembangan aset digital organisasi.",
+        en: "Balancing high-level strategy with hands-on technical execution for the development of organizational digital assets.",
+      },
+    ],
   },
   {
     company: "Dian Nuswantoro Computer Club",
     companyUrl: "https://dncc.dinus.ac.id/",
-    role: "Website Division Coordinator",
-    type: "Organization",
-    period: "Aug 2024 - Aug 2025",
+    role: {
+      id: "Koordinator Divisi Website",
+      en: "Website Division Coordinator",
+    },
+    type: {
+      id: "Organisasi",
+      en: "Organization",
+    },
+    period: {
+      id: "Agu 2024 - Agu 2025",
+      en: "Aug 2024 - Aug 2025",
+    },
     points: [
-      "Mengkoordinasikan pengembangan dan pemeliharaan website resmi organisasi serta platform internal lainnya.",
-      "Bertanggung jawab atas manajemen tim pengembang web dan memastikan pengiriman fitur tepat waktu."
-    ]
+      {
+        id: "Mengkoordinasikan pengembangan dan pemeliharaan website resmi organisasi serta platform internal lainnya.",
+        en: "Coordinated the development and maintenance of the organization's official website and other internal platforms.",
+      },
+      {
+        id: "Bertanggung jawab atas manajemen tim pengembang web dan memastikan pengiriman fitur tepat waktu.",
+        en: "Responsible for managing the web development team and ensuring timely feature delivery.",
+      },
+    ],
   },
 ];

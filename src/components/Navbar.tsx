@@ -3,17 +3,20 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Button from "./ui/Button";
-
-const navLinks = [
-  { label: "About", href: "#hero" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
-];
+import LanguageSwitcher from "./ui/LanguageSwitcher";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { label: t({ id: "Tentang", en: "About" }), href: "#hero" },
+    { label: t({ id: "Pengalaman", en: "Experience" }), href: "#experience" },
+    { label: t({ id: "Proyek", en: "Projects" }), href: "#projects" },
+    { label: t({ id: "Kontak", en: "Contact" }), href: "#contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -30,35 +33,40 @@ const Navbar = () => {
           aisya.dev
         </a>
 
-        {/* Desktop Links */}
-        <ul className="hidden md:flex items-center gap-8 list-none m-0 p-0">
-          {navLinks.map((link) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                className="text-charcoal text-sm font-medium hover:text-green-primary transition-colors duration-200 no-underline"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        {/* Desktop Links & Switcher */}
+        <div className="hidden md:flex items-center gap-8">
+          <ul className="flex items-center gap-8 list-none m-0 p-0">
+            {navLinks.map((link) => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  className="text-charcoal text-sm font-medium hover:text-green-primary transition-colors duration-200 no-underline"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
 
-        {/* CTA Desktop */}
-        <div className="hidden md:block">
-          <Button href="mailto:aisyafirst@gmail.com" variant="solid" size="md">
-            Hire Me
-          </Button>
+          <div className="flex items-center gap-4 border-l border-charcoal/10 pl-8">
+            <LanguageSwitcher />
+            <Button href="mailto:aisyafirst@gmail.com" variant="solid" size="md">
+              {t({ id: "Hubungi Saya", en: "Hire Me" })}
+            </Button>
+          </div>
         </div>
 
         {/* Hamburger */}
-        <button
-          className="md:hidden flex items-center justify-center w-9 h-9 rounded-full hover:bg-charcoal/10 transition-colors text-charcoal border-none bg-transparent cursor-pointer"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        <div className="flex md:hidden items-center gap-4">
+          <LanguageSwitcher />
+          <button
+            className="flex items-center justify-center w-9 h-9 rounded-full hover:bg-charcoal/10 transition-colors text-charcoal border-none bg-transparent cursor-pointer"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -74,9 +82,9 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <div className="mt-1">
+          <div className="mt-1 flex flex-col gap-4">
             <Button href="mailto:aisyafirst@gmail.com" variant="solid" size="md" className="w-full justify-center">
-              Hire Me
+              {t({ id: "Hubungi Saya", en: "Hire Me" })}
             </Button>
           </div>
         </div>

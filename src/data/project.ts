@@ -2,79 +2,93 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    slug: "aifa",
+    title: "AIFA",
+    description: {
+      id: "Asisten keuangan berbasis AI untuk UMKM yang mengotomatiskan ekstraksi invoice, pembuatan proposal bisnis, dan penjadwalan staf dalam satu platform.",
+      en: "An AI-powered financial assistant for SMEs that automates and integrates invoice extraction, business proposal generation, and staff scheduling in a single platform.",
+    },
+    image: "/images/aifa.png",
+    tags: ["ReactJS", "LangChain", "Google Vision AI", "OR-Tools"],
+    status: "done",
+    role: {
+      id: "Product Strategist & Team Lead",
+      en: "Product Strategist & Team Lead",
+    },
+    timeline: "2025",
+    content: {
+      challenge: {
+        id: "65 juta UMKM di Indonesia menyumbang 61% PDB, namun mayoritas masih terjebak dalam pengelolaan operasional manual yang terfragmentasi. Inkonsistensi data antar sistem menyebabkan 'bottleneck' administratif yang menghambat skala bisnis.",
+        en: "65 million SMEs in Indonesia contribute 61% of the GDP, yet the majority are still trapped in fragmented manual operational management. Data inconsistency across systems creates administrative bottlenecks that hinder business scaling.",
+      },
+      process: {
+        id: "Merancang arsitektur Multi-Agent Orchestration menggunakan LangChain untuk mengintegrasikan Google Vision (OCR), Google OR-Tools, dan Gemini AI ke dalam satu alur kerja yang kontekstual dan interoperable.",
+        en: "Designed a Multi-Agent Orchestration architecture using LangChain to integrate Google Vision (OCR), Google OR-Tools, and Gemini AI into one contextual and interoperable workflow.",
+      },
+      impact: [
+        { label: { id: "Prestasi", en: "Achievement" }, value: "National Finalist Arkavidia ITB" },
+        { label: { id: "Inovasi", en: "Innovation" }, value: "Multi-Agent AI Orchestration" },
+      ],
+    },
+  },
+  {
     slug: "nexa-diesel-track",
     title: "Nexa Diesel Track",
-    description:
-      "A SaaS platform to digitalize fleet management for logistics companies. A multi-tenant solution enabling companies to manage multiple fleets in one integrated system.",
+    description: {
+      id: "Platform SaaS untuk mendigitalisasi manajemen armada bagi perusahaan logistik. Solusi multi-tenant yang memungkinkan pengelolaan banyak armada dalam satu sistem terintegrasi.",
+      en: "A SaaS platform to digitalize fleet management for logistics companies. A multi-tenant solution enabling companies to manage multiple fleets in one integrated system.",
+    },
     image: "/images/nexa-diesel.png",
     tags: ["Next.js", "TypeScript", "Shadcn UI", "Leaflet"],
     status: "ongoing",
-    role: "Lead Frontend Developer",
+    role: {
+      id: "Lead Frontend Developer",
+      en: "Lead Frontend Developer",
+    },
     timeline: "2024 - Present",
     content: {
-      challenge: "Digitalisasi armada logistik manual menjadi sistem terintegrasi yang mampu menangani 100+ unit secara real-time dengan efisiensi pemantauan yang tinggi.",
-      process: "Membangun dashboard multi-tenant menggunakan Next.js App Router untuk performa optimal, serta integrasi Leaflet.js untuk pelacakan armada secara geografis.",
+      challenge: {
+        id: "Merefaktorisasi arsitektur untuk menangani jangkauan internet yang tidak terduga di area blank spot dan merancang sistem universal untuk berbagai peran pengguna (manajer hingga driver).",
+        en: "Refactoring the architecture to handle unpredictable internet coverage in blank spot areas and designing a universal system for various user roles (managers to drivers).",
+      },
+      process: {
+        id: "Migrasi backend ke Laravel untuk percepatan time-to-market dan implementasi OCR Receipt Scanner untuk otomasi klaim biaya perjalanan driver tanpa hambatan hukum gateway pembayaran.",
+        en: "Migrated backend to Laravel for faster time-to-market and implemented an OCR Receipt Scanner to automate driver expense claims without payment gateway legal hurdles.",
+      },
       impact: [
-        { label: "Efficiency Gain", value: "40%" },
-        { label: "Active Units", value: "500+" },
+        { label: { id: "Efisiensi", en: "Efficiency" }, value: "40% Gain" },
+        { label: { id: "Unit Aktif", en: "Active Units" }, value: "500+" },
       ],
     },
   },
   {
     slug: "ecopos",
     title: "ECOPOS",
-    description:
-      "A modern Point of Sales web platform for transaction management, featuring transaction recording, product management, and a sales monitoring dashboard.",
+    description: {
+      id: "Platform web Point of Sales modern untuk manajemen transaksi, menampilkan pencatatan transaksi, manajemen produk, dan dashboard pemantauan penjualan.",
+      en: "A modern Point of Sales web platform for transaction management, featuring transaction recording, product management, and a sales monitoring dashboard.",
+    },
     image: "/images/ecopos.png",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI"],
     githubUrl: "https://github.com/aiaja/ecopos-frontend",
     status: "done",
-    role: "Frontend Developer",
+    role: {
+      id: "Frontend Developer",
+      en: "Frontend Developer",
+    },
     timeline: "2023 - 2024",
     content: {
-      challenge: "Menciptakan sistem kasir yang ringan, responsif, dan mudah digunakan oleh UMKM dengan fitur pelaporan yang akurat.",
-      process: "Menggunakan Tailwind CSS untuk styling yang cepat dan Shadcn UI untuk komponen yang konsisten, serta optimasi state management untuk transaksi cepat.",
+      challenge: {
+        id: "Menciptakan sistem kasir yang ringan, responsif, dan mudah digunakan oleh UMKM dengan fitur pelaporan yang akurat.",
+        en: "Creating a lightweight, responsive, and easy-to-use POS system for SMEs with accurate reporting features.",
+      },
+      process: {
+        id: "Menggunakan Tailwind CSS untuk styling yang cepat dan Shadcn UI untuk komponen yang konsisten, serta optimasi state management untuk transaksi cepat.",
+        en: "Used Tailwind CSS for rapid styling and Shadcn UI for consistent components, along with state management optimization for fast transactions.",
+      },
       impact: [
-        { label: "Transaction Speed", value: "2x faster" },
-        { label: "User Satisfaction", value: "95%" },
-      ],
-    },
-  },
-  {
-    slug: "dinacom-2025",
-    title: "DINACOM 2025",
-    description:
-      "A national-scale competition registration website serving hundreds of participants, built with a responsive layout and reliable validation system.",
-    image: "/images/dinacom.png",
-    tags: ["React.js", "Tailwind CSS"],
-    status: "done",
-    role: "Web Developer",
-    timeline: "2024",
-    content: {
-      challenge: "Menangani lonjakan traffic pendaftaran kompetisi nasional dengan sistem validasi form yang ketat namun tetap user-friendly.",
-      process: "Implementasi React hook form untuk manajemen form yang efisien dan integrasi API yang handal untuk proses registrasi.",
-      impact: [
-        { label: "Participants", value: "500+" },
-        { label: "Uptime", value: "99.9%" },
-      ],
-    },
-  },
-  {
-    slug: "meetozy",
-    title: "Meetozy",
-    description:
-      "A gamified virtual office platform that combines game elements to boost productivity and remote team collaboration.",
-    image: "/images/meetozy.png",
-    tags: ["N8N"],
-    status: "done",
-    role: "Automation Engineer",
-    timeline: "2023",
-    content: {
-      challenge: "Mengintegrasikan berbagai alat produktivitas ke dalam satu platform gamifikasi menggunakan alur kerja otomatisasi.",
-      process: "Memanfaatkan N8N untuk membangun alur kerja otomatisasi yang menghubungkan elemen permainan dengan aktivitas kerja nyata.",
-      impact: [
-        { label: "Workflows", value: "12+" },
-        { label: "Engagement", value: "High" },
+        { label: { id: "Kecepatan", en: "Speed" }, value: "2x faster" },
+        { label: { id: "Kepuasan", en: "Satisfaction" }, value: "95%" },
       ],
     },
   },

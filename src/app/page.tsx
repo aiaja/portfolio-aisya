@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Contact from "@/components/sections/Contact";
 import Experience from "@/components/sections/Experience";

@@ -1,19 +1,29 @@
+export type Locale = "id" | "en";
+
+export type BilingualText = {
+  id: string;
+  en: string;
+};
+
+// Helper to allow progressive migration
+export type Translatable = string | BilingualText;
+
 export type Project = {
   slug: string;
   title: string;
-  description: string;
+  description: Translatable;
   image: string;
   tags: string[];
   liveUrl?: string;
   githubUrl?: string;
   status: "done" | "ongoing";
-  role: string;
+  role: Translatable;
   timeline: string;
   content: {
-    challenge: string;
-    process: string;
+    challenge: Translatable;
+    process: Translatable;
     impact: {
-      label: string;
+      label: Translatable;
       value: string;
     }[];
   };
@@ -22,9 +32,10 @@ export type Project = {
 export type Experience = {
   company: string;
   companyUrl: string;
-  role: string;
-  type: string;
-  period: string;
+  role: Translatable;
+  type: Translatable;
+  period: Translatable;
+  points?: Translatable[];
 };
 
 export type Tech = {
@@ -34,11 +45,11 @@ export type Tech = {
 };
 
 export type Achievement = {
-  title: string;
+  title: Translatable;
   event: string;
   organizer: string;
   year: string;
-  description: string;
+  description: Translatable;
 };
 
 export type Certification = {
@@ -55,23 +66,23 @@ export type Social = {
 
 export type Stat = {
   value: string;
-  label: string;
+  label: Translatable;
 };
 
 export type Activity = {
-  prefix: string;
-  highlight: string;
+  prefix: Translatable;
+  highlight: Translatable;
 };
 
 export type Profile = {
   name: string;
   firstName: string;
-  role: string;
-  location: string;
+  role: Translatable;
+  location: Translatable;
   email: string;
   cvUrl: string;
   available: boolean;
-  bio: string;
+  bio: Translatable;
   socials: Social[];
   stats: Stat[];
   activities: Activity[];
@@ -79,6 +90,6 @@ export type Profile = {
 
 export type Education = {
   school: string;
-  degree: string;
+  degree: Translatable;
   gpa: string;
 };

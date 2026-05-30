@@ -10,9 +10,11 @@ import { education } from "@/data/education";
 import { profile } from "@/data/profile";
 import { Plus, Award } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Experience = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const { t } = useLanguage();
 
   const toggleExpand = (index: number) => {
     setExpandedIndex(expandedIndex === index ? null : index);
@@ -21,8 +23,8 @@ const Experience = () => {
   return (
     <section id="experience" className="py-24">
       <SectionTitle
-        label="Professional Journey"
-        title="Experience & Achievements"
+        label={t({ id: "Perjalanan Profesional", en: "Professional Journey" })}
+        title={t({ id: "Pengalaman & Prestasi", en: "Experience & Achievements" })}
       />
 
       <div className="flex flex-col gap-4">
@@ -34,7 +36,7 @@ const Experience = () => {
             className="md:col-span-2 flex flex-col gap-8 h-full min-h-[450px]"
           >
             <p className="text-beige/30 text-[10px] font-black uppercase tracking-[0.2em]">
-              Work & Leadership
+              {t({ id: "Pekerjaan & Kepemimpinan", en: "Work & Leadership" })}
             </p>
             <div className="flex flex-col gap-10">
               {experiences.map((exp, i) => (
@@ -75,17 +77,17 @@ const Experience = () => {
                           {exp.company}
                         </h3>
                         <p className="text-beige/50 text-sm font-medium mt-2 italic">
-                          {exp.role}
+                          {t(exp.role)}
                         </p>
                       </div>{" "}
                     </div>
 
                     <div className="text-right shrink-0">
                       <span className="px-2 py-1 bg-white/10 text-[9px] font-black uppercase tracking-widest rounded border border-white/5">
-                        {exp.type}
+                        {t(exp.type)}
                       </span>
                       <p className="text-beige/30 text-[10px] font-mono mt-2 uppercase tracking-tighter font-bold">
-                        {exp.period}
+                        {t(exp.period)}
                       </p>
                     </div>
                   </div>
@@ -106,7 +108,7 @@ const Experience = () => {
                               className="text-sm text-beige/70 leading-relaxed font-medium"
                             >
                               <span className="text-pink-primary mr-2">✦</span>
-                              {point}
+                              {t(point)}
                             </li>
                           ))}
                         </ul>
@@ -125,7 +127,7 @@ const Experience = () => {
           >
             <div className="flex justify-between items-center">
               <p className="text-beige/30 text-[10px] font-black uppercase tracking-[0.2em]">
-                Achievements
+                {t({ id: "Prestasi", en: "Achievements" })}
               </p>
               <Award size={16} className="text-pink-primary animate-pulse" />
             </div>
@@ -143,7 +145,7 @@ const Experience = () => {
                         i % 2 === 0 ? "bg-pink-primary" : "bg-green-primary",
                       )}
                     >
-                      {ach.title}
+                      {t(ach.title)}
                     </span>
                     <span className="text-[9px] font-mono text-beige/20 font-bold uppercase shrink-0">
                       {ach.year}
@@ -153,7 +155,7 @@ const Experience = () => {
                     {ach.event}
                   </p>
                   <p className="text-[9px] text-beige/40 leading-relaxed">
-                    {ach.description}
+                    {t(ach.description)}
                   </p>
                 </div>
               ))}
@@ -165,7 +167,7 @@ const Experience = () => {
                 download
                 className="w-full inline-flex justify-center items-center px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-pink-primary transition-all no-underline text-beige"
               >
-                View Details
+                {t({ id: "Lihat Detail", en: "View Details" })}
               </a>
             </div>
           </BentoCard>

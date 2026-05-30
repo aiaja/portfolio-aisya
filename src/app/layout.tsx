@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import PageTransition from "@/components/ui/PageTransition";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,9 +30,11 @@ const RootLayout = ({
   return (
     <html lang="en" className={inter.variable}>
       <body className="antialiased">
-        <PageTransition>
-          {children}
-        </PageTransition>
+        <LanguageProvider>
+          <PageTransition>
+            {children}
+          </PageTransition>
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -18,7 +18,7 @@ export async function generateMetadata({
 
   return {
     title: `${project.title} — Aisya Nur Syakbani`,
-    description: project.description,
+    description: typeof project.description === "string" ? project.description : project.description.en,
   };
 }
 

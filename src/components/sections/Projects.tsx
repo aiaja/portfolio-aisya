@@ -8,11 +8,17 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import { projects } from "@/data/project";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Projects = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="projects" className="py-24">
-      <SectionTitle label="Product & Changelog" title="Featured Works" />
+      <SectionTitle 
+        label={t({ id: "Produk & Catatan Perubahan", en: "Product & Changelog" })} 
+        title={t({ id: "Karya Unggulan", en: "Featured Works" })} 
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-fr">
         {/* 1. HERO HIGHLIGHT (2x2 Span) */}
@@ -21,21 +27,23 @@ const Projects = () => {
           className="md:col-span-2 md:row-span-2 flex flex-col group p-0"
         >
           <div className="relative w-full h-[300px] overflow-hidden">
-            <Image
-              src={projects[0].image}
-              alt={projects[0].title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-100"
-            />
+            {projects[0].image && (
+              <Image
+                src={projects[0].image}
+                alt={projects[0].title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-100"
+              />
+            )}
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/20 to-transparent" />
             
             <div className="absolute top-6 left-6 flex gap-2">
               <span className="px-3 py-1 bg-pink-primary text-beige text-[9px] font-black uppercase tracking-widest rounded-full flex items-center gap-2 shadow-lg">
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                Latest
+                {t({ id: "Terbaru", en: "Latest" })}
               </span>
               <span className="px-3 py-1 bg-white/10 backdrop-blur-sm text-beige text-[9px] font-black uppercase tracking-widest rounded-full">
-                SaaS
+                AI & SaaS
               </span>
             </div>
           </div>
@@ -46,7 +54,7 @@ const Projects = () => {
                 {projects[0].title}
               </h3>
               <p className="text-beige/60 text-xs font-medium leading-relaxed line-clamp-2">
-                {projects[0].description}
+                {t(projects[0].description)}
               </p>
             </div>
             
@@ -78,7 +86,7 @@ const Projects = () => {
               {projects[1].title.charAt(0)}
             </div>
             <span className="px-2 py-0.5 bg-beige/10 text-beige/60 text-[8px] font-black uppercase tracking-widest rounded">
-              {projects[1].status === "done" ? "Fintech" : "SaaS"}
+              Logistics
             </span>
           </div>
           <div className="flex justify-between items-end gap-2">
@@ -87,7 +95,7 @@ const Projects = () => {
                 {projects[1].title}
               </h3>
               <p className="text-beige/60 text-[10px] font-medium line-clamp-2">
-                {projects[1].description}
+                {t(projects[1].description)}
               </p>
             </div>
             <Link 
@@ -123,10 +131,10 @@ const Projects = () => {
                   <span
                     className={cn(
                       "px-2 py-0.5 text-[8px] font-black uppercase tracking-widest rounded text-beige",
-                      i % 2 === 0 ? "bg-pink-primary" : "bg-green-primary",
+                      project.status === "done" ? "bg-green-primary" : "bg-pink-primary",
                     )}
                   >
-                    {project.status}
+                    {project.status === "done" ? t({ id: "Selesai", en: "Done" }) : t({ id: "Berjalan", en: "Ongoing" })}
                   </span>
                   <ArrowRight size={10} className="text-charcoal/20 group-hover/item:text-pink-primary group-hover/item:translate-x-0.5 transition-all" />
                 </div>
@@ -134,7 +142,7 @@ const Projects = () => {
                   {project.title}
                 </h4>
                 <p className="text-[9px] text-charcoal/40 leading-relaxed line-clamp-2">
-                  {project.description}
+                  {t(project.description)}
                 </p>
               </Link>
             ))}
@@ -161,20 +169,20 @@ const Projects = () => {
               <Activity size={20} strokeWidth={2.5} />
             </div>
             <span className="px-2 py-0.5 bg-charcoal/5 text-charcoal/40 text-[8px] font-black uppercase tracking-widest rounded">
-              Automation
+              POS
             </span>
           </div>
           <div className="flex justify-between items-end gap-2">
             <div className="flex-1">
               <h3 className="text-xl font-black italic uppercase leading-none text-charcoal mb-2">
-                {projects[3].title}
+                {projects[2].title}
               </h3>
               <p className="text-charcoal/60 text-[10px] font-medium line-clamp-2">
-                {projects[3].description}
+                {t(projects[2].description)}
               </p>
             </div>
             <Link 
-              href={`/projects/${projects[3].slug}`}
+              href={`/projects/${projects[2].slug}`}
               className="w-8 h-8 rounded-full bg-charcoal/5 text-charcoal flex items-center justify-center hover:bg-pink-primary hover:text-beige transition-all shrink-0"
             >
               <ArrowRight size={14} />
