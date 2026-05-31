@@ -55,11 +55,30 @@ export type Tech = {
 };
 
 export type Achievement = {
+  slug: string;
   title: Translatable;
   event: string;
   organizer: string;
   year: string;
-  description: Translatable;
+  award: Translatable;
+  images?: string[];
+  content: {
+    insight: {
+      summary: Translatable;
+      details: Translatable[];
+    };
+    validation: {
+      title: Translatable;
+      description: Translatable;
+    }[];
+    pitch: {
+      summary: Translatable;
+      metrics?: {
+        label: Translatable;
+        value: string;
+      }[];
+    };
+  };
 };
 
 export type Certification = {

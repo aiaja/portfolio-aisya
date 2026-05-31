@@ -8,9 +8,10 @@ import { experiences } from "@/data/experience";
 import { achievements } from "@/data/achievements";
 import { education } from "@/data/education";
 import { profile } from "@/data/profile";
-import { Plus, Award } from "lucide-react";
+import { Plus, Award, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/context/LanguageContext";
+import Link from "next/link";
 
 const Experience = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
@@ -134,30 +135,36 @@ const Experience = () => {
 
             <div className="flex-1 overflow-y-auto pr-2 space-y-4 custom-scrollbar">
               {achievements.map((ach, i) => (
-                <div
+                <Link
                   key={i}
-                  className="group p-5 bg-white/5 rounded-2xl border border-white/5 hover:border-pink-primary/30 transition-all"
+                  href={`/achievements/${ach.slug}`}
+                  className="w-full text-left bg-transparent border-none p-0 cursor-pointer group no-underline"
                 >
-                  <div className="flex justify-between items-start mb-3">
-                    <span
-                      className={cn(
-                        "px-2 py-0.5 text-[8px] font-black uppercase tracking-widest rounded text-beige",
-                        i % 2 === 0 ? "bg-pink-primary" : "bg-green-primary",
-                      )}
-                    >
-                      {t(ach.title)}
-                    </span>
-                    <span className="text-[9px] font-mono text-beige/20 font-bold uppercase shrink-0">
-                      {ach.year}
-                    </span>
+                  <div
+                    className="p-5 bg-white/5 rounded-2xl border border-white/5 hover:border-pink-primary/30 transition-all flex flex-col gap-1 relative"
+                  >
+                    <div className="flex justify-between items-start mb-2">
+                      <span
+                        className={cn(
+                          "px-2 py-0.5 text-[8px] font-black uppercase tracking-widest rounded text-beige",
+                          i % 2 === 0 ? "bg-pink-primary" : "bg-green-primary",
+                        )}
+                      >
+                        {t(ach.title)}
+                      </span>
+                      <ArrowRight size={10} className="text-beige/20 group-hover:text-pink-primary group-hover:translate-x-0.5 transition-all" />
+                    </div>
+                    <h4 className="text-xs font-black uppercase tracking-tight group-hover:text-pink-primary transition-colors text-beige leading-tight m-0">
+                      {ach.event}
+                    </h4>
+                    <p className="text-[9px] text-beige/40 leading-relaxed line-clamp-1 italic m-0">
+                      {t(ach.content.pitch.summary)}
+                    </p>
+                    <p className="text-[8px] font-mono text-beige/20 mt-1 font-bold uppercase tracking-tighter m-0">
+                      {ach.year} — {t({ id: "Lihat Perjalanan", en: "View Journey" })}
+                    </p>
                   </div>
-                  <p className="text-xs font-black uppercase tracking-tight mb-1 group-hover:text-pink-primary transition-colors text-beige leading-tight">
-                    {ach.event}
-                  </p>
-                  <p className="text-[9px] text-beige/40 leading-relaxed">
-                    {t(ach.description)}
-                  </p>
-                </div>
+                </Link>
               ))}
             </div>
 
@@ -167,7 +174,7 @@ const Experience = () => {
                 download
                 className="w-full inline-flex justify-center items-center px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-pink-primary transition-all no-underline text-beige"
               >
-                {t({ id: "Lihat Detail", en: "View Details" })}
+                {t({ id: "Unduh CV Lengkap", en: "Download Full CV" })}
               </a>
             </div>
           </BentoCard>
