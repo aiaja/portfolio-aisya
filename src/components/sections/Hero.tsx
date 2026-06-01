@@ -46,7 +46,7 @@ const Hero = () => {
                 {profile.name}
               </h1>
               <p className="text-beige/40 text-lg md:text-xl font-bold italic tracking-tight mb-8">
-                {t({ id: "Solusi Rekayasa untuk Dampak Dunia Nyata.", en: "Engineering Solutions for Real-World Impact." })}
+                {t({ id: "Merancang Solusi untuk Dampak Dunia Nyata.", en: "Engineering Solutions for Real-World Impact." })}
               </p>
             </motion.div>
 

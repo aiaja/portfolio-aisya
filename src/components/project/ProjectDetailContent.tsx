@@ -95,7 +95,7 @@ const ProjectDetailContent = ({ project }: ProjectDetailContentProps) => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
-          className="relative w-full aspect-[21/9] rounded-[2.5rem] overflow-hidden bg-charcoal/5 shadow-2xl"
+          className="relative w-full aspect-[16/9] rounded-[2.5rem] overflow-hidden bg-charcoal/5 shadow-2xl"
         >
           {project.image && (
             <Image 

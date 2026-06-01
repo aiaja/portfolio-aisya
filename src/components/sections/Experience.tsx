@@ -124,7 +124,7 @@ const Experience = () => {
           {/* 2. Achievements Card (1 Column - Scrollable) */}
           <BentoCard
             variant="charcoal"
-            className="md:col-span-1 flex flex-col gap-6 h-[450px] shadow-2xl overflow-hidden"
+            className="md:col-span-1 md:row-span-2 flex flex-col gap-6 h-[450px] shadow-2xl overflow-hidden"
           >
             <div className="flex justify-between items-center">
               <p className="text-beige/30 text-[10px] font-black uppercase tracking-[0.2em]">
@@ -138,7 +138,7 @@ const Experience = () => {
                 <Link
                   key={i}
                   href={`/achievements/${ach.slug}`}
-                  className="w-full text-left bg-transparent border-none p-0 cursor-pointer group no-underline"
+                  className="group/item block bg-transparent rounded-2xl border border-charcoal/5 hover:border-pink-primary/30 transition-all no-underline"
                 >
                   <div
                     className="p-5 bg-white/5 rounded-2xl border border-white/5 hover:border-pink-primary/30 transition-all flex flex-col gap-1 relative"

@@ -8,12 +8,12 @@ export const projects: Project[] = [
       id: "Asisten keuangan berbasis AI untuk UMKM yang mengotomatiskan ekstraksi invoice, pembuatan proposal bisnis, dan penjadwalan staf dalam satu platform.",
       en: "An AI-powered financial assistant for SMEs that automates and integrates invoice extraction, business proposal generation, and staff scheduling in a single platform.",
     },
-    image: "/images/meetozy.png",
+    image: "/images/AIFA.svg",
     tags: ["ReactJS", "LangChain", "Google Vision AI", "OR-Tools"],
     status: "done",
     role: {
-      id: "Product Strategist & Team Lead",
-      en: "Product Strategist & Team Lead",
+      id: "Hustler & Product Strategist",
+      en: "Hustler & Product Strategist",
     },
     timeline: "2025",
     content: {
@@ -89,14 +89,14 @@ export const projects: Project[] = [
       id: "Sistem Manajemen Fakultas yang mengkonsolidasikan data departemen menjadi infrastruktur digital terpadu untuk ribuan mahasiswa dan staf.",
       en: "A Faculty Management System that consolidates departmental data into a unified digital infrastructure for thousands of students and staff.",
     },
-    image: "/images/dinacom.png",
+    image: "/images/FIK APPS.svg",
     tags: ["Next.js", "TypeScript", "Shadcn UI", "Atomic Design"],
-    status: "done",
+    status: "ongoing",
     role: {
       id: "Lead Frontend Engineer",
       en: "Lead Frontend Engineer",
     },
-    timeline: "2024 - 2025",
+    timeline: "2025 - 2026",
     content: {
       problem: {
         summary: {
@@ -164,13 +164,13 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "nexa-diesel-track",
-    title: "Nexa Diesel Track",
+    slug: "fleet-management-system",
+    title: "Fleet Management System",
     description: {
       id: "Platform SaaS untuk mendigitalisasi manajemen armada bagi perusahaan logistik. Solusi multi-tenant yang memungkinkan pengelolaan banyak armada dalam satu sistem terintegrasi.",
       en: "A SaaS platform to digitalize fleet management for logistics companies. A multi-tenant solution enabling companies to manage multiple fleets in one integrated system.",
     },
-    image: "/images/nexa-diesel.png",
+    image: "/images/FLEET MANAGEMENT SYSTEM.svg",
     tags: ["Next.js", "TypeScript", "Laravel", "IoT", "OCR"],
     status: "ongoing",
     role: { id: "Lead Frontend Developer", en: "Lead Frontend Developer" },
