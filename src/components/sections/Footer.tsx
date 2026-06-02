@@ -20,7 +20,7 @@ const Footer = () => {
 
           {/* Logo & credit */}
           <div className="text-center md:text-left">
-            <p className="text-green-primary font-bold text-lg">{profile.firstName.toLowerCase()}.dev</p>
+            <p className="text-green-primary font-bold text-lg">Portfolio Aisya</p>
             <p className="text-charcoal/50 text-xs mt-1 flex items-center gap-1 justify-center md:justify-start">
               {t({ id: "Dibuat dengan", en: "Built with" })} <Heart size={10} className="text-pink-primary fill-pink-primary" /> {t({ id: "oleh", en: "by" })} {profile.name}
             </p>

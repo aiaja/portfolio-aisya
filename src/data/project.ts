@@ -5,8 +5,8 @@ export const projects: Project[] = [
     slug: "aifa",
     title: "AIFA",
     description: {
-      id: "Asisten keuangan berbasis AI untuk UMKM yang mengotomatiskan ekstraksi invoice, pembuatan proposal bisnis, dan penjadwalan staf dalam satu platform.",
-      en: "An AI-powered financial assistant for SMEs that automates and integrates invoice extraction, business proposal generation, and staff scheduling in a single platform.",
+      id: "Asisten AI yang mengorkestrasi beberapa agent LLM untuk mengeliminasi hambatan administratif UMKM, menggantikan alat yang terfragmentasi dengan satu alur kerja otomatis.",
+      en: "An interoperable AI assistant orchestrating multiple LLM agents to eliminate administrative bottlenecks for SMEs, replacing fragmented tools with a single automated workflow.",
     },
     image: "/images/AIFA.svg",
     tags: ["ReactJS", "LangChain", "Google Vision AI", "OR-Tools"],
@@ -86,8 +86,8 @@ export const projects: Project[] = [
     slug: "fik-apps",
     title: "FIK Apps",
     description: {
-      id: "Sistem Manajemen Fakultas yang mengkonsolidasikan data departemen menjadi infrastruktur digital terpadu untuk ribuan mahasiswa dan staf.",
-      en: "A Faculty Management System that consolidates departmental data into a unified digital infrastructure for thousands of students and staff.",
+      id: "Memimpin migrasi arsitektur zero-downtime dari sistem fakultas lama, menetapkan kontrak TypeScript yang ketat dan sistem desain atomik untuk skalabilitas tingkat fakultas.",
+      en: "Led the zero-downtime architecture migration of a legacy faculty system, establishing strict TypeScript contracts and an atomic design system for scalable, faculty-wide deployment.",
     },
     image: "/images/FIK APPS.svg",
     tags: ["Next.js", "TypeScript", "Shadcn UI", "Atomic Design"],
@@ -167,8 +167,8 @@ export const projects: Project[] = [
     slug: "fleet-management-system",
     title: "Fleet Management System",
     description: {
-      id: "Platform SaaS untuk mendigitalisasi manajemen armada bagi perusahaan logistik. Solusi multi-tenant yang memungkinkan pengelolaan banyak armada dalam satu sistem terintegrasi.",
-      en: "A SaaS platform to digitalize fleet management for logistics companies. A multi-tenant solution enabling companies to manage multiple fleets in one integrated system.",
+      id: "MVP SaaS Logistik multi-tenant yang menampilkan workaround legal berbasis OCR dan integrasi IoT kustom, menunjukkan pivot arsitektur yang cepat.",
+      en: "A multi-tenant Logistics SaaS MVP featuring an OCR-based legal workaround and custom IoT integration, demonstrating rapid architectural pivoting and real-world deployment readiness.",
     },
     image: "/images/FLEET MANAGEMENT SYSTEM.svg",
     tags: ["Next.js", "TypeScript", "Laravel", "IoT", "OCR"],

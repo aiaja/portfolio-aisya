@@ -15,8 +15,8 @@ export const profile: Profile = {
   cvUrl: "/cv-aisya.pdf",
   available: true,
   bio: {
-    id: "Vice President di DNCC dan Frontend Engineer yang berfokus pada transformasi digital. Dari mengoptimalkan logistik SaaS hingga memenangkan penghargaan 'Best Speaker' dalam pitching produk, saya membangun teknologi yang menyelesaikan masalah nyata.",
-    en: "Vice President at DNCC and Frontend Engineer focused on digital transformation. From optimizing SaaS logistics to winning 'Best Speaker' awards in product pitching, I build technology that solves real-world problems.",
+    id: "Saya membangun teknologi dengan memikirkan dampak nyata bagi manusia. Mulai dari merancang sistem darurat tanpa layar hingga menskalakan infrastruktur fakultas, saya memadukan empati pengguna yang mendalam dengan standar rekayasa yang ketat untuk menghasilkan solusi pragmatis yang berpusat pada manusia.",
+    en: "I build technology with human impact in mind. Whether it's designing screen-less emergency systems or scaling faculty infrastructure, I combine deep user empathy with strict engineering standards to deliver pragmatic, human-centric solutions.",
   },
   socials: [
     {
@@ -43,16 +43,16 @@ export const profile: Profile = {
   ],
   activities: [
     { 
+      prefix: { id: "Frontend Developer di", en: "Frontend Developer at" }, 
+      highlight: "Bengkel Koding UDINUS" 
+    },
+    { 
       prefix: { id: "Vice President di", en: "Vice President at" }, 
       highlight: "DNCC" 
     },
     { 
       prefix: { id: "Juara/Finalis di", en: "Winner/Finalist at" }, 
-      highlight: { id: "5+ Hackathon Nasional", en: "5+ National Hackathons" } 
-    },
-    { 
-      prefix: { id: "Lead Developer di", en: "Lead Developer at" }, 
-      highlight: "Nexa Diesel Track" 
+      highlight: { id: "6+ Hackathon Nasional", en: "6+ National Hackathons" } 
     },
   ],
 };

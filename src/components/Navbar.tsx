@@ -30,7 +30,7 @@ const Navbar = () => {
 
         {/* Logo */}
         <a href="#" className="text-green-primary font-bold text-lg tracking-tight hover:opacity-75 transition-opacity no-underline">
-          aisya.dev
+          Portfolio Aisya
         </a>
 
         {/* Desktop Links & Switcher */}
@@ -51,7 +51,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4 border-l border-charcoal/10 pl-8">
             <LanguageSwitcher />
             <Button href="mailto:aisyafirst@gmail.com" variant="solid" size="md">
-              {t({ id: "Hubungi Saya", en: "Hire Me" })}
+              {t({ id: "Hubungi Saya", en: "Contact Me" })}
             </Button>
           </div>
         </div>
@@ -84,7 +84,7 @@ const Navbar = () => {
           ))}
           <div className="mt-1 flex flex-col gap-4">
             <Button href="mailto:aisyafirst@gmail.com" variant="solid" size="md" className="w-full justify-center">
-              {t({ id: "Hubungi Saya", en: "Hire Me" })}
+              {t({ id: "Hubungi Saya", en: "Contact Me" })}
             </Button>
           </div>
         </div>

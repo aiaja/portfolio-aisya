@@ -35,8 +35,8 @@ const Contact = () => {
               </h3>
               <p className="text-beige/60 text-sm font-medium leading-relaxed max-w-sm">
                 {t({ 
-                  id: "Memadukan eksekusi rekayasa dengan strategi produk. Saya membangun alat yang memberdayakan pengguna dan menyelesaikan masalah nyata.", 
-                  en: "Blending engineering execution with product strategy. I build tools that empower users and solve real-world problems." 
+                  id: "Memadukan empati manusia yang mendalam dengan standar rekayasa yang ketat. Mari kita membangun solusi yang berpusat pada manusia dan berarti.", 
+                  en: "Blending deep human empathy with strict engineering standards. Let's build human-centric solutions that matter." 
                 })}
               </p>
             </div>
