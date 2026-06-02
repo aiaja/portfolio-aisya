@@ -103,7 +103,7 @@ const Projects = () => {
 
             <div className="absolute top-4 left-4 flex gap-2">
               <span className="px-2 py-0.5 bg-charcoal/10 backdrop-blur-sm text-charcoal/60 text-[8px] font-black uppercase tracking-widest rounded">
-                Faculty Management
+                Faculty Mgt
               </span>
             </div>
           </div>
@@ -113,7 +113,7 @@ const Projects = () => {
               <h3 className="text-xl font-black italic uppercase leading-none text-beige mb-2">
                 {projects[1].title}
               </h3>
-              <p className="text-beige/60 text-[10px] font-medium line-clamp-5">
+              <p className="text-beige/60 text-[10px] font-medium line-clamp-2">
                 {t(projects[1].description)}
               </p>
             </div>
@@ -139,66 +139,7 @@ const Projects = () => {
           </div>
         </BentoCard>
 
-        {/* 3. PROJECT LOG (1x2 Span - BOXED LIST) */}
-        <BentoCard
-          variant="white"
-          className="md:col-span-1 md:row-span-2 flex flex-col gap-6 h-full shadow-2xl overflow-hidden"
-          noHover
-        >
-          <div className="flex justify-between items-center">
-            <p className="text-charcoal/30 text-[10px] font-black uppercase tracking-[0.2em]">
-              Project Log
-            </p>
-            <Activity size={16} className="text-pink-primary animate-pulse" />
-          </div>
-
-          <div className="flex-1 overflow-y-auto pr-2 space-y-4 custom-scrollbar">
-            {projects.map((project, i) => (
-              <Link
-                key={project.slug}
-                href={`/projects/${project.slug}`}
-                className="group/item block p-5 bg-charcoal/5 rounded-2xl border border-charcoal/5 hover:border-pink-primary/30 transition-all no-underline"
-              >
-                <div className="flex justify-between items-start mb-3">
-                  <span
-                    className={cn(
-                      "px-2 py-0.5 text-[8px] font-black uppercase tracking-widest rounded text-beige",
-                      project.status === "done"
-                        ? "bg-green-primary"
-                        : "bg-pink-primary",
-                    )}
-                  >
-                    {project.status === "done"
-                      ? t({ id: "Selesai", en: "Done" })
-                      : t({ id: "Berjalan", en: "Ongoing" })}
-                  </span>
-                  <ArrowRight
-                    size={10}
-                    className="text-charcoal/20 group-hover/item:text-pink-primary group-hover/item:translate-x-0.5 transition-all"
-                  />
-                </div>
-                <h4 className="text-xs font-black uppercase tracking-tight mb-1 group-hover/item:text-pink-primary transition-colors text-charcoal leading-tight">
-                  {project.title}
-                </h4>
-                <p className="text-[9px] text-charcoal/40 leading-relaxed line-clamp-2">
-                  {t(project.description)}
-                </p>
-              </Link>
-            ))}
-          </div>
-
-          <div className="pt-4 border-t border-charcoal/5 mt-auto">
-            <Link
-              href="https://github.com/aiaja"
-              target="_blank"
-              className="w-full inline-flex justify-center items-center px-4 py-3 bg-charcoal/5 border border-charcoal/10 rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-pink-primary hover:text-beige transition-all no-underline text-charcoal"
-            >
-              Github Profile
-            </Link>
-          </div>
-        </BentoCard>
-
-        {/* 4. MINI HIGHLIGHT B (1x1 Span) */}
+        {/* 3. MINI HIGHLIGHT B (1x1 Span) */}
         <BentoCard
           className="md:col-span-1 flex flex-col group p-0"
           variant="pink-light"
@@ -216,7 +157,7 @@ const Projects = () => {
 
             <div className="absolute top-4 left-4 flex gap-2">
               <span className="px-2 py-0.5 bg-charcoal/10 backdrop-blur-sm text-charcoal/60 text-[8px] font-black uppercase tracking-widest rounded">
-                Fleet Management System
+                Logistics SaaS
               </span>
             </div>
           </div>
@@ -226,7 +167,7 @@ const Projects = () => {
               <h3 className="text-xl font-black italic uppercase leading-none text-charcoal mb-2">
                 {projects[2].title}
               </h3>
-              <p className="text-charcoal/60 text-[10px] font-medium line-clamp-5">
+              <p className="text-charcoal/60 text-[10px] font-medium line-clamp-2">
                 {t(projects[2].description)}
               </p>
             </div>
@@ -244,31 +185,94 @@ const Projects = () => {
               </div>
               <Link
                 href={`/projects/${projects[2].slug}`}
-                className="w-8 h-8 rounded-full bg-charcoal/10 text-charcoal flex items-center justify-center hover:bg-pink-primary transition-all shrink-0"
+                className="w-8 h-8 rounded-full bg-charcoal/10 text-charcoal flex items-center justify-center hover:bg-pink-primary group-hover:text-beige transition-all shrink-0"
               >
                 <ArrowRight size={14} />
               </Link>
             </div>
           </div>
         </BentoCard>
-      </div>
 
-      <style jsx global>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: rgba(255, 255, 255, 0.02);
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: rgba(203, 146, 137, 0.2);
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(203, 146, 137, 0.4);
-        }
-      `}</style>
+        {/* 4. MINI HIGHLIGHT C (1x1 Span) */}
+        <BentoCard
+          className="md:col-span-1 flex flex-col group p-0"
+          variant="white"
+        >
+          <div className="relative w-full aspect-[16/9] overflow-hidden">
+            {projects[3].image && (
+              <Image
+                src={projects[3].image}
+                alt={projects[3].title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-100"
+              />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
+
+            <div className="absolute top-4 left-4 flex gap-2">
+              <span className="px-2 py-0.5 bg-charcoal/5 backdrop-blur-sm text-charcoal/60 text-[8px] font-black uppercase tracking-widest rounded">
+                Mobile App
+              </span>
+            </div>
+          </div>
+
+          <div className="p-8 flex-1 flex flex-col justify-between">
+            <div className="flex-1">
+              <h3 className="text-xl font-black italic uppercase leading-none text-charcoal mb-2">
+                {projects[3].title}
+              </h3>
+              <p className="text-charcoal/60 text-[10px] font-medium line-clamp-2">
+                {t(projects[3].description)}
+              </p>
+            </div>
+
+            <div className="flex justify-between items-center mt-6">
+              <div className="flex gap-2">
+                {projects[3].tags.slice(0, 2).map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2 py-1 rounded bg-charcoal/5 text-charcoal/40 text-[9px] font-bold uppercase"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <Link
+                href={`/projects/${projects[3].slug}`}
+                className="w-8 h-8 rounded-full bg-charcoal/5 text-charcoal flex items-center justify-center hover:bg-pink-primary group-hover:text-beige transition-all shrink-0"
+              >
+                <ArrowRight size={14} />
+              </Link>
+            </div>
+          </div>
+        </BentoCard>
+
+        {/* 5. ARCHIVE CTA CARD (1x1 Span) */}
+        <BentoCard
+          variant="white"
+          className="md:col-span-1 flex flex-col items-center justify-center text-center p-8 bg-transparent border-2 border-dashed border-charcoal/10 hover:border-pink-primary/30 transition-all group overflow-hidden relative"
+          noHover
+        >
+          <div className="w-12 h-12 rounded-full border-2 border-dashed border-charcoal/20 flex items-center justify-center mb-4 group-hover:border-pink-primary group-hover:scale-110 transition-all">
+             <ArrowRight size={20} className="text-charcoal/40 group-hover:text-pink-primary -rotate-45 transition-transform" />
+          </div>
+          <h3 className="text-charcoal font-black text-sm uppercase tracking-tight leading-tight mb-2">
+            {t({ id: "Arsip Proyek", en: "Project Archive" })}
+          </h3>
+          <p className="text-charcoal/40 text-[9px] font-medium max-w-[120px]">
+            {t({ id: "Lihat 10+ studi kasus lainnya.", en: "Explore 10+ more case studies." })}
+          </p>
+          <Link href="https://github.com/aiaja" target="_blank" className="absolute inset-0 z-10" />
+
+          {/* Subtle Pulse indicator */}
+          <div className="absolute top-6 right-6">
+            <span className="flex h-2 w-2 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-primary"></span>
+            </span>
+          </div>
+        </BentoCard>
+      </div>
     </section>
   );
 };

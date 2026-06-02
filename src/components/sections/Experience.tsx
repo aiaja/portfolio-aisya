@@ -8,10 +8,11 @@ import { experiences } from "@/data/experience";
 import { achievements } from "@/data/achievements";
 import { education } from "@/data/education";
 import { profile } from "@/data/profile";
-import { Plus, Award, ArrowRight } from "lucide-react";
+import { Plus, Award, ArrowRight, Activity } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/context/LanguageContext";
 import Link from "next/link";
+import { projects } from "@/data/project";
 
 const Experience = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
@@ -25,7 +26,10 @@ const Experience = () => {
     <section id="experience" className="py-24">
       <SectionTitle
         label={t({ id: "Perjalanan Profesional", en: "Professional Journey" })}
-        title={t({ id: "Pengalaman & Prestasi", en: "Experience & Achievements" })}
+        title={t({
+          id: "Pengalaman & Prestasi",
+          en: "Experience & Achievements",
+        })}
       />
 
       <div className="flex flex-col gap-4">
@@ -125,6 +129,7 @@ const Experience = () => {
           <BentoCard
             variant="charcoal"
             className="md:col-span-1 md:row-span-2 flex flex-col gap-6 h-[450px] shadow-2xl overflow-hidden"
+            noHover
           >
             <div className="flex justify-between items-center">
               <p className="text-beige/30 text-[10px] font-black uppercase tracking-[0.2em]">
@@ -138,44 +143,44 @@ const Experience = () => {
                 <Link
                   key={i}
                   href={`/achievements/${ach.slug}`}
-                  className="group/item block bg-transparent rounded-2xl border border-charcoal/5 hover:border-pink-primary/30 transition-all no-underline"
+                  className="group/item block p-5 bg-white/5 rounded-2xl border border-charcoal/5 hover:border-pink-primary/30 transition-all no-underline"
                 >
-                  <div
-                    className="p-5 bg-white/5 rounded-2xl border border-white/5 hover:border-pink-primary/30 transition-all flex flex-col gap-1 relative"
-                  >
-                    <div className="flex justify-between items-start mb-2">
-                      <span
-                        className={cn(
-                          "px-2 py-0.5 text-[8px] font-black uppercase tracking-widest rounded text-beige",
-                          i % 2 === 0 ? "bg-pink-primary" : "bg-green-primary",
-                        )}
-                      >
-                        {t(ach.title)}
-                      </span>
-                      <ArrowRight size={10} className="text-beige/20 group-hover:text-pink-primary group-hover:translate-x-0.5 transition-all" />
-                    </div>
-                    <h4 className="text-xs font-black uppercase tracking-tight group-hover:text-pink-primary transition-colors text-beige leading-tight m-0">
-                      {ach.event}
-                    </h4>
-                    <p className="text-[9px] text-beige/40 leading-relaxed line-clamp-1 italic m-0">
-                      {t(ach.content.pitch.summary)}
-                    </p>
-                    <p className="text-[8px] font-mono text-beige/20 mt-1 font-bold uppercase tracking-tighter m-0">
-                      {ach.year} — {t({ id: "Lihat Perjalanan", en: "View Journey" })}
-                    </p>
+                  <div className="flex justify-between items-start mb-3">
+                    <span
+                      className={cn(
+                        "px-2 py-0.5 text-[8px] font-black uppercase tracking-widest rounded text-beige",
+                        i % 2 === 0 ? "bg-pink-primary" : "bg-green-primary",
+                      )}
+                    >
+                      {t(ach.title)}
+                    </span>
+                    <ArrowRight
+                      size={10}
+                      className="text-beige/20 group-hover:text-pink-primary group-hover:translate-x-0.5 transition-all"
+                    />
                   </div>
+                  <h4 className="text-xs font-black uppercase tracking-tight group-hover/item:text-pink-primary transition-colors text-beige leading-tight m-0">
+                    {ach.event}
+                  </h4>
+                  <p className="text-[9px] text-beige/40 leading-relaxed line-clamp-1 italic m-0">
+                    {t(ach.content.pitch.summary)}
+                  </p>
+                  <p className="text-[8px] font-mono text-beige/20 mt-1 font-bold uppercase tracking-tighter m-0">
+                    {ach.year} —{" "}
+                    {t({ id: "Lihat Perjalanan", en: "View Journey" })}
+                  </p>
                 </Link>
               ))}
             </div>
 
             <div className="pt-4 border-t border-white/5 mt-auto">
-              <a
-                href={profile.cvUrl}
-                download
-                className="w-full inline-flex justify-center items-center px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-pink-primary transition-all no-underline text-beige"
+              <Link
+                href="/achievements"
+                className="w-full inline-flex justify-center items-center px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-pink-primary transition-all no-underline text-beige group/btn"
               >
-                {t({ id: "Unduh CV Lengkap", en: "Download Full CV" })}
-              </a>
+                {t({ id: "Jelajahi Proses di Balik Layar", en: "Explore the Process" })}
+                <ArrowRight size={12} className="ml-2 opacity-50 group-hover/btn:opacity-100 group-hover/btn:translate-x-1 transition-all" />
+              </Link>
             </div>
           </BentoCard>
         </div>
