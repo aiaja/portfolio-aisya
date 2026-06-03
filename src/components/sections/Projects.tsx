@@ -262,7 +262,7 @@ const Projects = () => {
           <p className="text-charcoal/40 text-[9px] font-medium max-w-[120px]">
             {t({ id: "Lihat 10+ studi kasus lainnya.", en: "Explore 10+ more case studies." })}
           </p>
-          <Link href="https://github.com/aiaja" target="_blank" className="absolute inset-0 z-10" />
+          <Link href="/projects" className="absolute inset-0 z-10" />
 
           {/* Subtle Pulse indicator */}
           <div className="absolute top-6 right-6">
