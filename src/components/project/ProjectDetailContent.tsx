@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Github, Lightbulb, Target, Trophy, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, Github, Lightbulb, Target, Trophy, CheckCircle2, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Project } from "@/types";
 import { useLanguage } from "@/context/LanguageContext";
@@ -103,6 +103,7 @@ const ProjectDetailContent = ({ project }: ProjectDetailContentProps) => {
               alt={project.title} 
               fill 
               className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
               priority
             />
           )}
@@ -188,6 +189,44 @@ const ProjectDetailContent = ({ project }: ProjectDetailContentProps) => {
             </div>
           </div>
         </section>
+
+        {/* 02.5 THE IMPACT (I) */}
+        {project.content.impact && (
+          <section>
+            <div className="flex flex-col md:flex-row gap-12 items-start">
+              <div className="md:w-1/3 sticky top-24">
+                <h2 className="flex items-center gap-4 mb-4">
+                  <span className="text-4xl font-black italic text-[#CB9289]">02.5</span>
+                  <span className="text-xs font-black uppercase tracking-[0.3em] text-charcoal/50">
+                    {t({ id: "Dampak Manusia", en: "Human Impact" })}
+                  </span>
+                </h2>
+                <p className="text-sm text-charcoal/40 font-medium leading-relaxed">
+                  {t({ 
+                    id: "Bagaimana solusi ini menyentuh kehidupan nyata dan memberikan nilai lebih dari sekadar kode.", 
+                    en: "How this solution touches real lives and provides value beyond just code." 
+                  })}
+                </p>
+              </div>
+              <div className="md:w-2/3">
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative p-12 bg-pink-light/30 rounded-[3rem] border border-pink-primary/10 overflow-hidden"
+                >
+                  <Users className="absolute -right-8 -top-8 text-pink-primary/5 size-48 rotate-12" />
+                  <div className="relative z-10">
+                    <p className="text-3xl md:text-4xl font-black text-pink-primary leading-tight italic tracking-tight">
+                      &ldquo;{t(project.content.impact)}&rdquo;
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* 03. THE RESULT (R) */}
         <section>

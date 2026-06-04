@@ -63,6 +63,8 @@ const Navbar = () => {
             className="flex items-center justify-center w-9 h-9 rounded-full hover:bg-charcoal/10 transition-colors text-charcoal border-none bg-transparent cursor-pointer"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -70,7 +72,10 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden transition-all duration-300 overflow-hidden ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none"}`}>
+      <div 
+        id="mobile-menu"
+        className={`md:hidden transition-all duration-300 overflow-hidden ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none"}`}
+      >
         <div className="bg-beige border-t border-charcoal/10 px-6 py-5 flex flex-col gap-4">
           {navLinks.map((link) => (
             <a

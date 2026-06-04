@@ -11,17 +11,48 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Aisya Nur Syakbani — Frontend Developer",
+  metadataBase: new URL("https://portfolio-aisya.vercel.app"),
+  title: {
+    default: "Aisya Nur Syakbani — Frontend Engineer & Product Strategist",
+    template: "%s | Aisya Nur Syakbani",
+  },
   description:
-    "Portfolio of Aisya Nur Syakbani, a Frontend Developer & Tech Leader based in Semarang, Indonesia.",
+    "Bridging human empathy with strict engineering standards. Portfolio of Aisya Nur Syakbani, Lead Frontend Engineer & Product Strategist.",
   keywords: [
-    "Frontend Developer",
+    "Frontend Engineer",
+    "Product Strategist",
     "Next.js",
     "React",
     "Portfolio",
     "Aisya Nur Syakbani",
   ],
   authors: [{ name: "Aisya Nur Syakbani" }],
+  openGraph: {
+    title: "Aisya Nur Syakbani — Frontend Engineer & Product Strategist",
+    description: "Engineering Solutions for Real-World Impact.",
+    url: "https://portfolio-aisya.vercel.app",
+    siteName: "Aisya Nur Syakbani Portfolio",
+    images: [
+      {
+        url: "/images/profile.png",
+        width: 1200,
+        height: 630,
+        alt: "Aisya Nur Syakbani",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aisya Nur Syakbani — Frontend Engineer",
+    description: "Engineering Solutions for Real-World Impact.",
+    images: ["/images/profile.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 const RootLayout = ({

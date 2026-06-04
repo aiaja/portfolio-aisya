@@ -16,9 +16,23 @@ export async function generateMetadata({
   const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
 
+  const description = typeof project.description === "string" ? project.description : project.description.en;
+
   return {
     title: `${project.title} — Aisya Nur Syakbani`,
-    description: typeof project.description === "string" ? project.description : project.description.en,
+    description: description,
+    openGraph: {
+      title: `${project.title} | Aisya Nur Syakbani`,
+      description: description,
+      images: project.image ? [project.image] : [],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | Aisya Nur Syakbani`,
+      description: description,
+      images: project.image ? [project.image] : [],
+    },
   };
 }
 

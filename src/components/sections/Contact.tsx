@@ -5,6 +5,7 @@ import { profile } from "@/data/profile";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -45,7 +46,7 @@ const Contact = () => {
             <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
               <a
                 href={`mailto:${profile.email}`}
-                className="w-full sm:w-auto px-10 py-4 bg-beige text-green-primary rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-pink-primary hover:text-beige transition-all shadow-xl no-underline text-center"
+                className="w-full sm:w-auto px-10 py-4 bg-beige text-green-primary rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-pink-primary hover:text-beige transition-all shadow-xl no-underline text-center flex items-center justify-center"
               >
                 {t({ id: "Mulai Percakapan", en: "Start a Conversation" })}
               </a>
@@ -80,7 +81,7 @@ const Contact = () => {
         >
           <div className="flex justify-between items-center">
             <p className="text-charcoal/30 text-[10px] font-black uppercase tracking-[0.2em]">
-              Socials
+              {t({ id: "Media Sosial", en: "Socials" })}
             </p>
             <Activity size={16} className="text-pink-primary animate-pulse" />
           </div>

@@ -28,6 +28,7 @@ export type Project = {
       title: Translatable;
       description: Translatable;
     }[];
+    impact?: Translatable;
     result: {
       summary: Translatable;
       learnings?: Translatable[];

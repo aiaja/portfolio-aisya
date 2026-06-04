@@ -73,13 +73,14 @@ const Hero = () => {
               <Mail size={16} />
               {t({ id: "Mari berdiskusi", en: "Let's talk" })}
             </a>
+            
             <a
               href={profile.cvUrl}
               download
               className="inline-flex items-center gap-2 border border-white/20 text-beige text-sm font-bold rounded-full hover:bg-white/10 active:scale-95 transition-all no-underline px-8 py-3"
             >
               <ArrowDown size={16} />
-              Resume
+              {t({ id: "Resume", en: "Resume" })}
             </a>
           </motion.div>
         </BentoCard>
@@ -143,7 +144,7 @@ const Hero = () => {
           className="md:col-span-1 flex flex-col justify-between p-8"
         >
           <p className="text-charcoal/30 text-[10px] font-black uppercase tracking-[0.2em] mb-6">
-            Overview
+            {t({ id: "Ringkasan", en: "Overview" })}
           </p>
           <div className="grid grid-cols-2 gap-4">
             {profile.stats.map(({ value, label }) => (

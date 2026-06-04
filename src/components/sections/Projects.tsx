@@ -36,6 +36,7 @@ const Projects = () => {
                 alt={projects[0].title}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-100"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
               />
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/10 to-transparent" />
@@ -97,6 +98,7 @@ const Projects = () => {
                 alt={projects[1].title}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-100"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 25vw, 300px"
               />
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-green via-green/20 to-transparent" />
@@ -151,6 +153,7 @@ const Projects = () => {
                 alt={projects[2].title}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-100"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 25vw, 300px"
               />
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-pink-light via-pink-light/20 to-transparent" />
@@ -205,13 +208,14 @@ const Projects = () => {
                 alt={projects[3].title}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-100"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 25vw, 300px"
               />
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
 
             <div className="absolute top-4 left-4 flex gap-2">
               <span className="px-2 py-0.5 bg-charcoal/5 backdrop-blur-sm text-charcoal/60 text-[8px] font-black uppercase tracking-widest rounded">
-                Mobile App
+                {t({ id: "Aplikasi Mobile", en: "Mobile App" })}
               </span>
             </div>
           </div>
@@ -278,3 +282,4 @@ const Projects = () => {
 };
 
 export default Projects;
+;

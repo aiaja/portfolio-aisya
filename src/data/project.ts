@@ -60,6 +60,10 @@ export const projects: Project[] = [
           },
         },
       ],
+      impact: {
+        id: "Memberdayakan pemilik UMKM untuk beralih dari manajemen 'pemadam kebakaran' ke operasional yang terencana, memberikan mereka ketenangan pikiran dan waktu lebih untuk pertumbuhan strategis.",
+        en: "Empowering SME owners to move from 'firefighting' management to planned operations, giving them peace of mind and more time for strategic growth.",
+      },
       result: {
         summary: {
           id: "Berhasil menjadi Finalis Nasional Arkavidia ITB dan membuktikan bahwa sistem asisten terpadu dapat meningkatkan efisiensi UMKM ke level perusahaan besar.",
@@ -141,6 +145,10 @@ export const projects: Project[] = [
           },
         },
       ],
+      impact: {
+        id: "Menstabilkan ekosistem digital untuk ribuan mahasiswa dan staf, memastikan akses tanpa gangguan ke layanan akademik selama transisi organisasi yang kritis.",
+        en: "Stabilizing the digital ecosystem for thousands of students and staff, ensuring uninterrupted access to academic services during critical organizational transitions.",
+      },
       result: {
         summary: {
           id: "Berhasil mentransisikan infrastruktur untuk mendukung beberapa program studi tanpa satu pun kegagalan produksi.",
@@ -219,6 +227,10 @@ export const projects: Project[] = [
           },
         },
       ],
+      impact: {
+        id: "Menghilangkan hambatan administratif bagi pengemudi melalui pemindaian OCR, memungkinkan mereka fokus pada keselamatan jalan daripada beban dokumen fisik.",
+        en: "Eliminating administrative friction for drivers through OCR scanning, allowing them to focus on road safety rather than physical paperwork burdens.",
+      },
       result: {
         summary: {
           id: "Berhasil membangun MVP SaaS yang siap untuk penyebaran logistik dunia nyata pertama dengan integrasi IoT yang berfungsi penuh.",
@@ -297,6 +309,10 @@ export const projects: Project[] = [
           },
         },
       ],
+      impact: {
+        id: "Menyediakan jaring pengaman bagi individu dalam situasi kritis, di mana setiap detik berharga dan teknologi harus bekerja tanpa interaksi layar yang rumit.",
+        en: "Providing a safety net for individuals in critical situations, where every second counts and technology must work without complex screen interactions.",
+      },
       result: {
         summary: {
           id: "Berhasil menciptakan sistem darurat yang pragmatis, memenangkan Juara 3 Nasional di FOSTIFEST dan INVOFEST 2024.",
@@ -375,6 +391,10 @@ export const projects: Project[] = [
           },
         },
       ],
+      impact: {
+        id: "Mengurangi beban psikologis dan operasional bagi pasien TBC dan tenaga medis, mengubah proses pengobatan yang menakutkan menjadi perjalanan yang didukung komunitas.",
+        en: "Reducing the psychological and operational burden for TB patients and health workers, transforming a daunting treatment process into a community-supported journey.",
+      },
       result: {
         summary: {
           id: "Menciptakan infrastruktur kesehatan yang menghubungkan pasien, petugas, dan stakeholder secara sistemik. Berhasil menembus Top 8 Finalist Nasional di Hology 8.0.",
