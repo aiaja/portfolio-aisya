@@ -254,6 +254,91 @@ export const projects: Project[] = [
     },
   },
   {
+  "slug": "poliklinik-management-system",
+  "title": "Poliklinik Management System",
+  "description": {
+    "id": "Sistem manajemen poliklinik modern yang mendigitalisasi alur pendaftaran pasien dan operasional medis, menggabungkan arsitektur backend yang kokoh dengan antarmuka pengguna yang engaging.",
+    "en": "A modern polyclinic management system digitizing patient registration and medical operations, combining robust backend architecture with an engaging user interface."
+  },
+  "image": "/images/POLIKLINIK.svg",
+  "tags": ["Laravel 11", "TDD", "Alpine.js", "Tailwind CSS"],
+  "status": "ongoing",
+  "role": {
+    "id": "Senior Laravel Developer & UI/UX Specialist",
+    "en": "Senior Laravel Developer & UI/UX Specialist"
+  },
+  "timeline": "2026",
+  "content": {
+    "problem": {
+      "summary": {
+        "id": "Manajemen klinik tradisional sering menghadapi kendala antrean fisik yang panjang dan fragmentasi data antara dokter, perawat, dan administrasi.",
+        "en": "Traditional clinic management often faces long physical queues and data fragmentation between doctors, nurses, and administration."
+      },
+      "details": [
+        {
+          "id": "Pasien harus mengantre lama secara fisik tanpa kepastian jadwal dokter yang real-time.",
+          "en": "Patients have to wait in long physical queues without real-time certainty of doctor schedules."
+        },
+        {
+          "id": "Logika bisnis yang bercampur di dalam controller menyebabkan 'technical debt' yang menyulitkan skalabilitas aplikasi.",
+          "en": "Business logic mixed within controllers creates technical debt that hinders application scalability."
+        },
+        {
+          "id": "Kurangnya transparansi data rekam medis yang dapat diakses secara mandiri oleh pasien.",
+          "en": "Lack of transparency in medical record data that can be accessed independently by patients."
+        }
+      ]
+    },
+    "decision": [
+      {
+        "title": { "id": "Arsitektur Senior Laravel", "en": "Senior Laravel Architecture" },
+        "description": {
+          "id": "Mengimplementasikan Service Layer dan FormRequests untuk memisahkan logika bisnis dari HTTP coordinator, memastikan codebase tetap bersih dan mudah dipelihara.",
+          "en": "Implemented Service Layer and FormRequests to decouple business logic from HTTP coordinators, ensuring a clean and maintainable codebase."
+        }
+      },
+      {
+        "title": { "id": "UI Grid Asimetris High-Variance", "en": "High-Variance Asymmetric Grid UI" },
+        "description": {
+          "id": "Merancang landing page dengan layout grid asimetris yang dinamis dan slider interaktif (Alpine.js) untuk meningkatkan engagement dan kepercayaan pasien.",
+          "en": "Designed a landing page with a dynamic asymmetric grid layout and interactive sliders (Alpine.js) to enhance patient engagement and trust."
+        }
+      },
+      {
+        "title": { "id": "Test-Driven Development (TDD)", "en": "Test-Driven Development (TDD)" },
+        "description": {
+          "id": "Menjamin reliabilitas alur pendaftaran dan autentikasi melalui Feature Tests yang komprehensif, mencakup otomasi nomor rekam medis dan validasi data.",
+          "en": "Ensuring reliability of registration and authentication flows through comprehensive Feature Tests, covering medical record number automation and data validation."
+        }
+      }
+    ],
+    "impact": {
+      "id": "Menciptakan ekosistem digital yang efisien bagi pengelola klinik dan memberikan pengalaman 'Tanpa Antre' yang modern bagi pasien.",
+      "en": "Creating an efficient digital ecosystem for clinic managers and providing a modern 'Queue-Free' experience for patients."
+    },
+    "result": {
+      "summary": {
+        "id": "Berhasil membangun fondasi aplikasi yang scalable dengan coverage testing yang kuat dan tampilan visual premium yang melampaui standar sistem manajemen klinik mainstream.",
+        "en": "Successfully built a scalable application foundation with strong testing coverage and a premium visual look that exceeds mainstream clinic management system standards."
+      },
+      "learnings": [
+        {
+          "id": "Pemisahan tanggung jawab (Separation of Concerns) di Laravel sangat krusial untuk menjaga integritas sistem kesehatan yang kompleks.",
+          "en": "Separation of Concerns in Laravel is crucial for maintaining the integrity of complex healthcare systems."
+        },
+        {
+          "id": "Visual branding yang kuat (trust-first) secara signifikan meningkatkan persepsi kualitas layanan medis digital.",
+          "en": "Strong visual branding (trust-first) significantly improves the perceived quality of digital medical services."
+        }
+      ],
+      "metrics": [
+        { "label": { "id": "Code Coverage", "en": "Code Coverage" }, "value": "High (Auth & Registration)" },
+        { "label": { "id": "UI Design", "en": "UI Design" }, "value": "Anti-Mainstream Grid" }
+      ]
+    }
+  }
+},
+  {
     slug: "onecall",
     title: "OneCall App",
     description: {
@@ -414,6 +499,277 @@ export const projects: Project[] = [
           { label: { id: "Prestasi", en: "National Award" }, value: "Top 8 Finalist" },
           { label: { id: "Validasi", en: "Validation" }, value: "Market-Ready" },
         ],
+      },
+    },
+  },
+  {
+    slug: "pos-website",
+    title: "POS Website",
+    description: {
+      id: "Sistem Point of Sales (POS) berbasis web yang tangguh untuk mengotomatiskan manajemen inventaris dan pelaporan transaksi.",
+      en: "A robust web-based Point of Sales (POS) system to automate inventory management and transaction reporting.",
+    },
+    image: "/images/ecopos.png",
+    tags: ["CodeIgniter 4", "MySQL", "Bootstrap", "PHPUnit"],
+    status: "done",
+    role: { id: "Fullstack Developer", en: "Fullstack Developer" },
+    timeline: "2025",
+    content: {
+      problem: {
+        summary: {
+          id: "Manajemen inventaris manual sering menyebabkan selisih stok dan inefisiensi pencatatan transaksi harian.",
+          en: "Manual inventory management often leads to stock discrepancies and daily transaction recording inefficiencies.",
+        },
+        details: [
+          { id: "Pencatatan stok masih menggunakan buku besar yang rentan rusak.", en: "Stock recording still uses physical ledgers prone to damage." },
+          { id: "Kesulitan dalam menghasilkan laporan penjualan bulanan yang akurat secara cepat.", en: "Difficulty in generating accurate monthly sales reports quickly." },
+        ],
+      },
+      decision: [
+        {
+          title: { id: "Arsitektur MVC CI4", en: "CI4 MVC Architecture" },
+          description: { id: "Menerapkan pola MVC CodeIgniter 4 untuk memisahkan logika bisnis dengan presentasi agar aplikasi mudah dikembangkan.", en: "Applied CI4's MVC pattern to separate business logic from presentation for easy scalability." },
+        },
+        {
+          title: { id: "Integrasi DomPDF", en: "DomPDF Integration" },
+          description: { id: "Mengimplementasikan ekspor laporan otomatis ke format PDF untuk memudahkan audit internal.", en: "Implemented automatic report export to PDF format for easier internal auditing." },
+        },
+      ],
+      impact: {
+        id: "Mengotomatiskan alur kerja inventaris, memungkinkan pemilik bisnis fokus pada ekspansi daripada administrasi stok.",
+        en: "Automating inventory workflows, allowing business owners to focus on expansion rather than stock administration.",
+      },
+      result: {
+        summary: {
+          id: "Berhasil dideploy dan digunakan untuk memproses ratusan transaksi per hari dengan akurasi stok 100%.",
+          en: "Successfully deployed and used to process hundreds of transactions per day with 100% stock accuracy.",
+        },
+      },
+    },
+  },
+  {
+    slug: "summarease-desktop",
+    title: "SummarEase Desktop",
+    description: {
+      id: "Aplikasi desktop yang menyederhanakan konsumsi informasi melalui ringkasan teks otomatis berbasis AI.",
+      en: "A desktop application that simplifies information consumption through AI-driven automatic text summarization.",
+    },
+    tags: ["JavaFX", "Java 21", "Apache PDFBox", "Maven"],
+    status: "done",
+    role: { id: "Java Developer", en: "Java Developer" },
+    timeline: "2025",
+    content: {
+      problem: {
+        summary: {
+          id: "Volume informasi yang masif membuat user sulit mengekstrak inti sari dari dokumen panjang dengan cepat.",
+          en: "Massive information volume makes it hard for users to quickly extract the core essence of long documents.",
+        },
+        details: [
+          { id: "User menghabiskan terlalu banyak waktu membaca detail yang kurang relevan.", en: "Users spend too much time reading less relevant details." },
+        ],
+      },
+      decision: [
+        {
+          title: { id: "Hybrid Summarization", en: "Hybrid Summarization" },
+          description: { id: "Menggabungkan pendekatan rule-based dan API-based untuk memberikan fleksibilitas kualitas ringkasan.", en: "Combined rule-based and API-based approaches to provide flexibility in summary quality." },
+        },
+      ],
+      impact: {
+        id: "Menyederhanakan cara user mengonsumsi literatur panjang, menghemat waktu riset hingga 50%.",
+        en: "Simplifying the way users consume long literature, saving up to 50% of research time.",
+      },
+      result: {
+        summary: {
+          id: "Menghasilkan aplikasi desktop yang interaktif dengan fitur ekspor ringkasan ke PDF/TXT.",
+          en: "Resulted in an interactive desktop app with features to export summaries to PDF/TXT.",
+        },
+      },
+    },
+  },
+  {
+    slug: "dinacom-2025",
+    title: "DINACOM 2025",
+    description: {
+      id: "Platform pendaftaran kompetisi nasional terintegrasi dengan sistem manajemen peserta yang masif.",
+      en: "National competition registration platform integrated with a massive participant management system.",
+    },
+    image: "/images/dinacom.png",
+    tags: ["ReactJS", "Tailwind CSS", "Product Management"],
+    status: "done",
+    role: { id: "Project Manager & Frontend", en: "Project Manager & Frontend" },
+    timeline: "2024",
+    content: {
+      problem: {
+        summary: {
+          id: "Proses pendaftaran manual kompetisi nasional sering menyebabkan duplikasi data dan keterlambatan verifikasi pembayaran.",
+          en: "Manual registration processes for national competitions often cause data duplication and payment verification delays."
+        },
+        details: [
+          { id: "Manajemen data peserta yang mencapai ratusan orang melalui spreadsheet manual sangat rentan error.", en: "Managing participant data for hundreds of people through manual spreadsheets is highly error-prone." },
+        ],
+      },
+      decision: [
+        {
+          title: { id: "Validasi Real-time", en: "Real-time Validation" },
+          description: { id: "Membangun sistem validasi input di sisi klien untuk memastikan data pendaftaran lengkap sebelum dikirim ke server.", en: "Built client-side input validation to ensure registration data is complete before server submission." },
+        },
+      ],
+      impact: {
+        id: "Meningkatkan efisiensi pendaftaran bagi ratusan peserta nasional, memastikan alur kerja panitia yang lebih teratur.",
+        en: "Increasing registration efficiency for hundreds of national participants, ensuring a more organized committee workflow.",
+      },
+      result: {
+        summary: {
+          id: "Platform sukses menangani pendaftaran dari berbagai universitas di Indonesia tanpa kendala teknis berarti.",
+          en: "The platform successfully handled registrations from various universities in Indonesia without significant technical issues.",
+        },
+      },
+    },
+  },
+  {
+    slug: "btng-2024",
+    title: "BTNG 2024",
+    description: {
+      id: "Riset UI/UX dan desain portal pendaftaran orientasi mahasiswa baru untuk meningkatkan aksesibilitas.",
+      en: "UI/UX Research and design for the freshman orientation registration portal to improve accessibility.",
+    },
+    tags: ["UI/UX Research", "Figma", "User Centered Design"],
+    status: "done",
+    role: { id: "UI/UX Researcher", en: "UI/UX Researcher" },
+    timeline: "2024",
+    content: {
+      problem: {
+        summary: {
+          id: "Interface portal lama yang rumit membingungkan mahasiswa baru dan meningkatkan beban kerja admin helpdesk.",
+          en: "Complicated old portal interfaces confused new students and increased the admin helpdesk workload."
+        },
+        details: [
+          { id: "Alur pendaftaran yang tidak intuitif menyebabkan banyak data yang tidak valid.", en: "Unintuitive registration flows resulted in many invalid data entries." },
+        ],
+      },
+      decision: [
+        {
+          title: { id: "Riset User-Centered", en: "User-Centered Research" },
+          description: { id: "Melakukan interview dan pengujian usability untuk mengidentifikasi hambatan utama mahasiswa baru saat mendaftar.", en: "Conducted interviews and usability testing to identify primary barriers new students faced during registration." },
+        },
+      ],
+      impact: {
+        id: "Memastikan ribuan mahasiswa baru dapat mendaftar dengan mudah melalui desain yang adaptif dan inklusif.",
+        en: "Ensuring thousands of new students can register easily through adaptive and inclusive design.",
+      },
+      result: {
+        summary: {
+          id: "Menghasilkan rekomendasi desain yang menurunkan tingkat kesalahan input data hingga 30%.",
+          en: "Produced design recommendations that lowered data input error rates by 30%.",
+        },
+      },
+    },
+  },
+  {
+    slug: "ice-movie-app",
+    title: "Ice Movie App",
+    description: {
+      id: "Portal informasi film dinamis yang mengintegrasikan data dari TMDb API dengan antarmuka yang bersih dan responsif.",
+      en: "A dynamic movie info portal integrating data from the TMDb API with a clean and responsive interface.",
+    },
+    tags: ["HTML5", "CSS3", "JavaScript", "TMDb API"],
+    status: "done",
+    role: { id: "Frontend Developer", en: "Frontend Developer" },
+    timeline: "2024",
+    content: {
+      problem: {
+        summary: {
+          id: "Kebutuhan akan platform info film yang ringan dan mudah diakses tanpa iklan yang mengganggu.",
+          en: "Need for a lightweight and easy-to-access movie info platform without intrusive ads."
+        },
+      },
+      decision: [
+        {
+          title: { id: "Integrasi API Global", en: "Global API Integration" },
+          description: { id: "Menghubungkan aplikasi dengan database film global TMDb untuk data yang selalu terupdate secara real-time.", en: "Connected the app with TMDb's global movie database for real-time updated data." },
+        },
+      ],
+      impact: {
+        id: "Menyediakan akses informasi film yang cepat dan estetis bagi komunitas pencinta film.",
+        en: "Providing fast and aesthetic movie information access for the movie-loving community.",
+      },
+      result: {
+        summary: {
+          id: "Berhasil membangun interface film yang user-friendly dengan performa loading yang optimal.",
+          en: "Successfully built a user-friendly movie interface with optimal loading performance.",
+        },
+      },
+    },
+  },
+  {
+    slug: "ice-residence",
+    title: "Ice Residence",
+    description: {
+      id: "Landing page modern untuk penyedia layanan properti dengan fokus pada visual yang menawan dan performa tinggi.",
+      en: "A modern landing page for a property service provider focusing on stunning visuals and high performance.",
+    },
+    tags: ["HTML5", "CSS3", "JavaScript", "AOS"],
+    status: "done",
+    role: { id: "Frontend Developer", en: "Frontend Developer" },
+    timeline: "2024",
+    content: {
+      problem: {
+        summary: {
+          id: "Platform properti tradisional seringkali terasa kaku dan tidak menarik secara visual, menurunkan minat calon pembeli.",
+          en: "Traditional property platforms often feel rigid and visually unappealing, decreasing potential buyer interest."
+        },
+      },
+      decision: [
+        {
+          title: { id: "Animasi AOS", en: "AOS Animations" },
+          description: { id: "Menerapkan library Animate On Scroll (AOS) untuk memberikan kesan modern dan interaktif pada landing page.", en: "Applied Animate On Scroll (AOS) library to give a modern and interactive feel to the landing page." },
+        },
+      ],
+      impact: {
+        id: "Membangun kepercayaan brand properti melalui presentasi digital yang profesional dan elegan.",
+        en: "Building property brand trust through a professional and elegant digital presentation.",
+      },
+      result: {
+        summary: {
+          id: "Menghasilkan landing page dengan skor SEO dan performa tinggi yang siap menarik trafik berkualitas.",
+          en: "Resulted in a high-performance, SEO-friendly landing page ready to attract quality traffic.",
+        },
+      },
+    },
+  },
+  {
+    slug: "blue-monster",
+    title: "Blue Monster",
+    description: {
+      id: "Sistem backend manajemen user untuk platform blog dengan keamanan tingkat tinggi menggunakan autentikasi JWT.",
+      en: "A user management backend system for a blog platform with high-level security using JWT authentication.",
+    },
+    tags: ["Node.js", "Express", "MySQL", "JWT"],
+    status: "done",
+    role: { id: "Backend Developer", en: "Backend Developer" },
+    timeline: "2024",
+    content: {
+      problem: {
+        summary: {
+          id: "Banyak platform blog mandiri yang rentan terhadap serangan brute-force dan kebocoran data user.",
+          en: "Many independent blog platforms are vulnerable to brute-force attacks and user data breaches."
+        },
+      },
+      decision: [
+        {
+          title: { id: "Keamanan JWT", en: "JWT Security" },
+          description: { id: "Menerapkan JSON Web Token (JWT) untuk memastikan sesi user terenkripsi dan aman dari pembajakan.", en: "Implemented JSON Web Token (JWT) to ensure user sessions are encrypted and safe from hijacking." },
+        },
+      ],
+      impact: {
+        id: "Menyediakan fondasi infrastruktur yang aman bagi penulis blog untuk mengelola audiens mereka tanpa rasa takut.",
+        en: "Providing a secure infrastructure foundation for blog writers to manage their audience fearlessly.",
+      },
+      result: {
+        summary: {
+          id: "Berhasil mengimplementasikan sistem autentikasi yang scalable dan mudah diintegrasikan ke berbagai frontend.",
+          en: "Successfully implemented a scalable authentication system easy to integrate into various frontends.",
+        },
       },
     },
   },

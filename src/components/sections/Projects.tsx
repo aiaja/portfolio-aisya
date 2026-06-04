@@ -215,7 +215,7 @@ const Projects = () => {
 
             <div className="absolute top-4 left-4 flex gap-2">
               <span className="px-2 py-0.5 bg-charcoal/5 backdrop-blur-sm text-charcoal/60 text-[8px] font-black uppercase tracking-widest rounded">
-                {t({ id: "Aplikasi Mobile", en: "Mobile App" })}
+                {t({ id: "Manajemen Poliklinik", en: "Polyclinic Management" })}
               </span>
             </div>
           </div>

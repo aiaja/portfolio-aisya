@@ -138,7 +138,7 @@ const ProjectDetailContent = ({ project }: ProjectDetailContentProps) => {
                 </p>
                 <div className="h-1 w-20 bg-pink-primary rounded-full mb-8" />
                 <ul className="space-y-4">
-                  {project.content.problem.details.map((detail, i) => (
+                  {project.content.problem.details?.map((detail, i) => (
                     <li key={i} className="flex items-start gap-3 text-beige/70 font-medium">
                       <span className="text-pink-primary font-black mt-1">/</span>
                       {t(detail)}
@@ -196,7 +196,7 @@ const ProjectDetailContent = ({ project }: ProjectDetailContentProps) => {
             <div className="flex flex-col md:flex-row gap-12 items-start">
               <div className="md:w-1/3 sticky top-24">
                 <h2 className="flex items-center gap-4 mb-4">
-                  <span className="text-4xl font-black italic text-[#CB9289]">02.5</span>
+                  <span className="text-4xl font-black italic text-[#CB9289]">03</span>
                   <span className="text-xs font-black uppercase tracking-[0.3em] text-charcoal/50">
                     {t({ id: "Dampak Manusia", en: "Human Impact" })}
                   </span>
@@ -233,7 +233,7 @@ const ProjectDetailContent = ({ project }: ProjectDetailContentProps) => {
           <div className="flex flex-col md:flex-row gap-12 items-start">
             <div className="md:w-1/3 sticky top-24">
               <h2 className="flex items-center gap-4 mb-4">
-                <span className="text-4xl font-black italic text-green-primary">03</span>
+                <span className="text-4xl font-black italic text-green-primary">04</span>
                 <span className="text-xs font-black uppercase tracking-[0.3em] text-charcoal/50">
                   {t({ id: "Hasil", en: "Result" })}
                 </span>

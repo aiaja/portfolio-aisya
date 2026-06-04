@@ -12,7 +12,7 @@ export type Project = {
   slug: string;
   title: string;
   description: Translatable;
-  image: string;
+  image?: string;
   tags: string[];
   liveUrl?: string;
   githubUrl?: string;
@@ -22,7 +22,7 @@ export type Project = {
   content: {
     problem: {
       summary: Translatable;
-      details: Translatable[];
+      details?: Translatable[];
     };
     decision: {
       title: Translatable;
