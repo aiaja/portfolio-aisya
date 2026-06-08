@@ -593,7 +593,7 @@ export const projects: Project[] = [
       id: "Platform pendaftaran kompetisi nasional terintegrasi dengan sistem manajemen peserta yang masif.",
       en: "National competition registration platform integrated with a massive participant management system.",
     },
-    image: "/images/dinacom.png",
+    image: "/images/DINACOM.svg",
     tags: ["ReactJS", "Tailwind CSS", "Product Management"],
     status: "done",
     role: { id: "Project Manager & Frontend", en: "Project Manager & Frontend" },
@@ -629,6 +629,7 @@ export const projects: Project[] = [
   {
     slug: "btng-2024",
     title: "BTNG 2024",
+    image: "/images/BTNG.svg",
     description: {
       id: "Riset UI/UX dan desain portal pendaftaran orientasi mahasiswa baru untuk meningkatkan aksesibilitas.",
       en: "UI/UX Research and design for the freshman orientation registration portal to improve accessibility.",
@@ -668,6 +669,7 @@ export const projects: Project[] = [
   {
     slug: "ice-movie-app",
     title: "Ice Movie App",
+        image: "/images/MOVIE.svg",
     description: {
       id: "Portal informasi film dinamis yang mengintegrasikan data dari TMDb API dengan antarmuka yang bersih dan responsif.",
       en: "A dynamic movie info portal integrating data from the TMDb API with a clean and responsive interface.",
@@ -704,6 +706,7 @@ export const projects: Project[] = [
   {
     slug: "ice-residence",
     title: "Ice Residence",
+        image: "/images/RESIDENCE.svg",
     description: {
       id: "Landing page modern untuk penyedia layanan properti dengan fokus pada visual yang menawan dan performa tinggi.",
       en: "A modern landing page for a property service provider focusing on stunning visuals and high performance.",
@@ -733,42 +736,6 @@ export const projects: Project[] = [
         summary: {
           id: "Menghasilkan landing page dengan skor SEO dan performa tinggi yang siap menarik trafik berkualitas.",
           en: "Resulted in a high-performance, SEO-friendly landing page ready to attract quality traffic.",
-        },
-      },
-    },
-  },
-  {
-    slug: "blue-monster",
-    title: "Blue Monster",
-    description: {
-      id: "Sistem backend manajemen user untuk platform blog dengan keamanan tingkat tinggi menggunakan autentikasi JWT.",
-      en: "A user management backend system for a blog platform with high-level security using JWT authentication.",
-    },
-    tags: ["Node.js", "Express", "MySQL", "JWT"],
-    status: "done",
-    role: { id: "Backend Developer", en: "Backend Developer" },
-    timeline: "2024",
-    content: {
-      problem: {
-        summary: {
-          id: "Banyak platform blog mandiri yang rentan terhadap serangan brute-force dan kebocoran data user.",
-          en: "Many independent blog platforms are vulnerable to brute-force attacks and user data breaches."
-        },
-      },
-      decision: [
-        {
-          title: { id: "Keamanan JWT", en: "JWT Security" },
-          description: { id: "Menerapkan JSON Web Token (JWT) untuk memastikan sesi user terenkripsi dan aman dari pembajakan.", en: "Implemented JSON Web Token (JWT) to ensure user sessions are encrypted and safe from hijacking." },
-        },
-      ],
-      impact: {
-        id: "Menyediakan fondasi infrastruktur yang aman bagi penulis blog untuk mengelola audiens mereka tanpa rasa takut.",
-        en: "Providing a secure infrastructure foundation for blog writers to manage their audience fearlessly.",
-      },
-      result: {
-        summary: {
-          id: "Berhasil mengimplementasikan sistem autentikasi yang scalable dan mudah diintegrasikan ke berbagai frontend.",
-          en: "Successfully implemented a scalable authentication system easy to integrate into various frontends.",
         },
       },
     },
