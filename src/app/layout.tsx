@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Syne } from "next/font/google";
 import "./globals.css";
 import PageTransition from "@/components/ui/PageTransition";
 import { LanguageProvider } from "@/context/LanguageContext";
@@ -7,6 +7,12 @@ import { LanguageProvider } from "@/context/LanguageContext";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
   display: "swap",
 });
 
