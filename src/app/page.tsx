@@ -1,27 +1,32 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
-import Contact from "@/components/sections/Contact";
-import Experience from "@/components/sections/Experience";
+import WhyIBuild from "@/components/sections/WhyIBuild";
+import HowIWork from "@/components/sections/HowIWork";
+import SelectedStories from "@/components/sections/SelectedStories";
+import ExperienceGrid from "@/components/sections/ExperienceGrid";
+import ProjectArchive from "@/components/sections/ProjectArchive";
+import ContactEditorial from "@/components/sections/ContactEditorial";
 import Footer from "@/components/sections/Footer";
 import Hero from "@/components/sections/Hero";
-import Projects from "@/components/sections/Projects";
-import Skills from "@/components/sections/Skills";
+import TrustStrip from "@/components/sections/TrustStrip";
 
-const Home = () => {
-  return (
-    <main className="min-h-screen bg-beige">
-      <Navbar />
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <Hero />
-        <Experience/>
-        <Projects/>
-        <Skills/>
-        <Contact/>
-      </div>
-      <Footer/>
-    </main>
-  );
+const HomeV2 = () => {
+ return (
+  <main className="min-h-screen bg-bg">
+   <Navbar />
+   <Hero />
+   <TrustStrip />
+   <WhyIBuild />
+   <HowIWork />
+   <SelectedStories />
+   <ExperienceGrid />
+   <ProjectArchive />
+   <ContactEditorial />
+   <Footer />
+  </main>
+ );
 };
 
-export default Home;
+export default HomeV2;
+

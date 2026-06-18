@@ -1,58 +1,48 @@
-import { projects } from "@/data/project";
+"use client";
+
+import { use } from "react";
+import { projectDetailsV2 } from "@/data/project-details";
 import { notFound } from "next/navigation";
-import { Metadata } from "next";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/sections/Footer";
-import ProjectDetailContent from "@/components/project/ProjectDetailContent";
 
-interface ProjectPageProps {
-  params: Promise<{ slug: string }>;
-}
+// V2 Project Components
+import ProjectSidebarNav from "@/components/project/ProjectSidebarNav";
+import ProjectHero from "@/components/project/ProjectHero";
+import ProjectContext from "@/components/project/ProjectContext";
+import ProjectDecision from "@/components/project/ProjectDecision";
+import ProjectSolutions from "@/components/project/ProjectSolutions";
+import ProjectReflection from "@/components/project/ProjectReflection";
 
-export async function generateMetadata({
+export default function ProjectDetailV2Page({
   params,
-}: ProjectPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
-  if (!project) return {};
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = use(params);
+  const data = projectDetailsV2[slug];
 
-  const description = typeof project.description === "string" ? project.description : project.description.en;
+  if (!data) notFound();
 
-  return {
-    title: `${project.title} — Aisya Nur Syakbani`,
-    description: description,
-    openGraph: {
-      title: `${project.title} | Aisya Nur Syakbani`,
-      description: description,
-      images: project.image ? [project.image] : [],
-      type: "article",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${project.title} | Aisya Nur Syakbani`,
-      description: description,
-      images: project.image ? [project.image] : [],
-    },
-  };
-}
-
-export default async function ProjectPage({ params }: ProjectPageProps) {
-  const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
-
-  if (!project) {
-    notFound();
-  }
+  const navItems = [
+    { id: "hero", label: { en: "Introduction", id: "Pengantar" } },
+    { id: "context", label: { en: "The Problem", id: "Masalah" } },
+    { id: "decision", label: { en: "The Decision", id: "Keputusan" } },
+    { id: "execution", label: { en: "The Solution", id: "Solusi" } },
+    { id: "reflection", label: { en: "Reflection", id: "Refleksi" } },
+  ];
 
   return (
-    <main className="min-h-screen bg-[#FCFBF4] text-charcoal pb-24">
-      <ProjectDetailContent project={project} />
-    </main>
-  );
-}
+    <div className="relative">
+      <ProjectSidebarNav items={navItems} />
 
-export async function generateStaticParams() {
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
+      <ProjectHero hero={data.hero} />
+
+      <ProjectContext context={data.context} />
+
+      <ProjectDecision decision={data.decision} />
+
+      <ProjectSolutions solutions={data.solutions} />
+
+      <ProjectReflection reflection={data.reflection} slug={data.slug} />
+    </div>
+  );
 }

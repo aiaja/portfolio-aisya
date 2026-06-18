@@ -3,36 +3,42 @@
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 const LanguageSwitcher = () => {
-  const { locale, setLocale } = useLanguage();
+ const { locale, setLocale } = useLanguage();
 
-  return (
-    <div className="flex items-center gap-1 bg-charcoal/5 p-1 rounded-full border border-charcoal/10">
-      <button
-        onClick={() => setLocale("id")}
-        className={cn(
-          "px-3 py-1 rounded-full text-[10px] font-black transition-all",
-          locale === "id"
-            ? "bg-pink-primary text-beige shadow-sm"
-            : "text-charcoal/40 hover:text-charcoal"
-        )}
-      >
-        ID
-      </button>
-      <button
-        onClick={() => setLocale("en")}
-        className={cn(
-          "px-3 py-1 rounded-full text-[10px] font-black transition-all",
-          locale === "en"
-            ? "bg-pink-primary text-beige shadow-sm"
-            : "text-charcoal/40 hover:text-charcoal"
-        )}
-      >
-        EN
-      </button>
-    </div>
-  );
+ const options = [
+  { id: "id", label: "ID" },
+  { id: "en", label: "EN" },
+ ];
+
+ return (
+  <div className="flex items-center gap-1">
+   {options.map((option) => (
+    <button
+     key={option.id}
+     onClick={() => setLocale(option.id as any)}
+     className={cn(
+      "relative px-3 min-h-[32px] rounded-full text-[10px] font-black transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary",
+      locale === option.id
+       ? "text-white"
+       : "text-muted hover:text-text"
+     )}
+    >
+     <span className="relative z-10">{option.label}</span>
+     {locale === option.id && (
+      <motion.div
+       layoutId="activeTab"
+       className="absolute inset-0 bg-primary rounded-full"
+       transition={{ type: "spring", duration: 0.5, bounce: 0.3 }}
+      />
+     )}
+    </button>
+   ))}
+  </div>
+ );
 };
 
 export default LanguageSwitcher;
+

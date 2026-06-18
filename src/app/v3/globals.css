@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* V1 Default Variables (Beige/Green) */
+    --v1-bg: #F7F4D5;
+    --v1-text: #2C2C2A;
+    --v1-primary: #125464;
+    --v1-secondary: #1C7A8F;
+    --v1-accent: #CB9289;
+  }
+
+  .theme-v2 {
+    /* V2 Variables (Redesign) */
+    --primary: 71% 0.194 13.428;
+    --primary-10: 71% 0.194 13.428 / 0.10;
+    --primary-20: 71% 0.194 13.428 / 0.20;
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --surface-2: #f4f2ef;
+    --border: rgba(0,0,0,0.08);
+    --border-strong: rgba(0,0,0,0.14);
+    --text: #1a1917;
+    --muted: #6b6560;
+    --subtle: #9c958e;
+    
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--v1-bg);
+    color: var(--v1-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .theme-v2 ::selection {
+    background-color: oklch(var(--primary) / 0.2);
+    color: var(--text);
+  }
+
+  ::selection {
+    background-color: var(--v1-accent);
+    color: var(--v1-bg);
+  }
+}
+
+@layer utilities {
+  .overflow-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--v1-bg);
+  }
+
+  .theme-v2 ::-webkit-scrollbar-track {
+    background: var(--bg);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--v1-primary);
+    border-radius: 9999px;
+  }
+
+  .theme-v2 ::-webkit-scrollbar-thumb {
+    background: oklch(var(--primary));
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--v1-secondary);
+  }
+}

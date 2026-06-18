@@ -30,7 +30,6 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],
-        syne: ["var(--font-syne)", "sans-serif"],
       },
       borderRadius: {
         bento: "1.25rem",

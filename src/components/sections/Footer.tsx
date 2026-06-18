@@ -1,59 +1,51 @@
 "use client";
 
-import { Github, Linkedin, Mail, Heart } from "lucide-react";
-import { profile } from "@/data/profile";
+import { profile } from "@/data/v3/profile";
 import { useLanguage } from "@/context/LanguageContext";
 
-const iconMap = {
-  github: Github,
-  linkedin: Linkedin,
-  mail: Mail,
-};
-
 const Footer = () => {
-  const { t } = useLanguage();
+ const { t } = useLanguage();
 
-  return (
-    <footer className="mt-16 border-t border-charcoal/10">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+ return (
+  <footer className="mt-20 border-t border-border">
+   <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16">
+    <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+     {/* Name & Title */}
+     <div className="text-center md:text-left">
+      <p className="text-subtle text-[13px] font-medium uppercase tracking-widest">
+       {profile.name}
+      </p>
+     </div>
 
-          {/* Logo & credit */}
-          <div className="text-center md:text-left">
-            <p className="text-green-primary font-bold text-lg">Portfolio Aisya</p>
-            <p className="text-charcoal/50 text-xs mt-1 flex items-center gap-1 justify-center md:justify-start">
-              {t({ id: "Dibuat dengan", en: "Built with" })} <Heart size={10} className="text-pink-primary fill-pink-primary" /> {t({ id: "oleh", en: "by" })} {profile.name}
-            </p>
-          </div>
+     {/* Socials - Simplified to Text Links as per editorial style */}
+     <div className="flex items-center gap-8">
+      {profile.socials.map((social) => (
+       <a
+        key={social.label}
+        href={social.href}
+        target={social.href.startsWith("http") ? "_blank" : undefined}
+        rel={
+         social.href.startsWith("http")
+          ? "noopener noreferrer"
+          : undefined
+        }
+        className="text-subtle text-[11px] font-bold uppercase tracking-widest hover:text-text focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none rounded transition-colors no-underline"
+       >
+        {social.label}
+       </a>
+      ))}
+     </div>
 
-          {/* Social links */}
-          <div className="flex items-center gap-4">
-            {profile.socials.map((social) => {
-              const IconComponent = iconMap[social.icon as keyof typeof iconMap] || Mail;
-              return (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target={social.href.startsWith("http") ? "_blank" : undefined}
-                  rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="text-charcoal/50 hover:text-green-primary transition-colors"
-                  aria-label={social.label}
-                >
-                  <IconComponent size={18} />
-                </a>
-              );
-            })}
-          </div>
-
-          {/* Copyright */}
-          <p className="text-charcoal/40 text-xs">
-            © {new Date().getFullYear()} {profile.name}. {t({ id: "Hak cipta dilindungi undang-undang.", en: "All rights reserved." })}
-          </p>
-
-        </div>
-      </div>
-    </footer>
-  );
+     {/* Copyright */}
+     <p className="text-subtle text-[11px] font-medium uppercase tracking-widest">
+      © {new Date().getFullYear()}{" "}
+      {t({ id: "Hak Cipta", en: "All Rights Reserved" })}
+     </p>
+    </div>
+   </div>
+  </footer>
+ );
 };
 
 export default Footer;
+
