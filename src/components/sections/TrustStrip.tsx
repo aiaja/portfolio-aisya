@@ -24,23 +24,23 @@ const TrustStrip = () => {
 
  return (
   <section id="trust" className="py-8 bg-surface border-y border-border">
-   <div className="mx-auto px-8">
-    <div className="flex flex-wrap items-center justify-start md:justify-between gap-y-6 md:gap-y-0">
+   <div className="mx-auto px-6 md:px-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 items-center gap-6 md:gap-4">
      {trustItems.map((item, index) => {
       const Icon = iconMap[item.icon];
       return (
        <div
         key={index}
-        className="flex items-center gap-2.5 px-0 md:px-8 first:pl-0 border-r-0 md:border-r border-border last:border-r-0 w-1/2 md:w-auto"
+        className="flex items-center gap-3 md:px-4 md:first:pl-0 border-r-0 md:border-r border-border last:border-r-0 w-full"
        >
         <div className="w-8 h-8 rounded-lg bg-primary-10 flex items-center justify-center shrink-0 text-primary">
          {Icon && <Icon size={18} />}
         </div>
-        <div>
-         <div className="text-[13px] font-bold text-text leading-tight">
+        <div className="min-w-0">
+         <div className="text-[13px] font-bold text-text leading-tight truncate">
           {t(item.text)}
          </div>
-         <div className="text-[11px] text-subtle">{t(item.sub)}</div>
+         <div className="text-[11px] text-subtle truncate">{t(item.sub)}</div>
         </div>
        </div>
       );

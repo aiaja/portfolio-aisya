@@ -49,15 +49,17 @@ const ContactEditorial = () => {
          <div className="w-9 h-9 rounded-lg bg-surface border border-border flex items-center justify-center text-primary shrink-0 group-hover:scale-105 transition-transform">
           {Icon && <Icon size={16} />}
          </div>
-         <div>
-          <div className="text-[13px] font-bold text-text leading-tight">
+         <div className="min-w-0 flex-1">
+          <div className="text-[13px] font-bold text-text leading-tight truncate">
            {link.label}
           </div>
-          <div className="text-[12px] text-subtle">{link.value}</div>
+          <div className="text-[12px] text-subtle break-all sm:break-normal truncate">
+           {link.value}
+          </div>
          </div>
          <ArrowUpRight
           size={16}
-          className="ml-auto text-subtle group-hover:text-primary transition-colors"
+          className="ml-auto text-subtle group-hover:text-primary transition-colors shrink-0"
          />
         </Card>
        </a>

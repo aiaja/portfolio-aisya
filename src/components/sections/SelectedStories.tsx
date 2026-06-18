@@ -73,10 +73,10 @@ const SelectedStories = () => {
           hoverable={false}
           className="bg-bg/50 backdrop-blur-sm flex flex-col justify-center px-4 py-4 min-h-[80px]"
          >
-          <div className="text-[15px] md:text-md font-extrabold text-text mb-1 leading-tight tracking-tight whitespace-nowrap overflow-hidden text-ellipsis">
+          <div className="text-[14px] md:text-md font-extrabold text-text mb-1 leading-tight tracking-tight">
            {metric.value}
           </div>
-          <div className="text-[9px] text-subtle uppercase tracking-widest font-bold">
+          <div className="text-[9px] text-subtle uppercase tracking-widest font-bold leading-tight">
            {t(metric.label)}
           </div>
          </Card>

@@ -8,7 +8,7 @@ const Footer = () => {
 
  return (
   <footer className="mt-20 border-t border-border">
-   <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16">
+   <div className="max-w-[960px] mx-auto px-6 md:px-8 py-12 md:py-16">
     <div className="flex flex-col md:flex-row items-center justify-between gap-6">
      {/* Name & Title */}
      <div className="text-center md:text-left">

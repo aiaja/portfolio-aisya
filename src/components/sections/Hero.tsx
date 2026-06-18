@@ -17,9 +17,9 @@ const Hero = () => {
   <Section
    id="hero"
    withBorder={false}
-   className="h-screen min-h-[720px] flex items-center py-0 overflow-hidden"
+   className="min-h-screen md:h-screen md:min-h-[720px] flex items-center py-12 md:py-0"
   >
-   <div className="grid grid-cols-1 md:grid-cols-[1fr_340px] gap-16 items-center w-full pt-16 md:pt-0">
+   <div className="grid grid-cols-1 md:grid-cols-[1fr_340px] gap-10 md:gap-16 items-center w-full pt-20 md:pt-0">
     {/* Text Content */}
     <motion.div
      initial={{ opacity: 0, x: -20 }}

@@ -38,12 +38,12 @@ const Navbar = () => {
  }, [isOpen]);
 
  return (
-  <header className="fixed top-6 left-0 right-0 z-50 px-4 pointer-events-none flex justify-center">
+  <header className="fixed top-4 md:top-6 left-0 right-0 z-50 px-4 pointer-events-none flex justify-center">
    <motion.nav
     initial={{ y: -20, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
     className={cn(
-     "pointer-events-auto flex items-center gap-2 p-2 rounded-full border transition-all duration-500",
+     "pointer-events-auto flex items-center gap-2 p-1.5 md:p-2 rounded-full border transition-all duration-500",
      scrolled
       ? "bg-bg/80 backdrop-blur-xl border-border shadow-2xl shadow-primary/5"
       : "bg-surface/50 backdrop-blur-md border-border/50 shadow-sm",
@@ -57,11 +57,11 @@ const Navbar = () => {
      className="group/logo flex items-center p-1 rounded-full border-none hover:bg-transparent"
      aria-label="Home"
     >
-      <div className="flex items-center gap-3 px-4 py-2.5 bg-surface-2/40 backdrop-blur-xl border border-border-strong rounded-full shadow-[inset_0_1px_2px_rgba(255,255,255,0.5),0_10px_20px_rgba(0,0,0,0.05)] group-hover/logo:border-primary/40 transition-all relative overflow-hidden">
+      <div className="flex items-center gap-2 md:gap-3 px-3 py-2 md:px-4 md:py-2.5 bg-surface-2/40 backdrop-blur-xl border border-border-strong rounded-full shadow-[inset_0_1px_2px_rgba(255,255,255,0.5),0_10px_20px_rgba(0,0,0,0.05)] group-hover/logo:border-primary/40 transition-all relative overflow-hidden">
        {/* Dynamic Gloss Sweep Effect */}
        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/logo:translate-x-full transition-transform duration-1000" />
        
-       <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white font-black text-[10px] shrink-0 shadow-sm relative z-10">
+       <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-primary flex items-center justify-center text-white font-black text-[9px] md:text-[10px] shrink-0 shadow-sm relative z-10">
         A
        </div>
        
@@ -108,7 +108,7 @@ const Navbar = () => {
      <Button
       variant="secondary"
       size="sm"
-      className="w-11 h-11 p-0 rounded-full shrink-0"
+      className="w-10 h-10 md:w-11 md:h-11 p-0 rounded-full shrink-0"
       onClick={() => setIsOpen(!isOpen)}
       aria-label="Toggle menu"
       aria-expanded={isOpen}
@@ -125,14 +125,14 @@ const Navbar = () => {
       initial={{ opacity: 0, scale: 0.95, y: 10 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95, y: 10 }}
-      className="absolute top-16 left-4 right-4 bg-bg border border-border rounded-[32px] shadow-2xl p-8 md:hidden pointer-events-auto"
+      className="absolute top-16 left-4 right-4 bg-bg border border-border rounded-[32px] shadow-2xl p-6 md:hidden pointer-events-auto max-h-[calc(100vh-100px)] overflow-y-auto"
      >
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-6">
        <div className="flex flex-col gap-4">
         <span className="text-[10px] font-black uppercase tracking-[0.2em] text-subtle px-1">
          Navigation
         </span>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1">
          {navLinks.map((link) => (
           <Button
            key={link.label}
@@ -140,7 +140,7 @@ const Navbar = () => {
            variant="ghost"
            size="lg"
            onClick={() => setIsOpen(false)}
-           className="text-3xl font-extrabold justify-start px-1 border-none hover:bg-transparent hover:text-primary transition-colors h-auto py-2"
+           className="text-2xl font-extrabold justify-start px-1 border-none hover:bg-transparent hover:text-primary transition-colors h-auto py-2"
           >
            {link.label}
           </Button>
@@ -148,7 +148,7 @@ const Navbar = () => {
         </div>
        </div>
 
-       <div className="pt-8 border-t border-border flex flex-col gap-8">
+       <div className="pt-6 border-t border-border flex flex-col gap-6">
         <div className="flex flex-col gap-4">
          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-subtle px-1">
           Language
@@ -162,7 +162,7 @@ const Navbar = () => {
          href="#contact"
          size="lg"
          onClick={() => setIsOpen(false)}
-         className="w-full justify-center text-lg py-5"
+         className="w-full justify-center text-lg py-4"
         >
          {t({ id: "Hubungi Saya", en: "Let's Talk" })}
         </Button>

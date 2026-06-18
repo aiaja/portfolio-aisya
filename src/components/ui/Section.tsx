@@ -28,7 +28,7 @@ const Section = ({
     className
    )}
   >
-   <div className="max-w-[960px] mx-auto px-8">
+   <div className="max-w-[960px] mx-auto px-6 md:px-8">
     {children}
    </div>
   </section>
