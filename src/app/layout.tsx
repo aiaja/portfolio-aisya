@@ -58,7 +58,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
  return (
   <html lang="en" className={inter.variable}>
-   <body className="antialiased theme-v2 bg-red-500 overflow-x-hidden">
+   <body className="antialiased theme-v2 overflow-x-hidden">
     <LanguageProvider>
      <PageTransition>
       {children}
