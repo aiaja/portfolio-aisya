@@ -8,7 +8,7 @@ export interface ProjectDetailV2 {
   hero: {
     title: { line1: string; line2: string };
     tagline: Translatable;
-    stats: { label: Translatable; value: string }[];
+    stats: { label: Translatable; value: string }[], 
     role: Translatable;
     team: Translatable;
     image?: string;
@@ -46,6 +46,6 @@ export interface ProjectDetailV2 {
 
 export const projectDetailsV2: Record<string, ProjectDetailV2> = {
   "fik-apps": fikAppsData,
-  "fms": fmsData,
+  "fleet-management": fmsData,
   "pilmo": pilmoData,
 };

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { projects } from "@/data/v3/project";
+import { projects } from "@/data/projects/project";
 import Link from "next/link";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -65,7 +65,7 @@ export default function ProjectArchiveV2() {
       className="mb-12"
      >
       <Link 
-       href="/v2" 
+       href="/" 
        className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-subtle hover:text-primary transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded p-1"
       >
        <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />

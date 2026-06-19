@@ -23,7 +23,7 @@ const ProjectHero = ({ hero }: ProjectHeroProps) => {
           className="mb-12"
         >
           <Button
-            href="/"
+            href="/projects/"
             variant="ghost"
             size="sm"
             icon={<ArrowLeft size={14} />}

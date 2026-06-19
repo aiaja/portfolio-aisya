@@ -17,7 +17,7 @@ export const selectedStories: Story[] = [
   {
     tag: { id: "SaaS Akademik · Lead Frontend Engineer", en: "Academic SaaS · Lead Frontend Engineer" },
     title: "FIK Apps",
-    subtitle: { id: "Menskalakan Platform Akademik Tingkat Fakultas", en: "Scaling a Faculty-Wide Academic Platform" },
+    subtitle: { id: "Menskalakan Platform Akademik Tingkat Fakultas tanpa Merusak apa yang Sudah Bekerja", en: "Scaling a faculty-wide platform without breaking what already worked." },
     metrics: [
       { value: "6,000+", label: { id: "Mahasiswa", en: "Students" } },
       { value: "178", label: { id: "Dosen", en: "Lecturers" } },

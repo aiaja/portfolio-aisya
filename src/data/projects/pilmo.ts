@@ -23,7 +23,7 @@ export const pilmoData: ProjectDetailV2 = {
       id: "PILMO dimulai sebagai proyek pribadi untuk mengingatkan nenek saya minum obat hipertensi. Saya berasumsi lupa adalah masalah pengingat. Riset lapangan di Posyandu Lansia membuktikan saya salah: pengguna target saya tidak menggunakan smartphone.",
     },
     points: [
-      { en: "Low Smartphone Literacy", id: "Literasi Smartphone Rendah" },
+      { en: "Our users didn't use smartphones.", id: "Target Pengguna kami tidak menggunakan smartphone." },
       { en: "Symptom of a Deeper Issue", id: "Gejala dari Masalah yang Lebih Dalam" },
     ],
   },
