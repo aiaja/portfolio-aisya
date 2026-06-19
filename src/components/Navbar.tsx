@@ -108,7 +108,8 @@ const Navbar = () => {
      <Button
       variant="secondary"
       size="sm"
-      className="w-10 h-10 md:w-11 md:h-11 p-0 rounded-full shrink-0"
+      padding="none"
+      className="w-10 h-10 md:w-11 md:h-11 rounded-full shrink-0"
       onClick={() => setIsOpen(!isOpen)}
       aria-label="Toggle menu"
       aria-expanded={isOpen}
