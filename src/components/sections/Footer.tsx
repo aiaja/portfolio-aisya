@@ -18,7 +18,7 @@ const Footer = () => {
      </div>
 
      {/* Socials - Simplified to Text Links as per editorial style */}
-     <div className="flex items-center gap-8">
+     <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
       {profile.socials.map((social) => (
        <a
         key={social.label}
