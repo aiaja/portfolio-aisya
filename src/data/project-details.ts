@@ -2,6 +2,7 @@ import { Translatable } from "@/types";
 import { fikAppsData } from "./projects/fik-apps";
 import { fmsData } from "./projects/fms";
 import { pilmoData } from "./projects/pilmo";
+import { aifaData } from "./projects/aifa";
 
 export interface ProjectDetailV2 {
   slug: string;
@@ -48,4 +49,5 @@ export const projectDetailsV2: Record<string, ProjectDetailV2> = {
   "fik-apps": fikAppsData,
   "fleet-management": fmsData,
   "pilmo": pilmoData,
+  "aifa": aifaData,
 };

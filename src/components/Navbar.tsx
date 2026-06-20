@@ -61,8 +61,13 @@ const Navbar = () => {
        {/* Dynamic Gloss Sweep Effect */}
        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/logo:translate-x-full transition-transform duration-1000" />
        
-       <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-primary flex items-center justify-center text-white font-black text-[9px] md:text-[10px] shrink-0 shadow-sm relative z-10">
-        A
+       <div className="w-5 h-5 md:w-8 md:h-8 rounded-full bg-primary flex items-center justify-center text-white font-black text-[9px] md:text-[10px] shrink-0 shadow-sm relative z-10">
+        
+       <img
+        src="/char/main.svg"
+        alt="Aisya Logo"
+        className="rouded-full w-8 flex"
+       />
        </div>
        
        <span className="hidden md:block font-black text-[10px] uppercase tracking-[0.25em] text-text relative z-10">
