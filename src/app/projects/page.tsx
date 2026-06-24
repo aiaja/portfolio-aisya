@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 const getProjectLink = (slug: string) => {
  const v2DetailedProjects = ["fik-apps", "fms", "pilmo"];
  if (v2DetailedProjects.includes(slug)) {
-  return `/v2/projects/${slug}`;
+  return `/projects/${slug}`;
  }
  return `/projects/${slug}`;
 };

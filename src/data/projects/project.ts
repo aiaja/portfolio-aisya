@@ -87,7 +87,7 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "fleet-management-system",
+    slug: "fleet-management",
     title: "Fleet Management System",
     description: {
       id: "MVP SaaS Logistik multi-tenant yang menampilkan workaround legal berbasis OCR dan integrasi IoT kustom, menunjukkan pivot arsitektur yang cepat.",
