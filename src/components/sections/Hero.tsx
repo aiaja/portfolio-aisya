@@ -49,9 +49,9 @@ const Hero = () => {
       </Button>
 
       <Button
-       href="#why"
+       href="https://drive.google.com/file/d/1Oas6FrXwJ8CNbsb8gUUrjQB6AK2NmqO4/view?usp=sharing"
        variant="secondary"
-       aria-label={t({ id: "Baca cerita saya", en: "Read my story" })}
+       aria-label={t({ id: "Resume", en: "Resume" })}
       >
        {t(heroData.cta.secondary)}
       </Button>

@@ -3,92 +3,124 @@
 import { useLanguage } from "@/context/LanguageContext";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import Card from "../ui/Card";
-import Button from "../ui/Button";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import Section from "../ui/Section";
+import Button from "../ui/Button";
 
 import { selectedStories } from "@/data/selected-stories";
+import { projects } from "@/data/projects/project";
 
 const SelectedStories = () => {
- const { t } = useLanguage();
+  const { t } = useLanguage();
 
- return (
-  <Section id="stories">
-   <div className="mb-12 md:mb-16">
-    <span className="text-[11px] font-medium tracking-[0.12em] uppercase text-subtle mb-3 block">
-     {t({ id: "Cerita Pilihan", en: "Selected Stories" })}
-    </span>
-    <h2 className="text-[clamp(28px,4vw,42px)] font-extrabold leading-[1.12] text-text">
-     {t({ id: "Studi kasus dalam", en: "Case studies in" })}
-     <br />
-     {t({ id: "product thinking.", en: "product thinking." })}
-    </h2>
-   </div>
+  return (
+    <Section id="stories">
+      <div className="mb-12 md:mb-16 flex justify-between items-center">
+        <div className="">
 
-   <div className="flex flex-col gap-4">
-    {selectedStories.map((story, i) => (
-     <Link
-      key={i}
-      href={`/projects/${story.slug}`}
-      className="no-underline group"
-     >
-      <Card
-       variant="surface"
-       padding="lg"
-       initial={{ opacity: 0, y: 20 }}
-       whileInView={{ opacity: 1, y: 0 }}
-       viewport={{ once: true }}
-       transition={{ delay: i * 0.1 }}
-       className="flex flex-col gap-10 hover:border-border-strong focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
-      >
-       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-        <div className="flex-1">
-         <span className="text-[11px] font-medium tracking-[0.08em] uppercase text-subtle mb-3 block">
-          {t(story.tag)}
-         </span>
-         <h3 className="text-2xl md:text-3xl font-extrabold text-text mb-2">
-          {story.title}
-         </h3>
-         <p className="text-muted text-base italic">
-          {t(story.subtitle)}
-         </p>
+        <span className="text-[11px] font-medium tracking-[0.12em] uppercase text-subtle mb-3 block">
+          {t({ id: "Cerita Pilihan", en: "Selected Stories" })}
+        </span>
+        <h2 className="text-[clamp(28px,4vw,42px)] font-extrabold leading-[1.12] text-text">
+          {t({ id: "Studi kasus dalam", en: "Case studies in" })}
+          <br />
+          {t({ id: "product thinking.", en: "product thinking." })}
+        </h2>
         </div>
+        <div className="">
+            <Button
+       href="/projects"
+       
+       icon={<ArrowRight size={16} />}
+      >
+{t({ id: "Proyek Lainnya", en: "More Projects" })}     
+ </Button>
+        </div>
+      </div>
 
-        <Button
-         variant="ghost"
-         size="sm"
-         icon={<ArrowRight size={14} />}
-         className="shrink-0"
-        >
-         {t({ id: "Baca Studi Kasus", en: "Read Case Study" })}
-        </Button>
-       </div>
+      <div className="space-y-16 md:space-y-10">
+        {selectedStories.map((story, i) => {
+          // Look up matching project for richer description and image
+          const projectDetail = projects.find(
+            (p) =>
+              p.slug === story.slug ||
+              (p.slug === "fleet-management-system" &&
+                story.slug === "fleet-management"),
+          );
 
-       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 items-stretch">
-        {story.metrics.map((metric, idx) => (
-         <Card
-          key={idx}
-          variant="default"
-          padding="none"
-          hoverable={false}
-          className="bg-bg/50 backdrop-blur-sm flex flex-col justify-center px-4 py-4 min-h-[80px]"
-         >
-          <div className="text-[14px] md:text-md font-extrabold text-text mb-1 leading-tight tracking-tight">
-           {metric.value}
-          </div>
-          <div className="text-[9px] text-subtle uppercase tracking-widest font-bold leading-tight">
-           {t(metric.label)}
-          </div>
-         </Card>
-        ))}
-       </div>
-      </Card>
-     </Link>
-    ))}
-   </div>
-  </Section>
- );
+          return (
+            <Link
+              key={i}
+              href={`/projects/${story.slug}`}
+              className="no-underline block group"
+            >
+              <div className="flex flex-col md:flex-row items-stretch md:rounded-[32px] md:bg-[#fafafa] md:border md:border-border/40 overflow-hidden hover:border-border-strong hover:shadow-lg transition-all duration-500">
+                {/* Left Section: Information & Metrics */}
+                <div className="flex flex-col gap-4 p-6 md:p-8 md:w-[340px] shrink-0">
+                  <div>
+                    <span className="text-[10px] font-semibold tracking-[0.08em] uppercase text-subtle mb-2 block">
+                      {t(story.tag)}
+                    </span>
+                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-text leading-tight group-hover:text-primary transition-colors duration-300">
+                      {story.title}
+                    </h3>
+                  </div>
+
+                  <p className="text-[15px] font-medium leading-relaxed text-muted tracking-tight">
+                    {t(projectDetail?.description || story.subtitle)}
+                  </p>
+
+                  {/* Metrics Grid */}
+                  <div className="grid grid-cols-2 gap-2 mt-2">
+                    {story.metrics.map((metric, idx) => (
+                      <div
+                        key={idx}
+                        className="bg-surface/85 backdrop-blur-sm border border-border/45 rounded-xl p-3 flex flex-col justify-center min-h-[60px]"
+                      >
+                        <div className="text-sm font-extrabold text-text mb-0.5 leading-none">
+                          {metric.value}
+                        </div>
+                        <div className="text-[9px] text-subtle uppercase tracking-wider font-bold leading-none">
+                          {t(metric.label)}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Right Section: Image Container with Overlay Hover Action */}
+                <div className="flex-1 min-h-[260px] aspect-[16/10] md:aspect-[16/9] relative overflow-hidden rounded-[24px] md:rounded-none m-4 md:m-0 border border-border/40 md:border-none shadow-sm md:shadow-none bg-white/50">
+                  {/* Floating Overlay Action Icon */}
+                  <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 w-10 z-10 h-10 rounded-full  text-primary flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+                    <ArrowRight
+                      size={18}
+                      className="group-hover:translate-x-0.5 transition-transform duration-300"
+                    />
+                  </div>
+
+                  <motion.div
+                    className="absolute inset-0 w-full h-full p-4 md:p-8"
+                    whileHover={{ scale: 1.025 }}
+                    transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    <Image
+                      src={projectDetail?.image || "/images/placeholder.svg"}
+                      alt={story.title}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                      priority={i === 0}
+                    />
+                  </motion.div>
+                </div>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+    </Section>
+  );
 };
 
 export default SelectedStories;
-

@@ -21,7 +21,7 @@ const HomeV2 = () => {
    <HowIWork />
    <SelectedStories />
    <ExperienceGrid />
-   <ProjectArchive />
+   {/* <ProjectArchive /> */}
    <ContactEditorial />
    <Footer />
   </main>

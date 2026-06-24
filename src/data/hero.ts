@@ -11,6 +11,6 @@ export const heroData = {
   } as Translatable,
   cta: {
     primary: { id: "Lihat Karya Saya", en: "View My Work" },
-    secondary: { id: "Baca Cerita Saya", en: "Read My Story" }
+    secondary: { id: "Resume", en: "Resume" }
   }
 };
