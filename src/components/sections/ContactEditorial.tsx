@@ -16,7 +16,7 @@ const ContactEditorial = () => {
  const { t } = useLanguage();
 
  return (
-  <Section id="contact" background="surface">
+  <Section id="contact">
    <div className="max-w-[600px]">
     <span className="text-[11px] font-medium tracking-[0.12em] uppercase text-subtle mb-3 block">
      {t({ id: "Kontak", en: "Contact" })}

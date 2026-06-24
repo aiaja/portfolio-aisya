@@ -12,11 +12,26 @@ interface NavItem {
 
 interface ProjectSidebarNavProps {
  items: NavItem[];
+ activeSection?: string;
+ onActiveSectionChange?: (id: string) => void;
 }
 
-const ProjectSidebarNav = ({ items }: ProjectSidebarNavProps) => {
+const ProjectSidebarNav = ({ 
+ items,
+ activeSection: propActiveSection,
+ onActiveSectionChange
+}: ProjectSidebarNavProps) => {
  const { t } = useLanguage();
- const [activeSection, setActiveSection] = useState(items[0]?.id || "");
+ const [internalActiveSection, setInternalActiveSection] = useState(items[0]?.id || "");
+
+ const activeSection = propActiveSection !== undefined ? propActiveSection : internalActiveSection;
+ const setActiveSection = (id: string) => {
+  if (onActiveSectionChange) {
+   onActiveSectionChange(id);
+  } else {
+   setInternalActiveSection(id);
+  }
+ };
 
  useEffect(() => {
   const handleScroll = () => {
