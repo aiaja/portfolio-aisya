@@ -9,11 +9,11 @@ export interface ContactLink {
 }
 
 export const contactData = {
-  title: { id: "Tertarik membangun", en: "Interested in building" },
-  highlight: { id: "produk yang bermakna?", en: "meaningful products?" },
+  title: { id: "Mari terhubung.", en: "Let's connect." },
+  highlight: { id: "Hubungi saya.", en: "Get in touch." },
   description: { 
-    id: "Saya sedang mencari kesempatan magang di mana riset dan rekayasa berjalan beriringan. Mari mengobrol.", 
-    en: "I'm looking for internship opportunities where research and engineering go hand in hand. Let's talk." 
+    id: "Saya terbuka untuk peluang magang (internship) sebagai Frontend Engineer atau Product Strategist. Silakan hubungi saya melalui kontak di bawah.", 
+    en: "I am open to internship opportunities as a Frontend Engineer or Product Strategist. Feel free to reach out via any of the channels below." 
   } as Translatable
 };
 

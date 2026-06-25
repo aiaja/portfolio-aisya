@@ -1,8 +1,8 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
-import WhyIBuild from "@/components/sections/WhyIBuild";
-import HowIWork from "@/components/sections/HowIWork";
+// import WhyIBuild from "@/components/sections/WhyIBuild";
+// import HowIWork from "@/components/sections/HowIWork";
 import SelectedStories from "@/components/sections/SelectedStories";
 import Skills from "@/components/sections/Skills";
 import ExperienceGrid from "@/components/sections/ExperienceGrid";
@@ -21,8 +21,8 @@ const HomeV2 = () => {
    <SelectedStories />
    <Skills />
    <ExperienceGrid />
-   <WhyIBuild />
-   <HowIWork />
+   {/* <WhyIBuild /> */}
+   {/* <HowIWork /> */}
    {/* <ProjectArchive /> */}
    <ContactEditorial />
    <Footer />
