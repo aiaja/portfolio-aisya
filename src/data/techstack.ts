@@ -66,9 +66,4 @@ export const techStack: Tech[] = [
     icon: "https://cdn.simpleicons.org/shadcnui", 
     category: "tool" 
   },
-  { 
-    name: "Cursor", 
-    icon: "https://raw.githubusercontent.com/lobehub/lobe-icons/main/packages/icons-static-png/assets/light/cursor.png", 
-    category: "tool" 
-  }
 ];
