@@ -1,7 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -50,10 +50,9 @@ const SelectedStories = () => {
           );
 
           return (
-            <Link
+            <div
               key={i}
-              href={`/projects/${story.slug}`}
-              className="no-underline block group"
+              className="block group"
             >
               <div className="flex flex-col md:flex-row items-stretch md:rounded-[32px] md:bg-[#fafafa] md:border md:border-border/40 overflow-hidden hover:border-border-strong hover:shadow-lg transition-all duration-500">
                 {/* Left Section: Information & Metrics */}
@@ -62,9 +61,11 @@ const SelectedStories = () => {
                     <span className="text-[10px] font-semibold tracking-[0.08em] uppercase text-subtle mb-2 block">
                       {t(story.tag)}
                     </span>
-                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-text leading-tight group-hover:text-primary transition-colors duration-300">
-                      {story.title}
-                    </h3>
+                    <Link href={`/projects/${story.slug}`} className="no-underline">
+                      <h3 className="text-xl md:text-2xl font-bold tracking-tight text-text leading-tight hover:text-primary transition-colors duration-300">
+                        {story.title}
+                      </h3>
+                    </Link>
                   </div>
 
                   <p className="text-[15px] font-medium leading-relaxed text-muted tracking-tight">
@@ -87,12 +88,38 @@ const SelectedStories = () => {
                       </div>
                     ))}
                   </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <Button
+                      href={`/projects/${story.slug}`}
+                      variant="outline"
+                      size="sm"
+                      className="text-[11px] py-1.5 px-4"
+                    >
+                      {t({ en: "Case Study", id: "Studi Kasus" })}
+                    </Button>
+                    {projectDetail?.liveUrl && (
+                      <Button
+                        href={projectDetail.liveUrl}
+                        variant="primary"
+                        size="sm"
+                        className="text-[11px] py-1.5 px-4"
+                        icon={<ArrowUpRight size={13} />}
+                      >
+                        {t({ en: "Live Demo", id: "Buka Situs" })}
+                      </Button>
+                    )}
+                  </div>
                 </div>
 
                 {/* Right Section: Image Container with Overlay Hover Action */}
-                <div className="flex-1 min-h-[260px] aspect-[16/10] md:aspect-[16/9] relative overflow-hidden rounded-[24px] md:rounded-none m-4 md:m-0 border border-border/40 md:border-none shadow-sm md:shadow-none bg-white/50">
+                <Link
+                  href={`/projects/${story.slug}`}
+                  className="flex-1 min-h-[260px] aspect-[16/10] md:aspect-[16/9] relative overflow-hidden rounded-[24px] md:rounded-none m-4 md:m-0 border border-border/40 md:border-none shadow-sm md:shadow-none bg-white/50 block group-hover:opacity-95"
+                >
                   {/* Floating Overlay Action Icon */}
-                  <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 w-10 z-10 h-10 rounded-full  text-primary flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+                  <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 w-10 z-10 h-10 rounded-full text-primary flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
                     <ArrowRight
                       size={18}
                       className="group-hover:translate-x-0.5 transition-transform duration-300"
@@ -113,9 +140,9 @@ const SelectedStories = () => {
                       priority={i === 0}
                     />
                   </motion.div>
-                </div>
+                </Link>
               </div>
-            </Link>
+            </div>
           );
         })}
       </div>

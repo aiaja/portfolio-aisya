@@ -1,26 +1,51 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import { projects } from "@/data/projects/project";
 import Link from "next/link";
-import { ArrowUpRight, ArrowLeft } from "lucide-react";
+import { 
+ ArrowUpRight, 
+ ArrowLeft, 
+ ArrowRight, 
+ Github, 
+ Youtube, 
+ FileText, 
+ Globe, 
+ ExternalLink 
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Button from "@/components/ui/Button";
 
 // Helper to determine the link for the project.
 const getProjectLink = (slug: string) => {
- const v2DetailedProjects = ["fik-apps", "fms", "pilmo"];
- if (v2DetailedProjects.includes(slug)) {
-  return `/projects/${slug}`;
- }
  return `/projects/${slug}`;
+};
+
+// Helper to determine link details for best practice UX
+const getLinkDetails = (url: string) => {
+ if (!url) return null;
+ const lowerUrl = url.toLowerCase();
+ 
+ if (lowerUrl.includes("github.com")) {
+  return { label: "GitHub", icon: Github };
+ }
+ if (lowerUrl.includes("youtube.com") || lowerUrl.includes("youtu.be")) {
+  return { label: "Video", icon: Youtube };
+ }
+ if (lowerUrl.includes("drive.google.com") || lowerUrl.includes("docs.google.com") || lowerUrl.includes("file/d/")) {
+  return { label: "Deck", icon: FileText };
+ }
+ return { label: "Demo", icon: Globe }; // Default to Web Demo
 };
 
 // Define Filter Categories
 type FilterCategory = "All" | "Engineering" | "Product/PM" | "UI/UX";
 
 export default function ProjectArchiveV2() {
+ const router = useRouter();
  const { t } = useLanguage();
  const [activeFilter, setActiveFilter] = useState<FilterCategory>("All");
 
@@ -154,30 +179,56 @@ export default function ProjectArchiveV2() {
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.3, delay: i * 0.05 }}
          >
-          <Link 
-           href={getProjectLink(project.slug)} 
-           className="group block p-6 bg-surface border border-border rounded-2xl hover:border-primary/30 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          <div 
+           className="group block p-6 bg-surface border border-border rounded-2xl hover:border-primary/30 transition-all"
           >
-           <div className="flex justify-between items-start mb-4">
-            <span className="text-[10px] font-mono font-bold text-subtle uppercase">
-             {project.timeline.split(" ")[0]}
-            </span>
-            <ArrowUpRight className="w-5 h-5 text-border-strong group-hover:text-primary transition-colors" />
-           </div>
-           <h3 className="text-xl font-bold text-text mb-2 group-hover:text-primary transition-colors">
-            {project.title}
-           </h3>
-           <p className="text-sm text-muted mb-4 line-clamp-2">
-            {t(project.description)}
-           </p>
-           <div className="flex flex-wrap gap-2">
+           <Link href={getProjectLink(project.slug)} className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded mb-4">
+            <div className="flex justify-between items-start mb-4">
+             <span className="text-[10px] font-mono font-bold text-subtle uppercase">
+              {project.timeline.split(" ")[0]}
+             </span>
+             <ArrowRight className="w-5 h-5 text-border-strong group-hover:text-primary transition-colors group-hover:translate-x-1 duration-300" />
+            </div>
+            <h3 className="text-xl font-bold text-text mb-2 hover:text-primary transition-colors">
+             {project.title}
+            </h3>
+            <p className="text-sm text-muted line-clamp-2">
+             {t(project.description)}
+            </p>
+           </Link>
+           <div className="flex flex-wrap gap-2 mb-5">
             {project.tags.slice(0, 3).map((tag) => (
              <span key={tag} className="px-2 py-1 bg-bg border border-border rounded text-[9px] font-bold text-subtle">
               {tag}
              </span>
             ))}
            </div>
-          </Link>
+           <div className="flex flex-wrap gap-2">
+            <Button
+             href={getProjectLink(project.slug)}
+             variant="outline"
+             size="sm"
+             className="text-[10px] py-1.5 px-3"
+            >
+             {t({ en: "View Details", id: "Lihat Detail" })}
+            </Button>
+             {project.liveUrl && (() => {
+              const linkInfo = getLinkDetails(project.liveUrl);
+              const LinkIcon = linkInfo?.icon || ArrowUpRight;
+              return (
+               <Button
+                href={project.liveUrl}
+                variant="primary"
+                size="sm"
+                className="text-[10px] py-1.5 px-3"
+                icon={<LinkIcon size={12} />}
+               >
+                {linkInfo?.label || t({ en: "Live Demo", id: "Situs" })}
+               </Button>
+              );
+             })()}
+           </div>
+          </div>
          </motion.div>
         ))}
        </AnimatePresence>
@@ -204,7 +255,7 @@ export default function ProjectArchiveV2() {
          <th className="py-4 px-4 border-b border-border text-[10px] font-black uppercase tracking-[0.2em] text-subtle w-64">
           {t({ en: "Tech", id: "Teknologi" })}
          </th>
-         <th className="py-4 pl-4 border-b border-border text-[10px] font-black uppercase tracking-[0.2em] text-subtle text-right w-12">
+         <th className="py-4 pl-4 border-b border-border text-[10px] font-black uppercase tracking-[0.2em] text-subtle text-right w-28">
           Link
          </th>
         </tr>
@@ -212,54 +263,82 @@ export default function ProjectArchiveV2() {
        <tbody className="divide-y divide-border">
         <AnimatePresence>
          {filteredProjects.map((project) => (
-          <motion.tr 
-           key={project.slug} 
-           layout
-           initial={{ opacity: 0 }}
-           animate={{ opacity: 1 }}
-           exit={{ opacity: 0 }}
-           className="group cursor-pointer transition-colors hover:bg-surface-2"
-          >
-           <td className="py-6 pr-4 align-top transition-colors">
-            <span className="text-sm font-mono font-medium text-muted">
-             {project.timeline.split(" ")[0]}
-            </span>
-           </td>
-           <td className="py-6 px-4 align-top transition-colors">
-            <Link href={getProjectLink(project.slug)} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded">
-             <h3 className="text-xl font-bold text-text group-hover:text-primary transition-colors">
-              {project.title}
-             </h3>
-             <p className="text-sm text-muted mt-1 max-w-sm line-clamp-2">
-              {t(project.description)}
-             </p>
-            </Link>
-           </td>
-           <td className="py-6 px-4 align-top transition-colors">
-            <span className="text-sm font-medium text-text">
-             {t(project.role)}
-            </span>
-           </td>
-           <td className="py-6 px-4 align-top transition-colors">
-            <div className="flex flex-wrap gap-2">
-             {project.tags.slice(0, 3).map((tag) => (
-              <span key={tag} className="px-2 py-1 bg-surface border border-border rounded text-[10px] font-medium text-muted">
-               {tag}
-              </span>
-             ))}
-            </div>
-           </td>
-           <td className="py-6 pl-4 align-top text-right transition-colors">
-            <Link 
-             href={getProjectLink(project.slug)}
-             aria-label={`View details for ${project.title}`}
-             className="inline-flex w-10 h-10 items-center justify-center rounded-full border border-border group-hover:border-primary group-hover:bg-primary/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-            >
-             <ArrowUpRight className="w-4 h-4 text-subtle group-hover:text-primary group-hover:translate-x-[2px] group-hover:translate-y-[-2px] transition-all duration-300" />
-            </Link>
-           </td>
-          </motion.tr>
-         ))}
+           <motion.tr 
+            key={project.slug} 
+            layout
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            tabIndex={0}
+            onKeyDown={(e) => {
+             if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              router.push(getProjectLink(project.slug));
+             }
+            }}
+            onClick={() => router.push(getProjectLink(project.slug))}
+            className="group cursor-pointer transition-colors hover:bg-surface-2 focus-visible:bg-surface-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+           >
+            <td className="py-6 pr-4 align-top transition-colors">
+             <span className="text-sm font-mono font-medium text-muted">
+              {project.timeline.split(" ")[0]}
+             </span>
+            </td>
+            <td className="py-6 px-4 align-top transition-colors">
+             <div className="focus-visible:outline-none rounded">
+              <h3 className="text-xl font-bold text-text group-hover:text-primary transition-colors">
+               {project.title}
+              </h3>
+              <p className="text-sm text-muted mt-1 max-w-sm line-clamp-2">
+               {t(project.description)}
+              </p>
+             </div>
+            </td>
+            <td className="py-6 px-4 align-top transition-colors">
+             <span className="text-sm font-medium text-text">
+              {t(project.role)}
+             </span>
+            </td>
+            <td className="py-6 px-4 align-top transition-colors">
+             <div className="flex flex-wrap gap-2">
+              {project.tags.slice(0, 3).map((tag) => (
+               <span key={tag} className="px-2 py-1 bg-surface border border-border rounded text-[10px] font-medium text-muted">
+                {tag}
+               </span>
+              ))}
+             </div>
+            </td>
+            <td className="py-6 pl-4 align-top text-right transition-colors" onClick={(e) => e.stopPropagation()}>
+             <div className="inline-flex items-center gap-2 justify-end w-full">
+              {project.liveUrl && (() => {
+               const linkInfo = getLinkDetails(project.liveUrl);
+               if (!linkInfo) return null;
+               const LinkIcon = linkInfo.icon;
+               return (
+                <a 
+                 href={project.liveUrl}
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label={`Visit ${linkInfo.label} for ${project.title}`}
+                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-border hover:border-primary hover:bg-primary-10 text-muted hover:text-primary transition-all text-xs font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary h-10 shadow-sm"
+                >
+                 <LinkIcon className="w-3.5 h-3.5" />
+                 <span>{linkInfo.label}</span>
+                 <ArrowUpRight className="w-3 h-3 opacity-60 transition-transform group-hover:translate-x-[1px] group-hover:translate-y-[-1px]" />
+                </a>
+               );
+              })()}
+              <Link 
+               href={getProjectLink(project.slug)}
+               aria-label={`View details for ${project.title}`}
+               className="inline-flex w-10 h-10 items-center justify-center rounded-full border border-border hover:border-primary hover:bg-primary/5 text-subtle hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary shrink-0"
+              >
+               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-[2px]" />
+              </Link>
+             </div>
+            </td>
+           </motion.tr>
+          ))}
         </AnimatePresence>
        </tbody>
       </table>

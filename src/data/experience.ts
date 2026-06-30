@@ -8,14 +8,18 @@ export interface Impact {
 
 export interface ExperienceV2 {
   org: string;
+  role: Translatable;
   period: Translatable;
+  technologies?: string[];
   impacts: Impact[];
 }
 
 export const experiencesV2: ExperienceV2[] = [
   {
     org: "Bengkel Koding",
+    role: { id: "Frontend Lead & Mentor", en: "Frontend Lead & Mentor" },
     period: { id: "Sept 2025 – Sekarang", en: "Sept 2025 – Present" },
+    technologies: ["Next.js", "React", "TypeScript", "Laravel", "Tailwind CSS", "Figma"],
     impacts: [
       { 
         text: { id: "Strategi produk & prioritas fitur di berbagai", en: "Product strategy & feature prioritization across" },
@@ -34,7 +38,9 @@ export const experiencesV2: ExperienceV2[] = [
   },
   {
     org: "DNCC",
-    period: { id: "Agu 2024 – Sekarang · Wakil Presiden", en: "Aug 2024 – Present · Vice President" },
+    role: { id: "Wakil Presiden", en: "Vice President" },
+    period: { id: "Agu 2024 – Sekarang", en: "Aug 2024 – Present" },
+    technologies: ["Figma", "Git", "Project Management", "Leadership"],
     impacts: [
       { 
         text: { id: "Menjalankan program upskilling dengan", en: "Ran upskilling program with" },
@@ -53,8 +59,10 @@ export const experiencesV2: ExperienceV2[] = [
     ]
   },
   {
-    org: "Teaching Assistant",
-    period: { id: "Sept 2025 – Sekarang · Bengkel Koding", en: "Sept 2025 – Present · Bengkel Koding" },
+    org: "Bengkel Koding",
+    role: { id: "Asisten Dosen / Asisten Praktikum", en: "Teaching Assistant" },
+    period: { id: "Sept 2025 – Sekarang", en: "Sept 2025 – Present" },
+    technologies: ["Laravel", "PHP", "MySQL", "MVC", "Code Debugging"],
     impacts: [
       { 
         text: { id: "Membimbing debugging, arsitektur, dan pembelajaran berbasis proyek", en: "Guided debugging, architecture, and project-based learning" }

@@ -2,6 +2,7 @@
 
 import { use, useState } from "react";
 import { projectDetailsV2 } from "@/data/project-details";
+import { projects } from "@/data/projects/project";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -33,6 +34,13 @@ export default function ProjectDetailV2Page({
 
   if (!data) notFound();
 
+  // Find corresponding metadata to retrieve the live URL
+  const projectMeta = projects.find(
+    (p) =>
+      p.slug === slug ||
+      (slug === "fleet-management" && p.slug === "fleet-management-system")
+  );
+
   const navItems = [
     { id: "hero", label: { en: "Introduction", id: "Pengantar" } },
     { id: "context", label: { en: "The Problem", id: "Masalah" } },
@@ -49,7 +57,7 @@ export default function ProjectDetailV2Page({
         onActiveSectionChange={setActiveSection} 
       />
 
-      <ProjectHero hero={data.hero} />
+      <ProjectHero hero={data.hero} liveUrl={projectMeta?.liveUrl} />
 
       <ProjectContext context={data.context} />
 

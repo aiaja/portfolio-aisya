@@ -4,14 +4,15 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { ProjectDetailV2 } from "@/data/project-details";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Button from "../ui/Button";
 
 interface ProjectHeroProps {
   hero: ProjectDetailV2["hero"];
+  liveUrl?: string;
 }
 
-const ProjectHero = ({ hero }: ProjectHeroProps) => {
+const ProjectHero = ({ hero, liveUrl }: ProjectHeroProps) => {
   const { t } = useLanguage();
 
   return (
@@ -62,6 +63,23 @@ const ProjectHero = ({ hero }: ProjectHeroProps) => {
             >
               {t(hero.tagline)}
             </motion.p>
+            {liveUrl && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35 }}
+                className="mt-6"
+              >
+                <Button
+                  href={liveUrl}
+                  variant="primary"
+                  size="sm"
+                  icon={<ArrowUpRight size={14} />}
+                >
+                  {t({ en: "Visit Live Site", id: "Kunjungi Situs" })}
+                </Button>
+              </motion.div>
+            )}
           </div>
 
           <div className="grid grid-cols-2 gap-4 w-full md:w-auto">
