@@ -16,8 +16,8 @@ const ProjectReflection = ({ reflection, slug }: ProjectReflectionProps) => {
   <>
    <Section id="reflection">
     <div className="max-w-[960px] mx-auto flex flex-col md:flex-row gap-16 items-center">
-     <div className="w-24 h-24 rounded-full bg-primary-10 border border-primary-20 shrink-0 flex items-center justify-center font-black text-3xl text-primary shadow-inner">
-      A
+     <div className="w-full">
+      <img src="/char/smile.svg" alt="" />
      </div>
      <div>
       <span className="text-[11px] font-bold tracking-[0.12em] uppercase text-subtle mb-4 block">

@@ -2,99 +2,155 @@ import { ProjectDetailV2 } from "../project-details";
 
 export const fikAppsData: ProjectDetailV2 = {
   slug: "fik-apps",
+
   hero: {
-    title: { line1: "Scaling FIK Apps:", line2: "Department to Faculty." },
+    title: {
+      line1: "Scaling a Legacy System.",
+      line2: "Without Breaking It.",
+    },
     tagline: {
-      en: "How we transformed a fragmented academic ecosystem into a unified faculty platform serving 6,000+ students.",
-      id: "Bagaimana kami mentransformasi ekosistem akademik yang terfragmentasi menjadi platform fakultas terpadu untuk 6.000+ mahasiswa.",
+      en: "How we transformed multiple independent academic systems into a scalable faculty platform while keeping existing programs running.",
+      id: "Bagaimana kami mentransformasi berbagai sistem akademik yang terpisah menjadi platform fakultas yang skalabel tanpa mengganggu program yang sudah berjalan.",
     },
     stats: [
-      { label: { en: "Students", id: "Mahasiswa" }, value: "6,000+" },
-      { label: { en: "Lecturers", id: "Dosen" }, value: "178" },
+      {
+        label: { en: "Students", id: "Mahasiswa" },
+        value: "6,000+",
+      },
+      {
+        label: { en: "Components Reduced", id: "Komponen Direduksi" },
+        value: "190+ → 25",
+      },
     ],
-    role: { en: "Frontend Lead", id: "Frontend Lead" },
-    team: { en: "4 Engineers", id: "4 Engineer" },
+    role: {
+      en: "Frontend Lead",
+      id: "Frontend Lead",
+    },
+    team: {
+      en: "4 Frontend Engineers",
+      id: "4 Frontend Engineer",
+    },
     image: "/images/FIK APPS.svg",
   },
+
   context: {
-    title: { en: "A fragmented foundation.", id: "Fondasi yang terfragmentasi." },
+    title: {
+      en: "A System That Grew Without Standards.",
+      id: "Sistem yang Bertumbuh Tanpa Standar.",
+    },
     description: {
-      en: "The faculty had multiple study programs developed in isolation. This led to a 'UI Wild West'—duplicate components, inconsistent branding, and a code structure that was impossible to maintain at scale.",
-      id: "Fakultas memiliki beberapa program studi yang dikembangkan secara terpisah. Hal ini menyebabkan 'UI Wild West'—komponen duplikat, branding tidak konsisten, dan struktur kode yang mustahil dipelihara dalam skala besar.",
+      en: "Each study program had been developed independently by different developers inside the same repository. Components, layouts, and folder structures evolved differently, making the platform difficult to maintain and nearly impossible to scale beyond individual departments.",
+      id: "Setiap program studi dikembangkan secara terpisah oleh developer yang berbeda dalam satu repository yang sama. Komponen, layout, dan struktur folder berkembang dengan standar masing-masing sehingga sulit dipelihara dan hampir mustahil diskalakan ke tingkat fakultas.",
     },
     points: [
-      { en: "190+ Scattered Components", id: "190+ Komponen Tersebar" },
-      { en: "Inconsistent User Experience", id: "Pengalaman Pengguna Tidak Konsisten" },
+      {
+        en: "190+ Duplicated Components",
+        id: "190+ Komponen Duplikat",
+      },
+      {
+        en: "No Shared Design Standards",
+        id: "Tidak Ada Standar Bersama",
+      },
     ],
   },
+
   decision: {
-    title: { en: "Scalability over Perfection.", id: "Skalabilitas di atas Kesempurnaan." },
+    title: {
+      en: "Scalability over Perfection.",
+      id: "Skalabilitas di atas Kesempurnaan.",
+    },
     description: {
-      en: "As an engineer, I wanted a full rewrite. But the risk was too high—it would break production for active programs. I chose an incremental transformation instead.",
-      id: "Sebagai engineer, saya ingin refactor total. Namun risikonya terlalu tinggi—akan merusak produksi bagi program studi yang aktif. Saya memilih transformasi bertahap.",
+      en: "My first instinct was a complete refactor. After testing it locally, I realized the changes created a domino effect that risked breaking active production systems. Instead of pursuing the ideal architecture, I redesigned only the parts required for faculty-wide scalability.",
+      id: "Insting pertama saya adalah melakukan refactor total. Namun setelah mencobanya di lingkungan lokal, saya menyadari perubahan tersebut menimbulkan domino effect yang berisiko merusak sistem produksi yang sudah berjalan. Saya akhirnya hanya merefactor bagian yang benar-benar dibutuhkan untuk skalabilitas tingkat fakultas.",
     },
     options: [
       {
         label: "Option A",
         name: "Full Rewrite",
-        status: { en: "⚠ High Risk / Breakage", id: "⚠ Risiko Tinggi / Rusak" },
+        status: {
+          en: "⚠ Production Risk",
+          id: "⚠ Berisiko ke Produksi",
+        },
         selected: false,
       },
       {
         label: "Option B",
         name: "Incremental Refactor",
-        status: { en: "✓ Zero Downtime / Safe", id: "✓ Tanpa Downtime / Aman" },
+        status: {
+          en: "✓ Safe Migration",
+          id: "✓ Migrasi Aman",
+        },
         selected: true,
       },
     ],
   },
+
   solutions: {
-    title: { en: "Building the Ecosystem.", id: "Membangun Ekosistem." },
+    title: {
+      en: "Designing for Faculty Scale.",
+      id: "Merancang untuk Skala Fakultas.",
+    },
+
     items: [
       {
-        title: { en: "Modular RBAC Redesign", id: "Redesain RBAC Modular" },
+        title: {
+          en: "Role-Based Access Redesign",
+          id: "Redesain Role-Based Access",
+        },
         description: {
-          en: "Transitioned from simple Admin roles to a 4-tier system matching faculty hierarchy.",
-          id: "Transisi dari role Admin sederhana ke sistem 4-tier yang sesuai hierarki fakultas.",
+          en: "Separated overlapping responsibilities into four dedicated roles, allowing faculty executives, web administrators, departments, and coordinators to focus on their own workflows.",
+          id: "Memisahkan tanggung jawab yang sebelumnya tumpang tindih menjadi empat role berbeda sehingga dekanat, web admin, admin program studi, dan koordinator memiliki workflow yang lebih jelas.",
         },
         tags: ["Super", "Web", "Program", "Coord"],
         colSpan: 7,
       },
+
       {
-        title: { en: "190+ → 25", id: "190+ → 25" },
+        title: {
+          en: "Shared Component System",
+          id: "Shared Component System",
+        },
         description: {
-          en: "Consolidated scattered components into a unified Shared System.",
-          id: "Mengonsolidasi komponen yang tersebar ke dalam satu Shared System.",
+          en: "Reduced more than 190 scattered UI components into a reusable shared system, creating a more consistent interface while simplifying long-term maintenance.",
+          id: "Mereduksi lebih dari 190 komponen UI yang tersebar menjadi sistem komponen bersama sehingga antarmuka lebih konsisten dan proses maintenance jauh lebih sederhana.",
         },
         colSpan: 5,
       },
+
       {
-        title: { en: "Template-based CMS", id: "CMS Berbasis Template" },
+        title: {
+          en: "Controlled Flexibility",
+          id: "Fleksibilitas yang Terkontrol",
+        },
         description: {
-          en: "A compromise between flexibility and faculty-wide branding consistency.",
-          id: "Kompromi antara fleksibilitas dan konsistensi branding fakultas.",
+          en: "Stakeholders requested a drag-and-drop website builder, but we chose template-based CMS instead to balance branding consistency with ease of use for non-technical staff.",
+          id: "Stakeholder menginginkan website builder drag-and-drop, namun kami memilih CMS berbasis template agar branding tetap konsisten sekaligus mudah digunakan oleh staf non-teknis.",
         },
         colSpan: 5,
       },
+
       {
-        title: { en: "Global Data-Table", id: "Data-Table Global" },
-        description: {
-          en: "One standardized component to rule all academic data views.",
-          id: "Satu komponen standar untuk mengatur semua tampilan data akademik.",
+        title: {
+          en: "Engineering Standards",
+          id: "Standarisasi Engineering",
         },
-        icon: "Table",
+        description: {
+          en: "Established shared development practices including reusable components, pull requests, build verification, and branch conventions to reduce conflicts across the frontend team.",
+          id: "Menerapkan standar pengembangan bersama seperti reusable component, pull request, build verification, serta konvensi branch untuk meminimalkan konflik antar developer frontend.",
+        },
         colSpan: 7,
       },
     ],
   },
+
   reflection: {
     quote: {
-      en: "The best solution isn't always the most technically ideal one. It's the one that survives the real world.",
-      id: "Solusi terbaik tidak selalu yang paling ideal secara teknis. Tapi yang bisa bertahan di dunia nyata.",
+      en: "Great engineering isn't about building the perfect architecture. It's about knowing which imperfections are worth keeping.",
+      id: "Engineering yang baik bukan tentang membangun arsitektur yang sempurna, tetapi mengetahui kompromi mana yang layak dipertahankan.",
     },
     description: {
-      en: "Engineering decisions must balance user needs, business risks, and legacy systems. Incremental transformation gave us more impact than a rewrite ever could.",
-      id: "Keputusan engineering harus menyeimbangkan kebutuhan pengguna, risiko bisnis, dan sistem lama. Transformasi bertahap memberi dampak lebih besar daripada rewrite total.",
+      en: "This project changed how I think about software engineering. I learned that scalability isn't achieved by rewriting everything—it comes from making careful decisions that respect existing users, business constraints, and the reality of legacy systems.",
+      id: "Proyek ini mengubah cara saya memandang software engineering. Saya belajar bahwa skalabilitas bukan dicapai dengan menulis ulang semuanya, tetapi melalui keputusan-keputusan yang menghormati pengguna yang sudah ada, keterbatasan bisnis, dan realitas sistem legacy.",
     },
   },
 };

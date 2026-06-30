@@ -6,6 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { ProjectDetailV2 } from "@/data/project-details";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Button from "../ui/Button";
+import { cn } from "@/lib/utils";
 
 interface ProjectHeroProps {
   hero: ProjectDetailV2["hero"];
@@ -86,12 +87,15 @@ const ProjectHero = ({ hero, liveUrl }: ProjectHeroProps) => {
             {hero.stats.map((stat, i) => (
               <div
                 key={i}
-                className="p-6 bg-surface border border-border rounded-3xl min-w-[140px]"
+                className="p-6 bg-surface border border-border rounded-3xl min-w-[240px]"
               >
-                <div className="text-3xl font-extrabold text-primary mb-1">
-                  {stat.value}
+                <div className={cn(
+                  "font-extrabold text-primary mb-1 tracking-tight leading-none",
+                  stat.value.length > 8 ? "text-xl md:text-2xl" : "text-3xl"
+                )}>
+                   {stat.value}
                 </div>
-                <div className="text-[10px] font-black uppercase tracking-widest text-subtle">
+                <div className="text-[10px] font-black uppercase tracking-widest text-subtle leading-snug">
                   {t(stat.label)}
                 </div>
               </div>

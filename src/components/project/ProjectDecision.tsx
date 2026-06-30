@@ -17,7 +17,7 @@ const ProjectDecision = ({ decision }: ProjectDecisionProps) => {
    <div className="bg-primary-10/30 border border-primary-20 rounded-[40px] p-12 md:p-16 relative overflow-hidden">
     <div className="relative z-10 max-w-[640px]">
      <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-primary mb-6 block">
-      {t({ en: "The Hard Decision", id: "Keputusan Sulit" })}
+      {t({ en: "The Decision", id: "Keputusan" })}
      </span>
      <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-8 text-text">
       {t(decision.title)}
