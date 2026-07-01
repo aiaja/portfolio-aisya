@@ -171,6 +171,89 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "pilmo",
+    title: "PILMO",
+    description: {
+      id: "Infrastruktur kesehatan publik untuk meningkatkan kepatuhan pengobatan pasien TBC melalui sistem pemantauan terintegrasi 3 entitas.",
+      en: "Public health infrastructure to improve TB patient treatment adherence through an integrated 3-entity monitoring system.",
+    },
+    image: "/images/PILMO.svg",
+    tags: ["ReactJS", "OCR Integration", "HealthTech"],
+    liveUrl: "https://youtu.be/FmBQtx4oqMw",
+    status: "done",
+    role: { id: "Hustler & Product Manager", en: "Hustler & Product Manager" },
+    timeline: "2025",
+    content: {
+      problem: {
+        summary: {
+          id: "Indonesia menempati peringkat ke-2 kasus TBC tertinggi di dunia, di mana kegagalan pengobatan sering terjadi akibat stigma sosial dan beban administrasi.",
+          en: "Indonesia ranks 2nd in the highest TB cases globally, where treatment failure often occurs due to social stigma and administrative burden.",
+        },
+        details: [
+          {
+            id: "Pasien TBC enggan berobat atau sering lupa meminum obat harian akibat efek samping dan kurangnya dukungan mental.",
+            en: "TB patients are reluctant to seek treatment or often forget daily medication due to side effects and lack of mental support.",
+          },
+          {
+            id: "Petugas kesehatan kewalahan memantau ratusan pasien secara manual dan harus melakukan 'Double Entry' data dari kertas ke sistem digital.",
+            en: "Health workers are overwhelmed monitoring hundreds of patients manually and must perform 'Double Entry' of data from paper to digital systems.",
+          },
+          {
+            id: "Kurangnya transparansi data real-time bagi pemangku kepentingan untuk menentukan kebijakan kesehatan yang berbasis heatmap.",
+            en: "Lack of real-time data transparency for stakeholders to determine heatmap-based health policies.",
+          },
+        ],
+      },
+      decision: [
+        {
+          title: { id: "Sistem Verifikasi 3-Level", en: "3-Level Verification System" },
+          description: {
+            id: "Merancang mekanisme verifikasi progresif (Button -> Foto -> Video) menggunakan Local Task Logic untuk memastikan validitas konsumsi obat tanpa membebani pasien.",
+            en: "Designed a progressive verification mechanism (Button -> Photo -> Video) using Local Task Logic to ensure medication validity without burdening the patient.",
+          },
+        },
+        {
+          title: { id: "Integrasi OCR Digitalisasi Form", en: "OCR Digitalization Integration" },
+          description: {
+            id: "Memproyeksikan integrasi OCR sebagai solusi jembatan untuk mendigitalisasi form kertas petugas secara otomatis, mengeliminasi inefisiensi pencatatan manual.",
+            en: "Projected OCR integration as a bridge solution to automatically digitize health workers' paper forms, eliminating manual recording inefficiencies.",
+          },
+        },
+        {
+          title: { id: "Ekosistem Komunitas Anonim", en: "Anonymous Community Ecosystem" },
+          description: {
+            id: "Membangun fitur komunitas anonim untuk memberikan dukungan mental antar pasien, mengurangi stigma sosial yang menghambat proses penyembuhan.",
+            en: "Built an anonymous community feature to provide peer mental support among patients, reducing the social stigma that hinders the healing process.",
+          },
+        },
+      ],
+      impact: {
+        id: "Mengurangi beban psikologis dan operasional bagi pasien TBC dan tenaga medis, mengubah proses pengobatan yang menakutkan menjadi perjalanan yang didukung komunitas.",
+        en: "Reducing the psychological and operational burden for TB patients and health workers, transforming a daunting treatment process into a community-supported journey.",
+      },
+      result: {
+        summary: {
+          id: "Menciptakan infrastruktur kesehatan yang menghubungkan pasien, petugas, dan stakeholder secara sistemik. Berhasil menembus Top 8 Finalist Nasional di Hology 8.0.",
+          en: "Created a systemic health infrastructure connecting patients, workers, and stakeholders. Successfully reached Top 8 National Finalist at Hology 8.0.",
+        },
+        learnings: [
+          {
+            id: "Inovasi kesehatan harus fokus pada penurunan hambatan operasional (friction) bagi petugas di lapangan, bukan sekadar penambahan fitur bagi pasien.",
+            en: "Health innovation must focus on reducing operational friction for field workers, not just adding features for patients.",
+          },
+          {
+            id: "Digitalisasi form fisik menggunakan OCR adalah langkah krusial untuk adopsi teknologi di sektor yang masih sangat bergantung pada kertas.",
+            en: "Digitalizing physical forms using OCR is a crucial step for tech adoption in sectors still heavily dependent on paper.",
+          },
+        ],
+        metrics: [
+          { label: { id: "Prestasi", en: "National Award" }, value: "Top 8 Finalist" },
+          { label: { id: "Validasi", en: "Validation" }, value: "Market-Ready" },
+        ],
+      },
+    },
+  },
+  {
     "slug": "poliklinik-management-system",
     "title": "Poliklinik Management System",
   "description": {
@@ -256,90 +339,7 @@ export const projects: Project[] = [
     }
   }
 },
-{
-    slug: "pilmo",
-    title: "PILMO",
-    description: {
-      id: "Infrastruktur kesehatan publik untuk meningkatkan kepatuhan pengobatan pasien TBC melalui sistem pemantauan terintegrasi 3 entitas.",
-      en: "Public health infrastructure to improve TB patient treatment adherence through an integrated 3-entity monitoring system.",
-    },
-    image: "/images/PILMO.svg",
-    tags: ["ReactJS", "OCR Integration", "HealthTech"],
-    liveUrl: "https://youtu.be/FmBQtx4oqMw",
-    status: "done",
-    role: { id: "Hustler & Product Manager", en: "Hustler & Product Manager" },
-    timeline: "2025",
-    content: {
-      problem: {
-        summary: {
-          id: "Indonesia menempati peringkat ke-2 kasus TBC tertinggi di dunia, di mana kegagalan pengobatan sering terjadi akibat stigma sosial dan beban administrasi.",
-          en: "Indonesia ranks 2nd in the highest TB cases globally, where treatment failure often occurs due to social stigma and administrative burden.",
-        },
-        details: [
-          {
-            id: "Pasien TBC enggan berobat atau sering lupa meminum obat harian akibat efek samping dan kurangnya dukungan mental.",
-            en: "TB patients are reluctant to seek treatment or often forget daily medication due to side effects and lack of mental support.",
-          },
-          {
-            id: "Petugas kesehatan kewalahan memantau ratusan pasien secara manual dan harus melakukan 'Double Entry' data dari kertas ke sistem digital.",
-            en: "Health workers are overwhelmed monitoring hundreds of patients manually and must perform 'Double Entry' of data from paper to digital systems.",
-          },
-          {
-            id: "Kurangnya transparansi data real-time bagi pemangku kepentingan untuk menentukan kebijakan kesehatan yang berbasis heatmap.",
-            en: "Lack of real-time data transparency for stakeholders to determine heatmap-based health policies.",
-          },
-        ],
-      },
-      decision: [
-        {
-          title: { id: "Sistem Verifikasi 3-Level", en: "3-Level Verification System" },
-          description: {
-            id: "Merancang mekanisme verifikasi progresif (Button -> Foto -> Video) menggunakan Local Task Logic untuk memastikan validitas konsumsi obat tanpa membebani pasien.",
-            en: "Designed a progressive verification mechanism (Button -> Photo -> Video) using Local Task Logic to ensure medication validity without burdening the patient.",
-          },
-        },
-        {
-          title: { id: "Integrasi OCR Digitalisasi Form", en: "OCR Digitalization Integration" },
-          description: {
-            id: "Memproyeksikan integrasi OCR sebagai solusi jembatan untuk mendigitalisasi form kertas petugas secara otomatis, mengeliminasi inefisiensi pencatatan manual.",
-            en: "Projected OCR integration as a bridge solution to automatically digitize health workers' paper forms, eliminating manual recording inefficiencies.",
-          },
-        },
-        {
-          title: { id: "Ekosistem Komunitas Anonim", en: "Anonymous Community Ecosystem" },
-          description: {
-            id: "Membangun fitur komunitas anonim untuk memberikan dukungan mental antar pasien, mengurangi stigma sosial yang menghambat proses penyembuhan.",
-            en: "Built an anonymous community feature to provide peer mental support among patients, reducing the social stigma that hinders the healing process.",
-          },
-        },
-      ],
-      impact: {
-        id: "Mengurangi beban psikologis dan operasional bagi pasien TBC dan tenaga medis, mengubah proses pengobatan yang menakutkan menjadi perjalanan yang didukung komunitas.",
-        en: "Reducing the psychological and operational burden for TB patients and health workers, transforming a daunting treatment process into a community-supported journey.",
-      },
-      result: {
-        summary: {
-          id: "Menciptakan infrastruktur kesehatan yang menghubungkan pasien, petugas, dan stakeholder secara sistemik. Berhasil menembus Top 8 Finalist Nasional di Hology 8.0.",
-          en: "Created a systemic health infrastructure connecting patients, workers, and stakeholders. Successfully reached Top 8 National Finalist at Hology 8.0.",
-        },
-        learnings: [
-          {
-            id: "Inovasi kesehatan harus fokus pada penurunan hambatan operasional (friction) bagi petugas di lapangan, bukan sekadar penambahan fitur bagi pasien.",
-            en: "Health innovation must focus on reducing operational friction for field workers, not just adding features for patients.",
-          },
-          {
-            id: "Digitalisasi form fisik menggunakan OCR adalah langkah krusial untuk adopsi teknologi di sektor yang masih sangat bergantung pada kertas.",
-            en: "Digitalizing physical forms using OCR is a crucial step for tech adoption in sectors still heavily dependent on paper.",
-          },
-        ],
-        metrics: [
-          { label: { id: "Prestasi", en: "National Award" }, value: "Top 8 Finalist" },
-          { label: { id: "Validasi", en: "Validation" }, value: "Market-Ready" },
-        ],
-      },
-    },
-  },
-{
+  {
   slug: "aifa",
   title: "AIFA",
   description: {

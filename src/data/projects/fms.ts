@@ -2,101 +2,161 @@ import { ProjectDetailV2 } from "../project-details";
 
 export const fmsData: ProjectDetailV2 = {
   slug: "fleet-management",
+
   hero: {
-    title: { line1: "Fleet Management System:", line2: "Leading Through Uncertainty." },
+    title: {
+      line1: "Keeping a Product Alive.",
+      line2: "When Everything Changed.",
+    },
     tagline: {
-      en: "How a rejected mining solution evolved into a logistics fleet platform through market validation, team leadership, and continuous adaptation.",
-      id: "Bagaimana solusi pertambangan yang ditolak berkembang menjadi platform manajemen armada logistik melalui validasi pasar, kepemimpinan tim, dan adaptasi berkelanjutan.",
+      en: "How a rejected mining solution evolved into a logistics fleet platform through market validation, continuous learning, and team leadership.",
+      id: "Bagaimana solusi pertambangan yang ditolak berkembang menjadi platform manajemen armada logistik melalui validasi pasar, pembelajaran berkelanjutan, dan kepemimpinan tim.",
     },
     stats: [
-      { label: { en: "Team Members", id: "Anggota Tim" }, value: "7" },
-      { label: { en: "Market Pivot", id: "Pivot Pasar" }, value: "1"},
+      {
+        label: {
+          en: "Team Members",
+          id: "Anggota Tim",
+        },
+        value: "7",
+      },
+      {
+        label: {
+          en: "Industry Pivot",
+          id: "Pivot Industri",
+        },
+        value: "Mining → Logistics",
+      },
     ],
-    role: { en: "Product Manager & Frontend", id: "Product Manager & Frontend" },
-    team: { en: "7 Multidisciplinary Members", id: "7 Anggota Multidisiplin" },
+    role: {
+      en: "Product Manager & Frontend Engineer",
+      id: "Product Manager & Frontend Engineer",
+    },
+    team: {
+      en: "7 Multidisciplinary Members",
+      id: "7 Anggota Multidisiplin",
+    },
     image: "/images/FLEET MANAGEMENT SYSTEM.svg",
   },
+
   context: {
-    title: { en: "The Cost of Silence.", id: "Biaya dari Sebuah Keheningan." },
+    title: {
+      en: "When the Roadmap Suddenly Ended.",
+      id: "Saat Roadmap Tiba-Tiba Berhenti.",
+    },
     description: {
-      en: "The project started as a mining fleet monitoring solution focused on fuel fraud prevention. After completing the web platform and submitting funding proposals, stakeholders stopped responding. We had no feedback, no funding, and no clear direction.",
-      id: "Proyek ini dimulai sebagai solusi monitoring armada pertambangan yang berfokus pada pencegahan kecurangan BBM. Setelah platform web selesai dibangun dan proposal pendanaan diajukan, stakeholder berhenti merespons. Kami tidak memiliki feedback, pendanaan, maupun arah yang jelas.",
+      en: "The project began as a mining fleet monitoring platform focused on preventing fuel fraud. After completing the web application and submitting funding proposals, our proposal was rejected. Stakeholders stopped responding, the IoT implementation stalled, and the team lost its direction.",
+      id: "Proyek ini dimulai sebagai platform monitoring armada pertambangan untuk mencegah kecurangan BBM. Setelah aplikasi web selesai dan proposal pendanaan diajukan, proposal kami ditolak. Stakeholder berhenti merespons, implementasi IoT terhenti, dan tim kehilangan arah.",
     },
     points: [
-      { en: "Funding Proposal Rejected", id: "Proposal Pendanaan Ditolak" },
-      { en: "Stakeholders Went Silent", id: "Stakeholder Tidak Merespons" },
+      {
+        en: "Funding Proposal Rejected",
+        id: "Proposal Pendanaan Ditolak",
+      },
+      {
+        en: "No Stakeholder Feedback",
+        id: "Tidak Ada Feedback Stakeholder",
+      },
     ],
   },
+
   decision: {
-    title: { en: "Pivot or Fade Away.", id: "Pivot atau Menghilang." },
+    title: {
+      en: "Don't Wait. Validate Again.",
+      id: "Jangan Menunggu. Validasi Lagi.",
+    },
     description: {
-      en: "The team faced a difficult choice: abandon the project or challenge our assumptions. Rather than waiting indefinitely, I led discussions to revalidate the market, identify alternative industries, and redefine our roadmap.",
-      id: "Tim menghadapi pilihan sulit: menghentikan proyek atau mempertanyakan kembali asumsi yang kami miliki. Daripada menunggu tanpa kepastian, saya memimpin diskusi untuk memvalidasi ulang pasar, mencari industri alternatif, dan mendefinisikan ulang roadmap produk.",
+      en: "Instead of waiting for uncertain stakeholders, I led the team to revisit our assumptions. We interviewed new industries, validated alternative use cases, and decided to pivot toward logistics, where fleet visibility remained a critical operational problem.",
+      id: "Daripada menunggu stakeholder tanpa kepastian, saya mengajak tim memvalidasi ulang asumsi kami. Kami mewawancarai industri lain, mencari use case baru, dan memutuskan pivot ke sektor logistik yang masih memiliki kebutuhan besar terhadap monitoring armada.",
     },
     options: [
       {
         label: "Option A",
-        name: "Wait for Stakeholders",
-        status: { en: "⚠ Project Stagnation", id: "⚠ Proyek Berhenti" },
+        name: "Wait for Stakeholder Response",
+        status: {
+          en: "⚠ No Progress",
+          id: "⚠ Tidak Ada Perkembangan",
+        },
         selected: false,
       },
       {
         label: "Option B",
-        name: "Market Pivot & Rebuild",
-        status: { en: "✓ New Opportunities", id: "✓ Peluang Baru" },
+        name: "Pivot & Revalidate",
+        status: {
+          en: "✓ New Market Opportunity",
+          id: "✓ Peluang Pasar Baru",
+        },
         selected: true,
       },
     ],
   },
+
   solutions: {
-    title: { en: "Adapting the Product", id: "Mengadaptasi Produk" },
+    title: {
+      en: "Rebuilding with Better Assumptions.",
+      id: "Membangun Ulang dengan Asumsi yang Lebih Baik.",
+    },
+
     items: [
       {
-        title: { en: "Mining → Logistics", id: "Tambang → Logistik" },
-        description: {
-          en: "Validated new industries and discovered logistics offered stronger opportunities for fleet monitoring and operational visibility.",
-          id: "Memvalidasi industri baru dan menemukan bahwa sektor logistik menawarkan peluang yang lebih kuat untuk monitoring armada dan visibilitas operasional.",
+        title: {
+          en: "Market Validation",
+          id: "Validasi Pasar",
         },
-        icon: "ShieldCheck",
-        colSpan: 5,
-      },
-      {
-        title: { en: "Learning IoT from Scratch", id: "Belajar IoT dari Nol" },
         description: {
-          en: "When the team lacked IoT expertise, I encouraged members to learn together, seek mentors, and collaborate with robotics communities and engineering faculty.",
-          id: "Ketika tim belum memiliki keahlian IoT, saya mendorong anggota tim untuk belajar bersama, mencari mentor, dan berkolaborasi dengan komunitas robotik serta fakultas teknik.",
+          en: "Interviewed mining practitioners and explored alternative industries. We discovered logistics provided stronger product-market fit while preserving our original vision of fleet monitoring.",
+          id: "Melakukan validasi dengan praktisi pertambangan dan mengeksplorasi industri lain. Kami menemukan bahwa logistik memiliki product-market fit yang lebih kuat tanpa meninggalkan visi awal monitoring armada.",
         },
-        icon: "FileCode",
         colSpan: 7,
       },
+
       {
-        title: { en: "Practical over Perfect", id: "Praktik di atas Ideal" },
-        description: {
-          en: "Instead of pursuing complex banking integrations, we implemented OCR-based fuel receipt verification to solve the immediate auditing problem.",
-          id: "Alih-alih mengejar integrasi perbankan yang kompleks, kami mengimplementasikan verifikasi struk BBM berbasis OCR untuk menyelesaikan kebutuhan audit secara cepat dan realistis.",
+        title: {
+          en: "Building IoT Capability",
+          id: "Membangun Kapabilitas IoT",
         },
-        icon: "Layout",
-        colSpan: 7,
-      },
-      {
-        title: { en: "Unified Monitoring Platform", id: "Platform Pemantauan Terpadu" },
         description: {
-          en: "Combined fleet visibility, fuel tracking, anomaly detection, and operational monitoring into a single management dashboard.",
-          id: "Menggabungkan visibilitas armada, pelacakan BBM, deteksi anomali, dan monitoring operasional ke dalam satu dashboard terpadu.",
+          en: "Our team had no IoT experience. I encouraged members to learn together by reaching out to engineering lecturers, joining robotics communities, and finding mentors before building our first prototype.",
+          id: "Tim kami belum memiliki pengalaman IoT. Saya mengajak anggota tim belajar bersama melalui dosen teknik, komunitas robotik, dan mentor sebelum membangun prototype pertama.",
         },
-        icon: "Table",
         colSpan: 5,
+      },
+
+      {
+        title: {
+          en: "Practical Product Decisions",
+          id: "Keputusan Produk yang Realistis",
+        },
+        description: {
+          en: "We replaced our original banking integration plan with OCR-based receipt verification. It solved the same auditing problem while avoiding legal complexity and reducing implementation effort.",
+          id: "Kami mengganti rencana integrasi perbankan dengan verifikasi struk berbasis OCR. Solusi ini menyelesaikan kebutuhan audit yang sama tanpa kompleksitas legal dan dengan implementasi yang jauh lebih realistis.",
+        },
+        colSpan: 5,
+      },
+
+      {
+        title: {
+          en: "Operational Visibility",
+          id: "Visibilitas Operasional",
+        },
+        description: {
+          en: "Designed an integrated platform combining GPS tracking, fuel monitoring, speed anomalies, OCR receipts, and audit workflows into one operational dashboard.",
+          id: "Merancang platform terpadu yang menggabungkan pelacakan GPS, monitoring BBM, deteksi anomali kecepatan, OCR struk, serta workflow audit ke dalam satu dashboard operasional.",
+        },
+        colSpan: 7,
       },
     ],
   },
+
   reflection: {
     quote: {
-      en: "A product doesn't fail when a proposal is rejected. It fails when the team stops adapting.",
-      id: "Sebuah produk tidak gagal saat proposal ditolak. Produk gagal ketika tim berhenti beradaptasi.",
+      en: "Leadership isn't about having all the answers. It's about giving people a reason to keep moving when the roadmap disappears.",
+      id: "Kepemimpinan bukan tentang memiliki semua jawaban. Tetapi tentang memberi alasan kepada tim untuk tetap melangkah ketika roadmap menghilang.",
     },
+
     description: {
-      en: "This project taught me that leadership is often less about giving answers and more about creating momentum when uncertainty appears. Market validation, team alignment, and continuous learning became just as important as building the product itself.",
-      id: "Proyek ini mengajarkan saya bahwa kepemimpinan sering kali bukan tentang memberikan jawaban, tetapi menciptakan momentum ketika ketidakpastian muncul. Validasi pasar, penyelarasan tim, dan pembelajaran berkelanjutan menjadi sama pentingnya dengan membangun produknya sendiri.",
+      en: "Before this project, I believed that following a PRD was enough to deliver a successful product. This experience taught me that products constantly evolve through uncertainty. Sometimes the most valuable contribution isn't writing code—it's helping the team adapt, learn, and move forward together.",
+      id: "Sebelum proyek ini, saya berpikir bahwa mengikuti PRD sudah cukup untuk menghasilkan produk yang baik. Pengalaman ini mengajarkan saya bahwa produk terus berkembang di tengah ketidakpastian. Terkadang kontribusi terbesar bukanlah menulis kode, melainkan membantu tim beradaptasi, belajar, dan terus bergerak bersama.",
     },
   },
 };
