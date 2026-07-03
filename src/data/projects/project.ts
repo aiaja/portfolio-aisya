@@ -16,7 +16,7 @@ export const projects: Project[] = [
       id: "Lead Frontend Engineer",
       en: "Lead Frontend Engineer",
     },
-    timeline: "2025 - 2026",
+    timeline: "2026",
     content: {
       problem: {
         summary: {

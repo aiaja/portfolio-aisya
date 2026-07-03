@@ -123,3 +123,20 @@ export type Education = {
   degree: Translatable;
   gpa: string;
 };
+
+export type ProjectSnapshot = {
+  slug: string;
+  hero: {
+    title: string;
+    tagline: Translatable;
+    role: Translatable;
+    duration?: Translatable;
+    image?: string;
+  };
+  overview: Translatable;
+  contributions: Translatable[];
+  tech: string[];
+  gallery?: string[];
+  reflection: Translatable;
+};
+

@@ -2,101 +2,178 @@ import { ProjectDetailV2 } from "../project-details";
 
 export const aifaData: ProjectDetailV2 = {
   slug: "aifa",
+
   hero: {
-    title: { line1: "AIFA:", line2: "Automation Starts with Observation" },
-    tagline: {
-      en: "A financial assistant born from observing how small businesses spend hours reconciling receipts, spreadsheets, and cash records.",
-      id: "Asisten keuangan yang lahir dari observasi bagaimana UMKM menghabiskan waktu berjam-jam mencocokkan struk, spreadsheet, dan catatan kas.",
+    title: {
+      line1: "AIFA:",
+      line2: "Automation Starts with Observation.",
     },
+
+    tagline: {
+      en: "Born from observing café operations, AIFA reduces repetitive financial work by transforming paper receipts into structured expense records through AI-powered document understanding.",
+      id: "Berawal dari observasi operasional café, AIFA mengurangi pekerjaan finansial yang repetitif dengan mengubah struk fisik menjadi data pengeluaran terstruktur menggunakan AI.",
+    },
+
     stats: [
-      { label: { en: "Cafe Observations", id: "Observasi Cafe" }, value: "3" },
-      { label: { en: "Interviews", id: "Wawancara" }, value: "1"},
+      {
+        label: {
+          en: "Field Observations",
+          id: "Observasi Lapangan",
+        },
+        value: "3",
+      },
+      {
+        label: {
+          en: "Business Validation",
+          id: "Validasi Bisnis",
+        },
+        value: "4",
+      },
     ],
-    role: { en: "Product Strategist", id: "Product Strategist" },
-    team: { en: "5 Members", id: "5 Anggota" },
+
+    role: {
+      en: "Product Strategist",
+      id: "Product Strategist",
+    },
+
+    team: {
+      en: "5 Members",
+      id: "5 Anggota",
+    },
+
     image: "/images/AIFA.svg",
   },
+
   context: {
-    title: { en: "The Work Nobody Notices.", id: "Pekerjaan yang Tidak Terlihat." },
-    description: {
-      en: "While working from cafes, I noticed a repetitive process happening every night. Staff collected paper receipts throughout the day, then manually compared them against POS transactions and cash records before re-entering everything into spreadsheets and financial books.",
-      id: "Saat sering bekerja dari cafe, saya melihat proses berulang yang terjadi setiap malam. Staf mengumpulkan struk sepanjang hari, lalu mencocokkannya secara manual dengan transaksi POS dan catatan kas sebelum menulis ulang semuanya ke spreadsheet dan buku keuangan.",
+    title: {
+      en: "The Invisible Workflow.",
+      id: "Pekerjaan yang Tidak Terlihat.",
     },
+
+    description: {
+      en: "While frequently working from cafés, I noticed something customers never see. After closing time, staff manually gathered paper receipts, compared them against POS transactions and cash records, then retyped everything into spreadsheets. The process was repetitive, error-prone, and consumed valuable business time every single day.",
+      id: "Saat sering bekerja dari café, saya melihat sesuatu yang tidak pernah disadari pelanggan. Setelah jam operasional berakhir, staf mengumpulkan struk fisik, mencocokkannya dengan transaksi POS dan uang kas, lalu menulis ulang semuanya ke spreadsheet. Proses ini repetitif, rawan kesalahan, dan menghabiskan waktu setiap hari.",
+    },
+
     points: [
-      { en: "Manual Receipt Reconciliation", id: "Rekonsiliasi Struk Manual" },
-      { en: "Repeated Data Entry", id: "Pengisian Data Berulang" },
+      {
+        en: "Daily Manual Reconciliation",
+        id: "Rekonsiliasi Harian Manual",
+      },
+      {
+        en: "Repeated Financial Data Entry",
+        id: "Input Data Keuangan Berulang",
+      },
     ],
   },
+
   decision: {
-    title: { en: "Automate the Workflow, Not the Person.", id: "Otomatisasi Proses, Bukan Orangnya." },
-    description: {
-      en: "Rather than building a generic AI assistant, we focused on the most repetitive part of the workflow: extracting and organizing expense records from physical invoices.",
-      id: "Alih-alih membangun AI assistant generik, kami memilih fokus pada bagian workflow yang paling repetitif: mengekstrak dan mengorganisasi data pengeluaran dari invoice fisik.",
+    title: {
+      en: "Reduce Friction, Not Replace People.",
+      id: "Mengurangi Friksi, Bukan Menggantikan Manusia.",
     },
+
+    description: {
+      en: "Instead of building another generic AI assistant, we focused on the single most repetitive activity: transferring invoice data into financial records. We deliberately removed ambitious features like automatic business proposal generation and concentrated on solving one operational bottleneck exceptionally well.",
+      id: "Alih-alih membuat AI assistant generik, kami memilih fokus pada aktivitas paling repetitif: memindahkan data invoice ke pencatatan keuangan. Kami sengaja menghapus fitur-fitur ambisius seperti pembuatan proposal otomatis agar dapat menyelesaikan satu bottleneck operasional dengan lebih baik.",
+    },
+
     options: [
       {
         label: "Option A",
-        name: "Manual Recording",
-        status: { en: "⚠ Time Consuming", id: "⚠ Memakan Waktu" },
+        name: "Full Business Assistant",
+        status: {
+          en: "⚠ Too Broad for MVP",
+          id: "⚠ Terlalu Luas untuk MVP",
+        },
         selected: false,
       },
       {
         label: "Option B",
-        name: "Automated Extraction",
-        status: { en: "✓ Faster Workflow", id: "✓ Workflow Lebih Cepat" },
+        name: "Receipt Intelligence",
+        status: {
+          en: "✓ Solved Real Workflow",
+          id: "✓ Menyelesaikan Workflow Nyata",
+        },
         selected: true,
       },
     ],
   },
+
   solutions: {
-    title: { en: "Reducing Operational Friction.", id: "Mengurangi Friksi Operasional." },
+    title: {
+      en: "Designing Around Existing Workflows.",
+      id: "Merancang Berdasarkan Workflow Nyata.",
+    },
+
     items: [
       {
-        title: { en: "Invoice Scanning", id: "Pemindaian Invoice" },
-        description: {
-          en: "Users simply upload a receipt or invoice instead of manually typing expense records.",
-          id: "Pengguna cukup mengunggah invoice atau struk tanpa perlu menulis ulang data pengeluaran secara manual.",
+        title: {
+          en: "Observe Before Building",
+          id: "Observasi Sebelum Membangun",
         },
-        icon: "ShieldCheck",
+
+        description: {
+          en: "Validated operational workflows across multiple cafés before defining the product, ensuring the solution addressed an actual business bottleneck instead of assumptions.",
+          id: "Memvalidasi workflow operasional di beberapa café sebelum menentukan solusi sehingga produk dibangun berdasarkan masalah nyata, bukan asumsi.",
+        },
+
+        colSpan: 7,
+      },
+
+      {
+        title: {
+          en: "AI-Powered Receipt Extraction",
+          id: "Ekstraksi Struk Berbasis AI",
+        },
+
+        description: {
+          en: "Leveraged OCR and document understanding to automatically extract vendors, dates, totals, and transaction details from paper receipts.",
+          id: "Memanfaatkan OCR dan document understanding untuk mengekstrak vendor, tanggal, nominal, dan detail transaksi secara otomatis dari struk fisik.",
+        },
+
         colSpan: 5,
       },
+
       {
-        title: { en: "OCR Extraction", id: "Ekstraksi OCR" },
-        description: {
-          en: "Automatically extracts dates, amounts, vendors, and transaction information from physical documents.",
-          id: "Secara otomatis mengekstrak tanggal, jumlah, penjual, dan informasi transaksi dari dokumen fisik.",
+        title: {
+          en: "Structured Financial Records",
+          id: "Data Keuangan Terstruktur",
         },
-        icon: "FileCode",
+
+        description: {
+          en: "Converted unstructured receipt images into categorized expense records, eliminating repetitive manual bookkeeping.",
+          id: "Mengubah gambar struk yang tidak terstruktur menjadi pencatatan pengeluaran yang terorganisir sehingga menghilangkan proses pencatatan manual berulang.",
+        },
+
+        colSpan: 5,
+      },
+
+      {
+        title: {
+          en: "Focused MVP",
+          id: "MVP yang Terfokus",
+        },
+
+        description: {
+          en: "Removed proposal generation and other secondary ideas to deliver the highest-value workflow automation within limited hackathon time.",
+          id: "Menghapus fitur pembuatan proposal dan ide tambahan lainnya agar tim dapat fokus menyelesaikan otomatisasi workflow dengan dampak terbesar dalam waktu hackathon yang terbatas.",
+        },
+
         colSpan: 7,
       },
-      {
-        title: { en: "Smart Categorization", id: "Kategorisasi Otomatis" },
-        description: {
-          en: "Transforms unstructured receipt data into organized financial records.",
-          id: "Memberikan visibilitas pengeluaran yang lebih jelas tanpa bergantung pada spreadsheet manual.",
-        },
-        icon: "Layout",
-        colSpan: 7,
-      },
-    //   {
-    //     title: { en: "Unified Monitoring Platform", id: "Platform Pemantauan Terpadu" },
-    //     description: {
-    //       en: "Combined fleet visibility, fuel tracking, anomaly detection, and operational monitoring into a single management dashboard.",
-    //       id: "Menggabungkan visibilitas armada, pelacakan BBM, deteksi anomali, dan monitoring operasional ke dalam satu dashboard terpadu.",
-    //     },
-    //     icon: "Table",
-    //     colSpan: 5,
-    //   },
     ],
   },
+
   reflection: {
     quote: {
-      en: "The best automation opportunities are often hidden inside everyday routines.",
-      id: "Peluang otomasi terbaik sering tersembunyi di dalam rutinitas sehari-hari.",
+      en: "Automation should eliminate repetitive work, not create unnecessary complexity.",
+      id: "Otomatisasi seharusnya menghilangkan pekerjaan yang repetitif, bukan menambah kompleksitas baru.",
     },
+
     description: {
-      en: "This project taught me that technology should follow operational realities. Before introducing AI, it was more important to understand how people actually worked, where time was lost, and why errors occurred in the first place.",
-      id: "Proyek ini mengajarkan saya bahwa teknologi harus mengikuti realitas operasional. Sebelum menggunakan AI, yang lebih penting adalah memahami bagaimana orang bekerja, di mana waktu terbuang, dan mengapa kesalahan bisa terjadi sejak awal.",
+      en: "AIFA changed the way I think about AI products. Instead of starting with technology, I learned to begin by observing how people actually work. The best opportunities for automation are often hidden inside small, repetitive routines that everyone has simply accepted as normal.",
+      id: "AIFA mengubah cara saya memandang produk berbasis AI. Saya belajar bahwa teknologi seharusnya tidak menjadi titik awal. Sebaliknya, proses observasi terhadap cara orang bekerja justru membuka peluang otomasi terbesar, terutama pada aktivitas kecil yang berulang dan selama ini dianggap normal.",
     },
   },
 };
