@@ -20,14 +20,6 @@ import ProjectReflection from "@/components/project/ProjectReflection";
 import ProjectSnapshotView from "@/components/project/ProjectSnapshotView";
 import ProjectArchiveView from "@/components/project/ProjectArchiveView";
 
-const characterImages: Record<string, string> = {
-  hero: "/char/main.svg",
-  context: "/char/angry.svg",
-  decision: "/char/curious.svg",
-  execution: "/char/wink.svg",
-  reflection: "/char/smile.svg",
-};
-
 export default function ProjectDetailV2Page({
   params,
 }: {
@@ -77,29 +69,7 @@ export default function ProjectDetailV2Page({
 
         <ProjectReflection reflection={heroData.reflection} slug={heroData.slug} />
 
-        {/* Floating Mascot Character Reacting to Scroll */}
-        <div className="fixed bottom-6 right-6 z-40 w-24 h-24 md:w-32 md:h-32 pointer-events-none drop-shadow-2xl">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeSection}
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.8, y: -20 }}
-              transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className="w-full h-full"
-            >
-              <Image
-                src={characterImages[activeSection] || "/char/main.svg"}
-                alt="Mascot Character"
-                width={128}
-                height={128}
-                className="w-full h-full object-contain"
-                priority
-              />
-            </motion.div>
-          </AnimatePresence>
         </div>
-      </div>
     );
   }
 
