@@ -8,20 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // V1 Colors
-        beige: "#F7F4D5",
-        "green-primary": "#125464",
-        "green-secondary": "#1C7A8F",
-        "pink-primary": "#CB9289",
-        "pink-light": "#E8D9D6",
-        charcoal: "#2C2C2A",
-        // V2 Colors (Mapped to CSS Variables)
+        // Design System V2 Semantic Tokens
         primary: "oklch(var(--primary) / <alpha-value>)",
         "primary-10": "oklch(var(--primary-10))",
         "primary-20": "oklch(var(--primary-20))",
         bg: "var(--bg)",
         surface: "var(--surface)",
         "surface-2": "var(--surface-2)",
+        "surface-3": "var(--surface-3)",
         border: "var(--border)",
         "border-strong": "var(--border-strong)",
         text: "var(--text)",
@@ -29,10 +23,17 @@ module.exports = {
         subtle: "var(--subtle)",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
+        sans: ["var(--font-inter)", "system-ui", "-apple-system", "sans-serif"],
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
       },
       borderRadius: {
-        bento: "1.25rem",
+        bento: "1.25rem", // 20px
+        "bento-lg": "1.75rem", // 28px
+      },
+      boxShadow: {
+        subtle: "0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02)",
+        card: "0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02)",
+        glow: "0 0 24px -4px oklch(var(--primary) / 0.25)",
       },
     },
   },

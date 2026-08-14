@@ -94,9 +94,7 @@ const Navbar = () => {
     <div className="hidden md:flex items-center gap-2 pr-1">
      <div className="w-[1px] h-6 bg-border mx-2" />
 
-     <div className="flex items-center bg-surface-2 border border-border rounded-full p-1 min-h-[44px]">
-      <LanguageSwitcher />
-     </div>
+     <LanguageSwitcher />
 
      <Button
       href="#contact"
