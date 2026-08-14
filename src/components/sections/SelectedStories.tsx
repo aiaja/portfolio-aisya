@@ -120,18 +120,19 @@ const SelectedStories = () => {
                   </div>
                 </div>
 
-                {/* Right Section: Visual Showcase */}
+                {/* Right Section: Clean White Showcase Panel with Subtle Breathing Room */}
                 <Link
                   href={`/projects/${story.slug}`}
-                  className="flex-1 min-h-[220px] md:min-h-[300px] relative overflow-hidden bg-surface-2 group-hover:bg-surface-3 transition-colors p-6 md:p-10 flex items-center justify-center"
+                  className="flex-1 min-h-[260px] md:min-h-0 relative overflow-hidden bg-surface p-6 md:p-8 flex items-center justify-center group/image block"
+                  aria-label={story.title}
                 >
-                  <div className="relative w-full h-full min-h-[200px] transition-transform duration-500 group-hover:scale-[1.02]">
+                  <div className="relative w-full h-full min-h-[220px] md:min-h-[260px] flex items-center justify-center">
                     <Image
                       src={projectDetail?.image || "/images/placeholder.svg"}
                       alt={story.title}
                       fill
-                      className="object-contain"
-                      sizes="(max-width: 768px) 100vw, 600px"
+                      className="object-contain object-center transition-transform duration-500 group-hover/image:scale-[1.02]"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 650px"
                       priority={i === 0}
                     />
                   </div>
