@@ -27,7 +27,7 @@ const ProjectContext = ({ context }: ProjectContextProps) => {
       {t(context.description)}
      </p>
      <div className="grid grid-cols-1 gap-3 pt-6">
-      {context.points.map((point, i) => (
+      {context.points?.map((point, i) => (
        <div
         key={i}
         className="flex items-center gap-4 p-4 bg-bg border border-border rounded-2xl"

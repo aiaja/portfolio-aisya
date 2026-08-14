@@ -1,0 +1,21 @@
+export { default as CaseStudyHero } from "./CaseStudyHero";
+export { default as CaseStudyIntro } from "./CaseStudyIntro";
+export { default as EvidenceBlock } from "./EvidenceBlock";
+export { default as MetricBlock } from "./MetricBlock";
+export { default as BeforeAfterBlock } from "./BeforeAfterBlock";
+export { default as DecisionBlock } from "./DecisionBlock";
+export { default as ArchitectureBlock } from "./ArchitectureBlock";
+export { default as TechnicalImplementation } from "./TechnicalImplementation";
+export { default as OutcomeBlock } from "./OutcomeBlock";
+export { default as ReflectionBlock } from "./ReflectionBlock";
+
+export type { CaseStudyHeroProps } from "./CaseStudyHero";
+export type { CaseStudyIntroProps } from "./CaseStudyIntro";
+export type { EvidenceBlockProps } from "./EvidenceBlock";
+export type { MetricBlockProps, MetricItem } from "./MetricBlock";
+export type { BeforeAfterBlockProps, ComparisonItem } from "./BeforeAfterBlock";
+export type { DecisionBlockProps, DecisionOption } from "./DecisionBlock";
+export type { ArchitectureBlockProps, ArchitectureLayer } from "./ArchitectureBlock";
+export type { TechnicalImplementationProps, ImplementationModule } from "./TechnicalImplementation";
+export type { OutcomeBlockProps, OutcomeItem } from "./OutcomeBlock";
+export type { ReflectionBlockProps } from "./ReflectionBlock";

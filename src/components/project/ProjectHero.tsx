@@ -84,7 +84,7 @@ const ProjectHero = ({ hero, liveUrl }: ProjectHeroProps) => {
           </div>
 
           <div className="grid grid-cols-2 gap-4 w-full md:w-auto">
-            {hero.stats.map((stat, i) => (
+            {hero.stats?.map((stat, i) => (
               <div
                 key={i}
                 className="p-6 bg-surface border border-border rounded-3xl min-w-[240px]"
