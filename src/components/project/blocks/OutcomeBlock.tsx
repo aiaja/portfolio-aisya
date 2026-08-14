@@ -23,6 +23,7 @@ export interface OutcomeBlockProps {
     author: string;
     role: Translatable;
   };
+  background?: "bg" | "surface" | "surface-2";
 }
 
 export default function OutcomeBlock({
@@ -32,12 +33,13 @@ export default function OutcomeBlock({
   description,
   outcomes,
   testimonial,
+  background = "bg",
 }: OutcomeBlockProps) {
   const { t } = useLanguage();
 
   return (
-    <Section id={id} background="surface-2">
-      <div className="max-w-[850px] mx-auto">
+    <Section id={id} background={background}>
+      <div className="max-w-[860px] mx-auto">
         
         {/* Header */}
         <span className="text-[11px] font-mono font-bold tracking-[0.15em] uppercase text-subtle mb-3 block select-none">

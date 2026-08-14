@@ -21,6 +21,7 @@ export interface ArchitectureBlockProps {
   title: Translatable;
   description: Translatable;
   layers: ArchitectureLayer[];
+  background?: "bg" | "surface" | "surface-2";
 }
 
 export default function ArchitectureBlock({
@@ -29,14 +30,15 @@ export default function ArchitectureBlock({
   title,
   description,
   layers,
+  background = "surface-2",
 }: ArchitectureBlockProps) {
   const { t } = useLanguage();
 
   const layerIcons = [Globe, Layers, Shield, Database];
 
   return (
-    <Section id={id} background="bg">
-      <div className="max-w-[850px] mx-auto">
+    <Section id={id} background={background}>
+      <div className="max-w-[860px] mx-auto">
         
         {/* Header */}
         <span className="text-[11px] font-mono font-bold tracking-[0.15em] uppercase text-subtle mb-3 block select-none">

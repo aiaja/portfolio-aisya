@@ -15,6 +15,7 @@ export interface EvidenceBlockProps {
   image?: string;
   caption?: Translatable;
   insights?: { title: Translatable; value: string; description?: Translatable }[];
+  background?: "bg" | "surface" | "surface-2";
 }
 
 export default function EvidenceBlock({
@@ -25,12 +26,13 @@ export default function EvidenceBlock({
   image,
   caption,
   insights,
+  background = "surface-2",
 }: EvidenceBlockProps) {
   const { t } = useLanguage();
 
   return (
-    <Section id={id} background="bg">
-      <div className="max-w-[900px] mx-auto">
+    <Section id={id} background={background}>
+      <div className="max-w-[860px] mx-auto">
         
         {/* Header */}
         <span className="text-[11px] font-mono font-bold tracking-[0.15em] uppercase text-subtle mb-3 block select-none">

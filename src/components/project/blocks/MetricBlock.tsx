@@ -20,6 +20,7 @@ export interface MetricBlockProps {
   title?: Translatable;
   description?: Translatable;
   metrics: MetricItem[];
+  background?: "bg" | "surface" | "surface-2";
 }
 
 export default function MetricBlock({
@@ -28,12 +29,13 @@ export default function MetricBlock({
   title = { id: "Metrik & Hasil Rekayasa", en: "Key Engineering Metrics" },
   description,
   metrics,
+  background = "bg",
 }: MetricBlockProps) {
   const { t } = useLanguage();
 
   return (
-    <Section id={id} background="surface-2">
-      <div className="max-w-[900px] mx-auto">
+    <Section id={id} background={background}>
+      <div className="max-w-[860px] mx-auto">
         {title && (
           <div className="mb-10 text-center">
             {label && (

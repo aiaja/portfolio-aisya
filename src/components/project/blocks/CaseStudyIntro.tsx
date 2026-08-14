@@ -14,6 +14,7 @@ export interface CaseStudyIntroProps {
   problemStatement?: Translatable;
   challenges?: Translatable[];
   objectives?: Translatable[];
+  background?: "bg" | "surface" | "surface-2";
 }
 
 export default function CaseStudyIntro({
@@ -24,12 +25,13 @@ export default function CaseStudyIntro({
   problemStatement,
   challenges,
   objectives,
+  background = "surface-2",
 }: CaseStudyIntroProps) {
   const { t } = useLanguage();
 
   return (
-    <Section id={id} background="bg">
-      <div className="max-w-[800px] mx-auto">
+    <Section id={id} background={background}>
+      <div className="max-w-[860px] mx-auto">
         
         {/* Header */}
         <span className="text-[11px] font-mono font-bold tracking-[0.15em] uppercase text-subtle mb-3 block select-none">
@@ -44,7 +46,7 @@ export default function CaseStudyIntro({
 
         {/* Problem Statement Callout */}
         {problemStatement && (
-          <Card variant="surface-2" className="border-l-4 border-l-primary p-5 md:p-6 mb-8">
+          <Card variant="surface" className="border-l-4 border-l-primary p-5 md:p-6 mb-8">
             <div className="flex items-start gap-3">
               <AlertCircle size={20} className="text-primary shrink-0 mt-0.5" />
               <div>

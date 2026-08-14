@@ -22,7 +22,9 @@ export interface ReflectionBlockProps {
   prevProject?: {
     slug: string;
     title: string;
+    tagline?: Translatable;
   };
+  background?: "bg" | "surface" | "surface-2";
 }
 
 export default function ReflectionBlock({
@@ -33,12 +35,13 @@ export default function ReflectionBlock({
   description,
   nextProject,
   prevProject,
+  background = "surface-2",
 }: ReflectionBlockProps) {
   const { t } = useLanguage();
 
   return (
-    <Section id={id} background="bg">
-      <div className="max-w-[850px] mx-auto">
+    <Section id={id} background={background}>
+      <div className="max-w-[860px] mx-auto">
         
         {/* Header */}
         <span className="text-[11px] font-mono font-bold tracking-[0.15em] uppercase text-subtle mb-3 block select-none">
@@ -62,7 +65,7 @@ export default function ReflectionBlock({
 
         {/* Key Takeaways */}
         {takeaways && takeaways.length > 0 && (
-          <div className="p-6 rounded-bento bg-surface-2 border border-border mb-12">
+          <div className="p-6 rounded-bento bg-surface border border-border mb-12">
             <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-muted mb-4 pb-2 border-b border-border">
               {t({ id: "Pelajaran Utama", en: "Key Takeaways" })}
             </h3>

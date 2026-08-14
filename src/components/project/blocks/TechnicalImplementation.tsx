@@ -23,6 +23,7 @@ export interface TechnicalImplementationProps {
   title: Translatable;
   description?: Translatable;
   modules: ImplementationModule[];
+  background?: "bg" | "surface" | "surface-2";
 }
 
 export default function TechnicalImplementation({
@@ -31,12 +32,13 @@ export default function TechnicalImplementation({
   title,
   description,
   modules,
+  background = "bg",
 }: TechnicalImplementationProps) {
   const { t } = useLanguage();
 
   return (
-    <Section id={id} background="surface-2">
-      <div className="max-w-[900px] mx-auto">
+    <Section id={id} background={background}>
+      <div className="max-w-[860px] mx-auto">
         
         {/* Header */}
         <div className="mb-10">

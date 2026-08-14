@@ -20,6 +20,7 @@ export interface BeforeAfterBlockProps {
   beforeTitle?: Translatable;
   afterTitle?: Translatable;
   comparisons: ComparisonItem[];
+  background?: "bg" | "surface" | "surface-2";
 }
 
 export default function BeforeAfterBlock({
@@ -30,12 +31,13 @@ export default function BeforeAfterBlock({
   beforeTitle = { id: "Sebelum (Legacy System)", en: "Before (Legacy Architecture)" },
   afterTitle = { id: "Sesudah (Sistem Terpadu)", en: "After (Modern System)" },
   comparisons,
+  background = "surface-2",
 }: BeforeAfterBlockProps) {
   const { t } = useLanguage();
 
   return (
-    <Section id={id} background="bg">
-      <div className="max-w-[900px] mx-auto">
+    <Section id={id} background={background}>
+      <div className="max-w-[860px] mx-auto">
         
         {/* Header */}
         <div className="mb-10 text-center max-w-2xl mx-auto">

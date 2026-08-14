@@ -17,8 +17,8 @@ export const fikAppsData: ProjectDetailV2 = {
       id: "SaaS Akademik & Arsitektur",
     },
     role: {
-      en: "Lead Frontend Engineer",
-      id: "Lead Frontend Engineer",
+      en: "Lead Frontend Engineer (Personal Contribution: UI Architecture, RBAC, Data Table Primitive, TypeScript Contracts)",
+      id: "Lead Frontend Engineer (Kontribusi Personal: Arsitektur UI, RBAC, Primitif Data Table, Kontrak TypeScript)",
     },
     timeline: {
       en: "6 Months (Migration & Scale)",
@@ -283,59 +283,67 @@ export const fikAppsData: ProjectDetailV2 = {
     items: [
       {
         title: {
-          en: "Four-Role RBAC Workflow Redesign",
-          id: "Redesain Workflow RBAC 4-Peran",
+          en: "Four-Role RBAC Workflow Architecture",
+          id: "Arsitektur Workflow RBAC 4-Peran",
         },
         description: {
-          en: "Separated overlapping responsibilities into four dedicated roles: Dean/Faculty Executives, Web Administrators, Department Heads, and Student Coordinators.",
-          id: "Memisahkan tanggung jawab yang sebelumnya tumpang tindih menjadi empat peran mandiri: Dekanat, Web Administrator, Ketua Program Studi, dan Koordinator Mahasiswa.",
+          en: "Designed and implemented strict role isolation separating Dean/Faculty Executives, Web Administrators, Department Heads, and Student Coordinators to eliminate privilege escalation and cross-department data collisions.",
+          id: "Merancang dan menerapkan isolasi peran ketat yang memisahkan Dekanat, Web Administrator, Ketua Program Studi, dan Koordinator Mahasiswa guna mencegah eskalasi hak akses dan konflik data antar program studi.",
         },
-        tags: ["Dean", "Admin", "Dept", "Coord"],
+        tags: ["RBAC", "Access Control", "Security", "Zod"],
         colSpan: 7,
         highlights: [
-          { en: "Role-specific dashboard views and permission matrix", id: "Tampilan dashboard spesifik peran dan matriks izin" },
-          { en: "Eliminated unauthorized cross-department config edits", id: "Menghilangkan risiko salah edit konfigurasi antar program studi" },
+          { en: "Role-specific dashboard views and permission guard matrix", id: "Tampilan dashboard spesifik peran dan matriks permission guard" },
+          { en: "Eliminated unauthorized cross-department configuration edits", id: "Menghilangkan risiko salah edit konfigurasi antar program studi" },
         ],
       },
       {
         title: {
-          en: "Atomic Design System & Component Library",
-          id: "Design System Atomik & Library Komponen",
+          en: "Atomic Design System & Component Consolidation",
+          id: "Design System Atomik & Konsolidasi Komponen",
         },
         description: {
-          en: "Standardized 190+ scattered UI files into 25 canonical primitives in @/components/ui, cutting bundle size and eliminating styling inconsistencies.",
-          id: "Menstandarkan 190+ file UI menjadi 25 primitif kanonikal di @/components/ui, memangkas ukuran bundle dan inkonsistensi styling.",
+          en: "Consolidated 190+ disparate departmental components into 25 reusable atomic primitives in @/components/ui, reducing code duplication by 86.8% and cutting client bundle footprint.",
+          id: "Mengkonsolidasikan 190+ komponen departemen yang terfragmentasi menjadi 25 primitif atomik di @/components/ui, mereduksi duplikasi kode sebesar 86.8% dan memangkas ukuran bundle client.",
         },
         tags: ["Atomic Design", "Tailwind CSS", "Reusability"],
         colSpan: 5,
         highlights: [
-          { en: "Standardized color variables, bento radii, and typography", id: "Variabel warna, radius bento, dan tipografi terstandarisasi" },
-          { en: "Shared across all 6 department sub-applications", id: "Digunakan bersama di seluruh 6 sub-aplikasi prodi" },
+          { en: "Standardized design tokens, bento radii, and typography scales", id: "Standarisasi design tokens, radius bento, dan skala tipografi" },
+          { en: "Shared across all 6 study program sub-modules", id: "Digunakan bersama di seluruh 6 sub-modul program studi" },
         ],
       },
       {
         title: {
-          en: "Controlled Template-Based CMS",
-          id: "CMS Berbasis Template Terkontrol",
+          en: "High-Throughput Academic Data Table Primitive",
+          id: "Primitif Data Table Akademik Berkinerja Tinggi",
         },
         description: {
-          en: "Rather than a fragile drag-and-drop builder requested by stakeholders, built a structured template system ensuring brand consistency and ease of use for non-technical faculty staff.",
-          id: "Alih-alih builder drag-and-drop yang rentan rusak, kami membangun sistem template terstruktur yang menjamin konsistensi branding dan kemudahan bagi staf non-teknis.",
+          en: "Engineered a reusable, paginated Data Table primitive with server-side query syncing, debounced multi-field filtering, column visibility toggling, and optimistic batch approval actions for faculty lecturers.",
+          id: "Mengembangkan komponen Data Table terstandar dengan sinkronisasi query server-side, debounced multi-field filtering, visibilitas kolom dinamis, dan aksi persetujuan massal optimistik untuk dosen fakultas.",
         },
-        tags: ["CMS", "Brand Consistency"],
+        tags: ["Data Table", "Virtualization", "SWR", "Optimistic UI"],
         colSpan: 5,
+        highlights: [
+          { en: "Smooth rendering for 500+ student thesis records per view", id: "Performa render mulus untuk 500+ data pendaftaran sidang per view" },
+          { en: "Zero layout shift during live query filtering", id: "Nol layout shift saat live query filtering" },
+        ],
       },
       {
         title: {
-          en: "Strict Frontend Engineering Guidelines",
-          id: "Standarisasi Panduan Rekayasa Frontend",
+          en: "Standardized Frontend Engineering & CI/CD Discipline",
+          id: "Standarisasi Rekayasa Frontend & Disiplin CI/CD",
         },
         description: {
-          en: "Implemented branch protection rules, required PR code reviews, automated lint/typecheck pipelines, and clear component naming conventions across the 4-engineer team.",
-          id: "Menerapkan aturan branch protection, wajib code review PR, pipeline otomatis lint/typecheck, dan konvensi penamaan komponen di tim 4 engineer.",
+          en: "Established branch protection policies, mandatory PR code review checklists, automated TypeScript/ESLint CI verification, and consistent atomic component naming across the 4-engineer frontend team.",
+          id: "Menerapkan aturan branch protection, checklist code review PR wajib, verifikasi CI otomatis TypeScript/ESLint, dan konvensi penamaan komponen atomik pada tim 4 frontend engineer.",
         },
-        tags: ["CI/CD", "Code Quality", "Branch Conventions"],
+        tags: ["CI/CD", "Code Quality", "Branch Protection", "TypeScript 5"],
         colSpan: 7,
+        highlights: [
+          { en: "Zero broken production builds across all 6 months of migration", id: "Nol broken build produksi sepanjang 6 bulan migrasi" },
+          { en: "Consistent developer velocity and maintainable codebase", id: "Kecepatan rilis tim konsisten dan codebase mudah dipelihara" },
+        ],
       },
     ],
   },
@@ -351,8 +359,12 @@ export const fikAppsData: ProjectDetailV2 = {
     },
     image: "/images/FIK APPS.svg",
     caption: {
-      en: "Figure 1.0: FIK Apps unified executive dashboard displaying academic stats, approval queues, and department status.",
-      id: "Gambar 1.0: Dashboard eksekutif terpadu FIK Apps yang menampilkan statistik akademik, antrean persetujuan, dan status prodi.",
+      en: "Figure 1.0: Primary unified interface view — consolidating study program management, academic stats, and approval queues into one portal.",
+      id: "Gambar 1.0: Tampilan portal utama terpadu — mengkonsolidasikan manajemen program studi, statistik akademik, dan antrean persetujuan dalam satu sistem.",
+    },
+    assetNote: {
+      en: "Asset Note: Candidate can attach secondary in-depth production screenshots (e.g. RBAC permission matrix view, component design token spec) when additional visual captures are available.",
+      id: "Catatan Aset: Kandidat dapat menyematkan tangkapan layar produksi sekunder (misal: tampilan matriks izin RBAC, spesifikasi token desain komponen) saat tangkapan visual tambahan telah tersedia.",
     },
     insights: [
       {
@@ -384,8 +396,8 @@ export const fikAppsData: ProjectDetailV2 = {
 
   outcomes: {
     title: {
-      en: "Verified Outcomes & Business Impact.",
-      id: "Hasil Terverifikasi & Dampak Nyata.",
+      en: "Verified Outcomes & Technical Impact.",
+      id: "Hasil Terverifikasi & Dampak Rekayasa.",
     },
     description: {
       en: "Measurable improvements achieved across faculty operations, developer velocity, and system resilience.",
@@ -393,34 +405,34 @@ export const fikAppsData: ProjectDetailV2 = {
     },
     items: [
       {
-        title: { en: "Unified Experience for 6,000+ Students", id: "Pengalaman Terpadu untuk 6.000+ Mahasiswa" },
+        title: { en: "Unified Platform for 6,000+ Students", id: "Platform Terpadu untuk 6.000+ Mahasiswa" },
         description: {
-          en: "Students navigate admission, study plans, and thesis scheduling through one standardized interface.",
-          id: "Mahasiswa mengakses pendaftaran, rencana studi, dan penjadwalan skripsi melalui satu antarmuka standar.",
+          en: "Students across 6 departments access enrollment, academic records, and thesis defense submissions through a single standardized UI.",
+          id: "Mahasiswa di 6 program studi mengakses pendaftaran, riwayat akademik, dan pendaftaran sidang melalui satu antarmuka terstandar.",
         },
         metricHighlight: "6,000+ Active Users",
       },
       {
-        title: { en: "Faster Feature Delivery for 4 Frontend Devs", id: "Kecepatan Rilis Fitur untuk 4 Frontend Dev" },
+        title: { en: "Accelerated Velocity for 4 Frontend Devs", id: "Akselerasi Kecepatan untuk 4 Frontend Dev" },
         description: {
-          en: "With shared components and typed APIs, new department features take days instead of weeks to build.",
-          id: "Dengan komponen bersama dan API bertipe, fitur prodi baru selesai dalam hitungan hari, bukan minggu.",
+          en: "With shared atomic design primitives and typed API contracts, new departmental features ship in days instead of weeks.",
+          id: "Dengan primitif desain atomik bersama dan kontrak API bertipe, fitur prodi baru selesai dalam hitungan hari, bukan minggu.",
         },
         metricHighlight: "3x Faster Velocity",
       },
       {
-        title: { en: "Zero Broken Builds & Safe Deployment", id: "Nol Broken Build & Rilis Aman" },
+        title: { en: "Zero Broken Builds & Production Safety", id: "Nol Broken Build & Keamanan Produksi" },
         description: {
-          en: "Strict branch conventions and automated build checks eliminated deployment regressions completely.",
-          id: "Konvensi branch ketat dan pengecekan build otomatis menghilangkan regresi deployment sepenuhnya.",
+          en: "Automated lint/typecheck pipelines and branch protection rules eliminated deployment regressions completely.",
+          id: "Pipeline otomatis lint/typecheck dan aturan branch protection menghilangkan regresi deployment sepenuhnya.",
         },
         metricHighlight: "100% Build Pass Rate",
       },
       {
-        title: { en: "Clear Executive Governance", id: "Tata Kelola Eksekutif yang Jelas" },
+        title: { en: "Strict Four-Role Executive Governance", id: "Tata Kelola Eksekutif 4-Peran yang Ketat" },
         description: {
-          en: "Faculty deans have instant visibility over department statistics and operational approvals in realtime.",
-          id: "Dekanat fakultas memiliki visibilitas instan atas statistik prodi dan persetujuan operasional secara realtime.",
+          en: "Deans, Department Heads, and Coordinators have isolated, audited operational views without data permission overlaps.",
+          id: "Dekanat, Ketua Program Studi, dan Koordinator memiliki tampilan operasional terisolasi tanpa tumpang tindih izin data.",
         },
         metricHighlight: "4 Role Separation",
       },

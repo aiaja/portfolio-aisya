@@ -57,6 +57,7 @@ export interface ProjectDetailV2 {
     description?: Translatable;
     image?: string;
     caption?: Translatable;
+    assetNote?: Translatable;
     insights?: { title: Translatable; value: string; description?: Translatable }[];
   };
   outcomes?: {

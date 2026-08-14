@@ -23,6 +23,7 @@ export interface DecisionBlockProps {
   description: Translatable;
   options: DecisionOption[];
   rationale?: Translatable;
+  background?: "bg" | "surface" | "surface-2";
 }
 
 export default function DecisionBlock({
@@ -32,12 +33,13 @@ export default function DecisionBlock({
   description,
   options,
   rationale,
+  background = "bg",
 }: DecisionBlockProps) {
   const { t } = useLanguage();
 
   return (
-    <Section id={id} background="surface-2">
-      <div className="max-w-[850px] mx-auto">
+    <Section id={id} background={background}>
+      <div className="max-w-[860px] mx-auto">
         
         {/* Header */}
         <span className="text-[11px] font-mono font-bold tracking-[0.15em] uppercase text-subtle mb-3 block select-none">
