@@ -16,7 +16,7 @@ const Navbar = () => {
  const navLinks = [
   { label: t({ id: "Karya", en: "Work" }), href: "#stories" },
   { label: t({ id: "Pengalaman", en: "Experience" }), href: "#experience" },
-  { label: t({ id: "Proses", en: "Process" }), href: "#how" },
+  { label: t({ id: "Keahlian", en: "Skills" }), href: "#skills" },
  ];
 
  useEffect(() => {

@@ -2,79 +2,80 @@
 
 import { techStack } from "@/data/techstack";
 import { useLanguage } from "@/context/LanguageContext";
-import { motion } from "framer-motion";
+import Section from "../ui/Section";
+import Badge from "../ui/Badge";
 
 const Skills = () => {
   const { t } = useLanguage();
 
-  // Curate remaining stack (excluding the 5 in Hero)
-  const remainingStack = techStack.filter(
-    (tech) =>
-      !["Next.js", "React", "TypeScript", "Figma", "Cursor"].includes(tech.name)
-  );
+  const frameworks = techStack.filter((t) => t.category === "framework");
+  const languages = techStack.filter((t) => t.category === "language");
+  const tools = techStack.filter((t) => t.category === "tool");
+
+  const categories = [
+    {
+      title: { id: "Frameworks & Library", en: "Frameworks & Libraries" },
+      items: frameworks,
+    },
+    {
+      title: { id: "Bahasa Pemrograman", en: "Languages" },
+      items: languages,
+    },
+    {
+      title: { id: "Tools & Ekosistem", en: "Tools & Ecosystem" },
+      items: tools,
+    },
+  ];
 
   return (
-    <section
-      id="skills"
-      className="relative z-20 -my-7 max-w-7xl mx-auto px-6 md:px-12 select-none"
-    >
-      <div className="border border-primary/20 py-3.5 px-6 md:px-10 rounded-full bg-white shadow-[0_4px_20px_rgba(203,146,137,0.08)] flex flex-col md:flex-row items-center gap-4 md:gap-8 overflow-hidden">
-        <p className="text-[9px] font-black uppercase tracking-[0.2em] text-primary shrink-0 leading-none">
-          {t({ id: "Teknologi Lainnya", en: "Other Tech Stack" })}
-        </p>
-        
-        {/* Scrolling Marquee with Icons and Names */}
-        <div className="overflow-hidden flex whitespace-nowrap mask-marquee flex-1 relative w-full">
-          <motion.div
-            animate={{
-              x: ["0%", "-50%"],
-            }}
-            transition={{
-              duration: 35,
-              ease: "linear",
-              repeat: Infinity,
-            }}
-            className="flex gap-6 pr-6 shrink-0 items-center"
-          >
-            {/* Double the array for seamless scrolling loop */}
-            {[...remainingStack, ...remainingStack].map((tech, idx) => (
-              <div
-                key={idx}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-100 bg-[#fafafa] shadow-[0_1px_3px_rgba(0,0,0,0.02)] whitespace-nowrap hover:scale-105 hover:border-primary/30 transition-all duration-200 cursor-default"
-              >
-                <img
-                  src={tech.icon}
-                  alt={tech.name}
-                  className="w-3.5 h-3.5 object-contain"
-                />
-                <span className="text-[11px] font-bold text-[#1e1e1e] tracking-tight leading-none">
-                  {tech.name}
-                </span>
-              </div>
-            ))}
-          </motion.div>
-        </div>
+    <Section id="skills" background="bg">
+      <div className="mb-12 md:mb-16">
+        <span className="text-[11px] font-mono font-bold tracking-[0.15em] uppercase text-subtle mb-3 block select-none">
+          {t({ id: "Keahlian & Perkakas", en: "Skills & Tooling" })}
+        </span>
+        <h2 className="text-[clamp(28px,4vw,42px)] font-extrabold leading-[1.12] tracking-tight text-text mb-4">
+          {t({ id: "Teknologi yang Saya Gunakan", en: "Technologies I Use" })}
+          <br />
+          <span className="text-primary italic font-serif">
+            {t({ id: "untuk Membangun Produk.", en: "to Build Products." })}
+          </span>
+        </h2>
       </div>
 
-      <style jsx>{`
-        .mask-marquee {
-          mask-image: linear-gradient(
-            to right,
-            transparent,
-            black 8%,
-            black 92%,
-            transparent
-          );
-          -webkit-mask-image: linear-gradient(
-            to right,
-            transparent,
-            black 8%,
-            black 92%,
-            transparent
-          );
-        }
-      `}</style>
-    </section>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {categories.map((category, idx) => (
+          <div
+            key={idx}
+            className="p-6 rounded-bento border border-border bg-surface shadow-subtle flex flex-col justify-between"
+          >
+            <div>
+              <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-muted mb-5 pb-3 border-b border-border">
+                {t(category.title)}
+              </h3>
+
+              <div className="flex flex-wrap gap-2.5">
+                {category.items.map((tech) => (
+                  <div
+                    key={tech.name}
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-2 border border-border hover:border-primary/30 transition-colors"
+                  >
+                    <img
+                      src={tech.icon}
+                      alt={tech.name}
+                      className="w-4 h-4 object-contain"
+                      loading="lazy"
+                    />
+                    <span className="text-xs font-bold text-text">
+                      {tech.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Section>
   );
 };
 
