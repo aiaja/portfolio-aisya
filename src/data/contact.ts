@@ -1,5 +1,5 @@
 import { Translatable } from "@/types";
-import { profile } from "@/data/v3/profile";
+import { profile } from "@/data/profile";
 
 export interface ContactLink {
   label: string;

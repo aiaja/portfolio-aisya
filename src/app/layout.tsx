@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
-import PageTransition from "@/components/v3/ui/PageTransition";
+import PageTransition from "@/components/ui/PageTransition";
 
 const inter = Inter({
  subsets: ["latin"],

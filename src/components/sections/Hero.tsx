@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ArrowRight, Trophy } from "lucide-react";
-import { profile } from "@/data/v3/profile";
+import { profile } from "@/data/profile";
 import { techStack } from "@/data/techstack";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";

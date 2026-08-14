@@ -1,6 +1,6 @@
 "use client";
 
-import { profile } from "@/data/v3/profile";
+import { profile } from "@/data/profile";
 import { useLanguage } from "@/context/LanguageContext";
 
 const Footer = () => {
