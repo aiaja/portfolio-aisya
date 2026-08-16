@@ -80,6 +80,7 @@ export interface ProjectDetailV2 {
 export const projectDetailsV2: Record<string, ProjectDetailV2> = {
   "fik-apps": fikAppsData,
   "fleet-management": fmsData,
+  "fleet-management-system": fmsData,
   "pilmo": pilmoData,
   "aifa": aifaData,
   "onecall": oneCallData,

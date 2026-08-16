@@ -15,7 +15,7 @@ export interface ComparisonItem {
 export interface BeforeAfterBlockProps {
   id?: string;
   label?: Translatable;
-  title: Translatable;
+  title?: Translatable;
   description?: Translatable;
   beforeTitle?: Translatable;
   afterTitle?: Translatable;
@@ -26,7 +26,7 @@ export interface BeforeAfterBlockProps {
 export default function BeforeAfterBlock({
   id = "comparison",
   label = { id: "Transformasi Arsitektur", en: "Architectural Transformation" },
-  title,
+  title = { id: "Evolusi Arsitektur: Legacy vs Modern", en: "Architectural Evolution: Legacy vs Modern" },
   description,
   beforeTitle = { id: "Sebelum (Legacy System)", en: "Before (Legacy Architecture)" },
   afterTitle = { id: "Sesudah (Sistem Terpadu)", en: "After (Modern System)" },

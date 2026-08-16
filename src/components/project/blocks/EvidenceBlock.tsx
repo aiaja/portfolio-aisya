@@ -14,6 +14,7 @@ export interface EvidenceBlockProps {
   description?: Translatable;
   image?: string;
   caption?: Translatable;
+  assetNote?: Translatable;
   insights?: { title: Translatable; value: string; description?: Translatable }[];
   background?: "bg" | "surface" | "surface-2";
 }
@@ -25,6 +26,7 @@ export default function EvidenceBlock({
   description,
   image,
   caption,
+  assetNote,
   insights,
   background = "surface-2",
 }: EvidenceBlockProps) {
@@ -61,6 +63,11 @@ export default function EvidenceBlock({
             {caption && (
               <p className="text-center text-xs font-mono text-muted mt-4 pt-3 border-t border-border">
                 {t(caption)}
+              </p>
+            )}
+            {assetNote && (
+              <p className="text-center text-[11px] font-mono text-subtle mt-2 italic">
+                {t(assetNote)}
               </p>
             )}
           </div>
