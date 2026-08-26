@@ -128,7 +128,7 @@ const Hero = () => {
       id="hero"
       background="transparent"
       withBorder={false}
-      className="min-h-[85vh] flex items-center pt-24 md:pt-28 pb-16"
+      className="flex items-center pt-24 md:pt-28 pb-8 md:pb-10"
     >
       <div className="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-10 md:gap-14 items-center w-full">
         {/* Text Content */}

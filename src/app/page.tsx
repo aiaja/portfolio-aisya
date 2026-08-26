@@ -14,14 +14,25 @@ export default function HomePage() {
     <main className="min-h-screen bg-bg text-text selection:bg-primary-10 selection:text-primary">
       <Navbar />
       {/* Group section: Hero, TrustStrip, SelectedStories with Flow Background */}
-      <div className="relative overflow-hidden">
+      <div className="relative isolate overflow-hidden">
+        {/* Continuous Flow SVG Ribbon filling 100% of the screen width */}
         <div
-          className="absolute inset-0 -z-10 bg-[url('/assets/bg-flow.svg')] bg-cover bg-top bg-no-repeat pointer-events-none opacity-90"
+          className="absolute inset-x-0 top-0 pointer-events-none z-0 select-none overflow-hidden"
           aria-hidden="true"
-        />
-        <Hero />
-        <TrustStrip />
-        <SelectedStories />
+        >
+          <img
+            src="/assets/bg-flow.svg"
+            alt="Background Flow"
+            className="w-full h-auto min-w-full object-cover object-top pointer-events-none block scale-150"
+            loading="eager"
+          />
+        </div>
+
+        <div className="relative z-10">
+          <Hero />
+          <TrustStrip />
+          <SelectedStories />
+        </div>
       </div>
       <ExperienceGrid />
       <Skills />
