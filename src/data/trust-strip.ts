@@ -9,7 +9,7 @@ export interface TrustItem {
 export const trustItems: TrustItem[] = [
   {
     icon: "Star",
-    text: "GPA 3.78 / 4.00",
+    text: "GPA 3.82 / 4.00",
     sub: { id: "Ilmu Komputer", en: "Computer Science" },
   },
   {
