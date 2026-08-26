@@ -126,6 +126,7 @@ const Hero = () => {
   return (
     <Section
       id="hero"
+      background="transparent"
       withBorder={false}
       className="min-h-[85vh] flex items-center pt-24 md:pt-28 pb-16"
     >

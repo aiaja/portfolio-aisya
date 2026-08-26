@@ -7,7 +7,7 @@ interface SectionProps {
   id?: string;
   children: ReactNode;
   className?: string;
-  background?: "bg" | "surface" | "surface-2";
+  background?: "bg" | "surface" | "surface-2" | "transparent";
   withBorder?: boolean;
   size?: "default" | "wide" | "narrow";
 }
@@ -24,6 +24,7 @@ const Section = ({
     bg: "bg-bg",
     surface: "bg-surface",
     "surface-2": "bg-surface-2",
+    transparent: "bg-transparent",
   };
 
   const containerSizes = {

@@ -15,7 +15,7 @@ const SelectedStories = () => {
   const { t } = useLanguage();
 
   return (
-    <Section id="stories">
+    <Section id="stories" background="transparent" withBorder={false}>
       {/* Header */}
       <div className="mb-12 md:mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
         <div>

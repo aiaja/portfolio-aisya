@@ -23,7 +23,7 @@ const TrustStrip = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="trust" className="py-6 bg-surface border-y border-border">
+    <section id="trust" className="py-6 bg-surface/80 backdrop-blur-md border-y border-border">
       <div className="max-w-[1000px] mx-auto px-6 md:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 items-center gap-5 md:gap-4">
           {trustItems.map((item, index) => {

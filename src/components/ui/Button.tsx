@@ -41,13 +41,17 @@ const Button = ({
   ...props
 }: ButtonProps) => {
   const baseStyles =
-    "inline-flex items-center justify-center gap-2 font-bold rounded-full transition-all duration-300 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none no-underline cursor-pointer disabled:opacity-50 disabled:pointer-events-none select-none";
+    "group/btn relative inline-flex items-center justify-center gap-2 font-bold rounded-full transition-all duration-150 ease-out focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none no-underline cursor-pointer disabled:opacity-50 disabled:pointer-events-none disabled:transform-none disabled:shadow-none select-none transform-gpu";
 
   const variants = {
-    primary: "bg-primary text-white shadow-md shadow-primary/20 hover:opacity-90 active:opacity-100",
-    secondary: "bg-surface-2 text-text border border-border-strong hover:bg-surface-3 active:bg-surface-2",
-    outline: "border border-border-strong bg-transparent text-text hover:border-text hover:bg-surface-2",
-    ghost: "text-primary border border-primary/20 bg-transparent hover:bg-primary-10",
+    primary:
+      "bg-gradient-to-b from-[oklch(75%_0.194_13.428)] via-primary to-[oklch(63%_0.194_13.428)] text-white border border-white/25 shadow-[0_3.5px_0_0_oklch(52%_0.194_13.428),0_6px_16px_oklch(var(--primary)/0.3),inset_0_1px_0_rgba(255,255,255,0.45),inset_0_-1px_0_rgba(0,0,0,0.2)] hover:brightness-105 hover:-translate-y-0.5 hover:shadow-[0_4.5px_0_0_oklch(52%_0.194_13.428),0_8px_20px_oklch(var(--primary)/0.38),inset_0_1px_0_rgba(255,255,255,0.55),inset_0_-1px_0_rgba(0,0,0,0.2)] active:translate-y-[2.5px] active:shadow-[0_1px_0_0_oklch(52%_0.194_13.428),0_2px_4px_oklch(var(--primary)/0.2),inset_0_2px_4px_rgba(0,0,0,0.25)]",
+    secondary:
+      "bg-gradient-to-b from-white via-surface-2 to-surface-3 text-text border border-black/[0.08] shadow-[0_3px_0_0_rgba(0,0,0,0.08),0_4px_12px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.9),inset_0_-1px_0_rgba(0,0,0,0.04)] hover:border-black/[0.14] hover:-translate-y-0.5 hover:shadow-[0_4px_0_0_rgba(0,0,0,0.08),0_6px_16px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,1)] active:translate-y-[2px] active:shadow-[0_1px_0_0_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.03),inset_0_2px_4px_rgba(0,0,0,0.06)]",
+    outline:
+      "bg-gradient-to-b from-surface/90 to-surface-2/90 backdrop-blur-md text-text border border-border-strong shadow-[0_2.5px_0_0_rgba(0,0,0,0.05),0_3px_8px_rgba(0,0,0,0.03),inset_0_1px_0_rgba(255,255,255,0.8),inset_0_-1px_0_rgba(0,0,0,0.03)] hover:border-text/30 hover:-translate-y-0.5 hover:shadow-[0_3.5px_0_0_rgba(0,0,0,0.06),0_6px_14px_rgba(0,0,0,0.05),inset_0_1px_0_rgba(255,255,255,0.9)] active:translate-y-[2px] active:shadow-[0_0.5px_0_0_rgba(0,0,0,0.04),inset_0_2px_4px_rgba(0,0,0,0.05)]",
+    ghost:
+      "text-text border border-transparent hover:border-border-strong hover:bg-gradient-to-b hover:from-white/80 hover:to-surface-2/80 hover:shadow-[0_2px_0_0_rgba(0,0,0,0.05),0_3px_8px_rgba(0,0,0,0.03),inset_0_1px_0_rgba(255,255,255,0.8)] hover:-translate-y-0.5 active:translate-y-[1px] active:shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.06)]",
   };
 
   const sizes = {

@@ -13,9 +13,16 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-bg text-text selection:bg-primary-10 selection:text-primary">
       <Navbar />
-      <Hero />
-      <TrustStrip />
-      <SelectedStories />
+      {/* Group section: Hero, TrustStrip, SelectedStories with Flow Background */}
+      <div className="relative overflow-hidden">
+        <div
+          className="absolute inset-0 -z-10 bg-[url('/assets/bg-flow.svg')] bg-cover bg-top bg-no-repeat pointer-events-none opacity-90"
+          aria-hidden="true"
+        />
+        <Hero />
+        <TrustStrip />
+        <SelectedStories />
+      </div>
       <ExperienceGrid />
       <Skills />
       <ContactEditorial />
