@@ -97,4 +97,83 @@
   ::-webkit-scrollbar-thumb:hover {
     background: oklch(var(--primary));
   }
+
+  /* Organic Blob Card Utilities (Hero V3) */
+  .v3-blob-bg {
+    border-radius: 62% 38% 55% 45% / 45% 55% 45% 55%;
+  }
+
+  .v3-photo {
+    border-radius: 58% 42% 50% 50% / 50% 45% 55% 50%;
+    transition: transform 0.15s ease-out, border-radius 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .group:hover .v3-photo,
+  .group:focus-visible .v3-photo,
+  .v3-photo:hover {
+    border-radius: 50%;
+  }
+
+  .shadow-blob-v3 {
+    box-shadow: 0 25px 50px -15px rgba(26, 25, 23, 0.25);
+  }
+
+  .blob-organic {
+    border-radius: 62% 38% 55% 45% / 45% 55% 45% 55%;
+    transition: border-radius 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .group:hover .blob-organic,
+  .group:focus-visible .blob-organic,
+  .blob-organic:hover {
+    border-radius: 50%;
+  }
+
+  .shadow-blob {
+    box-shadow: 0 20px 40px -15px rgba(26, 25, 23, 0.10), 0 8px 16px -6px rgba(26, 25, 23, 0.05);
+  }
+
+  .shadow-pill {
+    box-shadow: 0 4px 16px -2px rgba(26, 25, 23, 0.08), 0 2px 6px -1px rgba(26, 25, 23, 0.04);
+  }
+
+  /* 3D Glossy Floating Bubbles */
+  @keyframes bubble-float {
+    0%, 100% {
+      transform: translateY(0px) scale(1);
+    }
+    50% {
+      transform: translateY(-16px) scale(1.02);
+    }
+  }
+
+  @keyframes shine-pulse {
+    0%, 100% {
+      opacity: 0.85;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .bubble-float {
+    animation: bubble-float 5s ease-in-out infinite;
+  }
+
+  .bubble-shine {
+    animation: shine-pulse 5s ease-in-out infinite;
+    transform-origin: 35% 30%;
+  }
+
+  .bubble-shadow {
+    filter: drop-shadow(0 16px 22px rgba(244, 143, 177, 0.32)) drop-shadow(0 6px 10px rgba(255, 182, 193, 0.22));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bubble-float,
+    .bubble-shine {
+      animation: none !important;
+    }
+  }
 }
+

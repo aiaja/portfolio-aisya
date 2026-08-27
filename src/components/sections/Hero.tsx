@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { ArrowRight, Trophy } from "lucide-react";
 import { profile } from "@/data/profile";
 import { techStack } from "@/data/techstack";
@@ -8,6 +7,7 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import Button from "../ui/Button";
 import Section from "../ui/Section";
+import BlobPhotoCard from "../ui/BlobPhotoCard";
 import { heroData } from "@/data/hero";
 import { useRef, useEffect } from "react";
 
@@ -130,7 +130,7 @@ const Hero = () => {
       withBorder={false}
       className="flex items-center pt-24 md:pt-28 pb-8 md:pb-10"
     >
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-10 md:gap-14 items-center w-full">
+      <div className="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-14 lg:gap-16 items-center w-full">
         {/* Text Content */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -186,22 +186,18 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Profile Visual */}
+        {/* Profile Visual: Interactive 3D Organic Blob Photo Card */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="relative aspect-square max-w-[280px] md:max-w-none mx-auto w-full rounded-bento-lg bg-surface-2 border border-border-strong p-2 shadow-card overflow-hidden"
+          className="flex items-center justify-center w-full"
         >
-          <div className="relative w-full h-full rounded-bento overflow-hidden bg-bg">
-            <Image
-              src="/images/profile.svg"
-              alt={profile.name}
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
+          <BlobPhotoCard
+            imageSrc="/images/profile.svg"
+            imageAlt={profile.name}
+            priority
+          />
         </motion.div>
       </div>
     </Section>
