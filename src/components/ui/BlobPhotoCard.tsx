@@ -231,13 +231,13 @@ export const BlobPhotoCard: React.FC<BlobPhotoCardProps> = ({
         className="absolute -inset-4 sm:-inset-5 v3-blob-bg bg-gradient-to-br from-primary/15 via-white/80 to-surface-2 blur-[3px] pointer-events-none"
       />
 
-      {/* Layer 2: Main Photo Card (Studio Radial Gradient: Pure seamless gradient without border/stroke) */}
+      {/* Layer 2: Main Photo Card (Tactile Skeuomorphic 3D Plaque with Physical Bezel & Rim) */}
       <motion.div
         style={{
           x: shouldReduceMotion ? 0 : photoSpringX,
           y: shouldReduceMotion ? 0 : photoSpringY,
         }}
-        className="absolute inset-0 overflow-hidden v3-photo bg-white shadow-blob-v3 border-0"
+        className="absolute inset-0 overflow-hidden v3-photo bg-white shadow-blob-v3 ring-[2.5px] ring-white/95"
       >
         <div
           className="relative w-full h-full overflow-hidden"
@@ -253,6 +253,21 @@ export const BlobPhotoCard: React.FC<BlobPhotoCardProps> = ({
             sizes="(max-width: 768px) 280px, 360px"
             className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
             priority={priority}
+          />
+          {/* Skeuomorphic Glass Specular Lens & Physical Bevel */}
+          <div
+            className="absolute inset-0 pointer-events-none rounded-[inherit] ring-1 ring-inset ring-white/90 shadow-[inset_0_3px_6px_rgba(255,255,255,0.95),inset_0_-5px_10px_rgba(26,25,23,0.14)]"
+            aria-hidden="true"
+          />
+          {/* Curved Specular Glaze */}
+          <div
+            className="absolute -top-16 -left-16 w-56 h-56 bg-gradient-to-br from-white/70 via-white/20 to-transparent rounded-full blur-[2px] pointer-events-none opacity-85"
+            aria-hidden="true"
+          />
+          {/* Top Glass Light Sweep */}
+          <div
+            className="absolute top-0 inset-x-0 h-1/3 bg-gradient-to-b from-white/40 to-transparent pointer-events-none"
+            aria-hidden="true"
           />
         </div>
       </motion.div>

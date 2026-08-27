@@ -115,7 +115,17 @@
   }
 
   .shadow-blob-v3 {
-    box-shadow: 0 25px 50px -15px rgba(26, 25, 23, 0.25);
+    box-shadow:
+      /* 3D Physical Bottom Ledge (matches button 3D thickness) */
+      0 1px 2px 0 rgba(0, 0, 0, 0.08),
+      0 5.5px 0 0 #eae7e2,
+      0 8.5px 0 0 #dedad2,
+      /* Tight contact occlusion */
+      0 12px 14px -4px rgba(26, 25, 23, 0.12),
+      /* Deep ambient body shadow */
+      0 24px 48px -10px rgba(26, 25, 23, 0.18),
+      /* Radiant ground bounce pink halo */
+      0 32px 64px -14px oklch(var(--primary) / 0.25);
   }
 
   .blob-organic {
