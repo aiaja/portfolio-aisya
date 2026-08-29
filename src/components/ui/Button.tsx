@@ -1,15 +1,15 @@
 "use client";
 
-import { ReactNode, MouseEvent } from "react";
+import React, { ReactNode, MouseEvent } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
-type ButtonSize = "none" | "sm" | "md" | "lg";
-type ButtonPadding = "none" | "sm" | "md" | "lg";
+export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
+export type ButtonSize = "sm" | "md" | "lg" | "icon" | "none";
+export type ButtonPadding = "none" | "sm" | "md" | "lg";
 
-interface ButtonProps {
-  children: ReactNode;
+export interface ButtonProps {
+  children?: ReactNode;
   variant?: ButtonVariant;
   size?: ButtonSize;
   padding?: ButtonPadding;
@@ -18,14 +18,17 @@ interface ButtonProps {
   iconPosition?: "left" | "right";
   href?: string;
   external?: boolean;
-  onClick?: (e: MouseEvent) => void;
+  onClick?: (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
   disabled?: boolean;
+  loading?: boolean;
+  loadingText?: ReactNode;
   type?: "button" | "submit" | "reset";
   "aria-label"?: string;
   "aria-expanded"?: boolean;
+  tabIndex?: number;
 }
 
-const Button = ({
+export const Button = ({
   children,
   variant = "primary",
   size = "md",
@@ -36,49 +39,72 @@ const Button = ({
   href,
   external,
   onClick,
-  disabled,
+  disabled = false,
+  loading = false,
+  loadingText,
   type = "button",
   ...props
 }: ButtonProps) => {
-  const baseStyles =
-    "group/btn relative inline-flex items-center justify-center gap-2 font-bold rounded-full transition-all duration-150 ease-out focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none no-underline cursor-pointer disabled:opacity-50 disabled:pointer-events-none disabled:transform-none disabled:shadow-none select-none transform-gpu";
-
-  const variants = {
-    primary:
-      "bg-gradient-to-b from-[oklch(76%_0.194_13.428)] via-primary to-[oklch(64%_0.194_13.428)] text-white border border-white/25 shadow-[0_3.5px_0_0_oklch(52%_0.194_13.428),0_6px_16px_oklch(var(--primary)/0.3),inset_0_1.5px_0_rgba(255,255,255,0.6),inset_0_-1px_0_rgba(0,0,0,0.15)] hover:brightness-105 hover:-translate-y-0.5 hover:shadow-[0_4.5px_0_0_oklch(52%_0.194_13.428),0_8px_20px_oklch(var(--primary)/0.38),inset_0_1.5px_0_rgba(255,255,255,0.75)] active:translate-y-[2.5px] active:shadow-[0_1px_0_0_oklch(52%_0.194_13.428),0_2px_4px_oklch(var(--primary)/0.2),inset_0_2px_4px_rgba(0,0,0,0.2)]",
-    secondary:
-      "bg-gradient-to-b from-white via-[#f7f5f1] to-[#ebe7e0] text-text border border-[#d4cfc7] shadow-[0_3.5px_0_0_#cdc7bd,0_6px_14px_rgba(26,25,23,0.06),inset_0_1.5px_0_rgba(255,255,255,1),inset_0_-1px_0_rgba(0,0,0,0.04)] hover:bg-gradient-to-b hover:from-white hover:via-[#fbf9f6] hover:to-[#f0ece5] hover:border-black/[0.16] hover:-translate-y-0.5 hover:shadow-[0_4.5px_0_0_#cdc7bd,0_8px_18px_rgba(26,25,23,0.08),inset_0_1.5px_0_rgba(255,255,255,1)] active:translate-y-[2.5px] active:shadow-[0_1px_0_0_#cdc7bd,0_2px_4px_rgba(26,25,23,0.04),inset_0_2px_4px_rgba(0,0,0,0.06)]",
-    outline:
-      "bg-gradient-to-b from-white via-[#f7f5f1] to-[#ebe7e0] text-text border border-[#d4cfc7] shadow-[0_3px_0_0_#d8d3cb,0_4px_10px_rgba(26,25,23,0.05),inset_0_1.5px_0_rgba(255,255,255,0.9)] hover:bg-gradient-to-b hover:from-[#fff5f8] hover:via-[#fdebf1] hover:to-[#fbdde8] hover:border-primary/45 hover:text-primary hover:-translate-y-0.5 hover:shadow-[0_4px_0_0_#e4b5c4,0_6px_16px_rgba(168,72,94,0.18),inset_0_1.5px_0_rgba(255,255,255,1)] active:translate-y-[2px] active:shadow-[0_1px_0_0_#d8d3cb,inset_0_2px_4px_rgba(0,0,0,0.06)]",
-    ghost:
-      "text-text border border-transparent hover:border-[#d4cfc7] hover:bg-gradient-to-b hover:from-white hover:via-[#f8f6f2] hover:to-[#eeeae3] hover:shadow-[0_2.5px_0_0_#dedad2,0_4px_10px_rgba(26,25,23,0.04),inset_0_1.5px_0_rgba(255,255,255,0.9)] hover:-translate-y-0.5 active:translate-y-[1.5px] active:shadow-[0_0.5px_0_0_#dedad2,inset_0_1.5px_3px_rgba(0,0,0,0.06)]",
+  const variantClasses: Record<ButtonVariant, string> = {
+    primary: "btn-primary",
+    secondary: "btn-secondary",
+    outline: "btn-outline",
+    ghost: "btn-ghost",
   };
 
-  const sizes = {
+  const sizeClasses: Record<ButtonSize, string> = {
     none: "",
-    sm: "px-4 py-2 text-xs min-h-[40px]",
-    md: "px-6 py-2.5 text-sm min-h-[46px]",
-    lg: "px-8 py-3.5 text-base min-h-[52px]",
+    sm: "btn-sm",
+    md: "btn-md",
+    lg: "btn-lg",
+    icon: "btn-icon",
   };
 
-  const paddings = {
-    none: "p-0",
-    sm: "p-2 min-h-[44px] min-w-[44px]",
-    md: "p-3 min-h-[44px] min-w-[44px]",
-    lg: "p-4 min-h-[48px] min-w-[48px]",
+  const paddingOverrides: Record<ButtonPadding, string> = {
+    none: "!p-0 !min-h-0 !min-w-0",
+    sm: "!p-2 !min-h-[38px] !min-w-[38px]",
+    md: "!p-3 !min-h-[46px] !min-w-[46px]",
+    lg: "!p-4 !min-h-[52px] !min-w-[52px]",
   };
 
-  const activePadding = padding ? paddings[padding] : sizes[size];
+  const isActuallyDisabled = disabled || loading;
 
-  const content = (
-    <>
-      {icon && iconPosition === "left" && <span className="shrink-0">{icon}</span>}
-      <span>{children}</span>
-      {icon && iconPosition === "right" && <span className="shrink-0">{icon}</span>}
-    </>
+  const combinedClassName = cn(
+    "btn",
+    variantClasses[variant],
+    size !== "none" && sizeClasses[size],
+    padding && paddingOverrides[padding],
+    isActuallyDisabled && "is-disabled",
+    loading && "is-loading",
+    className
   );
 
-  const combinedClassName = cn(baseStyles, variants[variant], activePadding, className);
+  const renderContent = () => {
+    if (loading) {
+      return (
+        <>
+          <span className="btn-spinner" aria-hidden="true" />
+          <span className="btn-label">{loadingText || children}</span>
+        </>
+      );
+    }
+
+    return (
+      <>
+        {icon && iconPosition === "left" && (
+          <span className="shrink-0 inline-flex items-center" aria-hidden="true">
+            {icon}
+          </span>
+        )}
+        {children && <span className="btn-label">{children}</span>}
+        {icon && iconPosition === "right" && (
+          <span className="shrink-0 inline-flex items-center" aria-hidden="true">
+            {icon}
+          </span>
+        )}
+      </>
+    );
+  };
 
   if (href) {
     const isExternal = external || href.startsWith("http") || href.startsWith("mailto:");
@@ -86,21 +112,32 @@ const Button = ({
     if (isExternal) {
       return (
         <a
-          href={href}
+          href={isActuallyDisabled ? undefined : href}
           className={combinedClassName}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={onClick}
+          onClick={isActuallyDisabled ? (e) => e.preventDefault() : (onClick as any)}
+          aria-disabled={isActuallyDisabled ? "true" : undefined}
+          aria-busy={loading ? "true" : undefined}
+          tabIndex={isActuallyDisabled ? -1 : props.tabIndex}
           {...(props as any)}
         >
-          {content}
+          {renderContent()}
         </a>
       );
     }
 
     return (
-      <Link href={href} className={combinedClassName} onClick={onClick} {...(props as any)}>
-        {content}
+      <Link
+        href={isActuallyDisabled ? "#" : href}
+        className={combinedClassName}
+        onClick={isActuallyDisabled ? (e) => e.preventDefault() : (onClick as any)}
+        aria-disabled={isActuallyDisabled ? "true" : undefined}
+        aria-busy={loading ? "true" : undefined}
+        tabIndex={isActuallyDisabled ? -1 : props.tabIndex}
+        {...(props as any)}
+      >
+        {renderContent()}
       </Link>
     );
   }
@@ -108,12 +145,14 @@ const Button = ({
   return (
     <button
       type={type}
-      disabled={disabled}
+      disabled={isActuallyDisabled}
       className={combinedClassName}
-      onClick={onClick}
+      onClick={onClick as any}
+      aria-disabled={isActuallyDisabled ? "true" : undefined}
+      aria-busy={loading ? "true" : undefined}
       {...(props as any)}
     >
-      {content}
+      {renderContent()}
     </button>
   );
 };

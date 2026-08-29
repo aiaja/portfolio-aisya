@@ -23,7 +23,7 @@ const TrustStrip = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="trust" className="py-6 bg-surface/80 backdrop-blur-md border-y border-border">
+    <section id="trust" className="py-6 bg-gradient-to-b from-surface/90 via-surface/80 to-surface-2/80 backdrop-blur-md border-y border-border shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
       <div className="max-w-[1000px] mx-auto px-6 md:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 items-center gap-5 md:gap-4">
           {trustItems.map((item, index) => {
@@ -31,10 +31,10 @@ const TrustStrip = () => {
             return (
               <div
                 key={index}
-                className="flex items-center gap-3 md:px-3 md:first:pl-0 border-r-0 md:border-r border-border md:last:border-r-0 w-full"
+                className="group flex items-center gap-3 md:px-3 md:first:pl-0 border-r-0 md:border-r border-border md:last:border-r-0 w-full select-none"
               >
-                <div className="w-8 h-8 rounded-lg bg-primary-10 border border-primary-20 flex items-center justify-center shrink-0 text-primary">
-                  {Icon && <Icon size={16} />}
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-b from-white via-[#f7f5f1] to-[#ebe7e0] border border-[#d8d3cb] flex items-center justify-center shrink-0 text-primary shadow-[0_2.5px_0_0_#dedad2,0_4px_10px_rgba(26,25,23,0.06),inset_0_1.5px_0_0_rgba(255,255,255,1)] group-hover:-translate-y-0.5 group-hover:bg-gradient-to-b group-hover:from-[#fff6f8] group-hover:via-[#fdecf2] group-hover:to-[#fbdde8] group-hover:border-primary/45 group-hover:shadow-[0_3.5px_0_0_#e8ccd7,0_6px_14px_rgba(168,72,94,0.18),inset_0_1.5px_0_0_rgba(255,255,255,1)] transition-all duration-200">
+                  {Icon && <Icon size={16} className="drop-shadow-[0_1px_1px_rgba(0,0,0,0.06)]" />}
                 </div>
                 <div className="min-w-0">
                   <div className="text-xs font-bold text-text leading-tight truncate">

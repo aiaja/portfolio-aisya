@@ -70,7 +70,7 @@ const Navbar = () => {
        </div>
        
        <span className="hidden md:block font-black text-[10px] uppercase tracking-[0.25em] text-text relative z-10 drop-shadow-[0_1px_0_rgba(255,255,255,0.8)]">
-        <span className="text-primary">Portfolio </span>Aisya<span className="text-primary">.</span>
+        <span className="text-primary">Portfolio </span>Aisya
        </span>
       </div>
     </Button>
