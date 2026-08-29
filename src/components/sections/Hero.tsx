@@ -120,7 +120,7 @@ const Hero = () => {
 
   // Curate core 5 foundational tech items for the hero
   const featuredStack = techStack.filter((tech) =>
-    ["Next.js", "React", "TypeScript", "Tailwind CSS", "Figma"].includes(tech.name)
+    ["TypeScript", "Next.js", "React", "Tailwind CSS", "Laravel"].includes(tech.name)
   );
 
   return (

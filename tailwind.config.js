@@ -35,6 +35,20 @@ module.exports = {
         card: "0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02)",
         glow: "0 0 24px -4px oklch(var(--primary) / 0.25)",
       },
+      keyframes: {
+        "marquee-scroll-left": {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "marquee-scroll-right": {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
+      },
+      animation: {
+        "marquee-left": "marquee-scroll-left 42s linear infinite",
+        "marquee-right": "marquee-scroll-right 38s linear infinite",
+      },
     },
   },
   plugins: [],

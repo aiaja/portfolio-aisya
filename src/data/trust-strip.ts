@@ -14,18 +14,18 @@ export const trustItems: TrustItem[] = [
   },
   {
     icon: "Monitor",
-    text: "Frontend Engineer",
+    text: "Frontend",
     sub: "Bengkel Koding",
   },
   {
     icon: "Users",
     text: "Vice President",
-    sub: "Dian Nuswantoro CC",
+    sub: "DNCC",
   },
   {
     icon: "GraduationCap",
-    text: "Teaching Assistant",
-    sub: "Laravel · MVC",
+    text: "Mentor",
+    sub: "Bengkel Koding",
   },
   {
     icon: "Award",

@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/Hero";
 import TrustStrip from "@/components/sections/TrustStrip";
 import SelectedStories from "@/components/sections/SelectedStories";
+import MoreWorkGallery from "@/components/sections/MoreWorkGallery";
 import ExperienceGrid from "@/components/sections/ExperienceGrid";
 import Skills from "@/components/sections/Skills";
 import ContactEditorial from "@/components/sections/ContactEditorial";
@@ -34,6 +35,7 @@ export default function HomePage() {
           <SelectedStories />
         </div>
       </div>
+      <MoreWorkGallery />
       <ExperienceGrid />
       <Skills />
       <ContactEditorial />

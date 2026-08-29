@@ -52,8 +52,8 @@ export const techStack: Tech[] = [
 
   // Tools
   { 
-    name: "Figma", 
-    icon: "https://cdn.simpleicons.org/figma", 
+    name: "Laravel", 
+    icon: "https://cdn.simpleicons.org/laravel", 
     category: "tool" 
   },
   { 
