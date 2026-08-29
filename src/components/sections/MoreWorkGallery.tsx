@@ -18,39 +18,56 @@ export const MoreWorkGallery: React.FC = () => {
   return (
     <section
       id="more-work"
-      className="py-16 sm:py-24 relative overflow-hidden bg-bg/50"
+      className="py-16 sm:py-24 relative bg-bg/50 isolate"
       aria-label="More Work Gallery"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-10 sm:mb-14">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-text mb-3">
-            {t(galleryHeader.titleRegular)}{" "}
-            <span className="font-serif italic font-semibold text-primary">
-              {t(galleryHeader.titleAccent)}
-            </span>
-          </h2>
+      {/* Decorative Transition Marker A (bg-star.svg): Static Background Transition Asset, Rotated -38.4deg with 3/5 on-screen */}
+      <div
+        className="hidden md:block absolute -top-[195px] md:-top-[230px] lg:-top-[260px] -right-[156px] md:-right-[186px] lg:-right-[210px] w-[390px] md:w-[465px] lg:w-[525px] pointer-events-none select-none z-0 opacity-60 -rotate-[38.4deg] origin-center"
+        aria-hidden="true"
+      >
+        <img
+          src="/assets/bg-star.svg"
+          alt=""
+          className="w-full h-auto object-contain pointer-events-none select-none"
+          loading="eager"
+        />
+      </div>
+
+
+
+      <div className="relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="flex flex-col items-center text-center mb-10 sm:mb-14">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-text mb-3">
+              {t(galleryHeader.titleRegular)}{" "}
+              <span className="font-serif italic font-semibold text-primary">
+                {t(galleryHeader.titleAccent)}
+              </span>
+            </h2>
+          </div>
         </div>
-      </div>
 
-      {/* Marquee Row 1 — Scrolls Left */}
-      <div className="w-full">
-        <MarqueeRow
-          items={row1Items}
-          direction="left"
-          speedSeconds={42}
-          onItemClick={(item) => setActiveItem(item)}
-        />
-      </div>
+        {/* Marquee Row 1 — Scrolls Left */}
+        <div className="w-full">
+          <MarqueeRow
+            items={row1Items}
+            direction="left"
+            speedSeconds={42}
+            onItemClick={(item) => setActiveItem(item)}
+          />
+        </div>
 
-      {/* Marquee Row 2 — Scrolls Right */}
-      <div className="w-full mt-4 sm:mt-5">
-        <MarqueeRow
-          items={row2Items}
-          direction="right"
-          speedSeconds={38}
-          onItemClick={(item) => setActiveItem(item)}
-        />
+        {/* Marquee Row 2 — Scrolls Right */}
+        <div className="w-full mt-4 sm:mt-5">
+          <MarqueeRow
+            items={row2Items}
+            direction="right"
+            speedSeconds={38}
+            onItemClick={(item) => setActiveItem(item)}
+          />
+        </div>
       </div>
 
 

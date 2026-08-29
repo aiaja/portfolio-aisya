@@ -10,7 +10,7 @@ const ExperienceGrid = () => {
   const { t } = useLanguage();
 
   return (
-    <Section id="experience" background="surface-2">
+    <Section id="experience" background="transparent" withBorder={false} className="bg-surface-2/40">
       <div className="mb-12 md:mb-16">
         <span className="text-[11px] font-mono font-bold tracking-[0.15em] uppercase text-subtle mb-3 block select-none">
           {t({ id: "Jejak Rekayasa & Kepemimpinan", en: "Engineering & Leadership Track" })}

@@ -109,7 +109,7 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({ item, onOpen, classNam
         onMouseLeave={handleMouseLeave}
         onClick={handleClick}
         className={cn(
-          "relative shrink-0 w-[230px] h-[270px] sm:w-[260px] sm:h-[300px] lg:w-[300px] lg:h-[340px] bg-surface-2 dark:bg-surface/50 border border-border/70 rounded-bento p-3.5 sm:p-4 lg:p-[22px] flex items-center justify-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-16px_rgba(26,25,23,0.18)] cursor-pointer group select-none",
+          "relative shrink-0 w-[230px] h-[270px] sm:w-[260px] sm:h-[300px] lg:w-[300px] lg:h-[340px] bg-surface-2 dark:bg-surface/50 border border-border/70 rounded-bento p-3.5 sm:p-4 lg:p-[22px] flex items-center justify-center transition-all duration-300 hover:-translate-y-1.5 hover:bg-primary-10 hover:border-primary/35 hover:shadow-[0_20px_40px_-16px_oklch(var(--primary)/0.22)] cursor-pointer group select-none",
           className
         )}
       >

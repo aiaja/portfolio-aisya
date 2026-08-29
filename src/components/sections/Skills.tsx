@@ -28,7 +28,7 @@ const Skills = () => {
   ];
 
   return (
-    <Section id="skills" background="bg">
+    <Section id="skills" background="bg" withBorder={false}>
       <div className="mb-12 md:mb-16">
         <span className="text-[11px] font-mono font-bold tracking-[0.15em] uppercase text-subtle mb-3 block select-none">
           {t({ id: "Keahlian & Perkakas", en: "Skills & Tooling" })}
