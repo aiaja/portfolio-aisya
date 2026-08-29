@@ -45,20 +45,20 @@ const Button = ({
 
   const variants = {
     primary:
-      "bg-gradient-to-b from-[oklch(75%_0.194_13.428)] via-primary to-[oklch(63%_0.194_13.428)] text-white border border-white/25 shadow-[0_3.5px_0_0_oklch(52%_0.194_13.428),0_6px_16px_oklch(var(--primary)/0.3),inset_0_1px_0_rgba(255,255,255,0.45),inset_0_-1px_0_rgba(0,0,0,0.2)] hover:brightness-105 hover:-translate-y-0.5 hover:shadow-[0_4.5px_0_0_oklch(52%_0.194_13.428),0_8px_20px_oklch(var(--primary)/0.38),inset_0_1px_0_rgba(255,255,255,0.55),inset_0_-1px_0_rgba(0,0,0,0.2)] active:translate-y-[2.5px] active:shadow-[0_1px_0_0_oklch(52%_0.194_13.428),0_2px_4px_oklch(var(--primary)/0.2),inset_0_2px_4px_rgba(0,0,0,0.25)]",
+      "bg-gradient-to-b from-[oklch(76%_0.194_13.428)] via-primary to-[oklch(64%_0.194_13.428)] text-white border border-white/25 shadow-[0_3.5px_0_0_oklch(52%_0.194_13.428),0_6px_16px_oklch(var(--primary)/0.3),inset_0_1.5px_0_rgba(255,255,255,0.6),inset_0_-1px_0_rgba(0,0,0,0.15)] hover:brightness-105 hover:-translate-y-0.5 hover:shadow-[0_4.5px_0_0_oklch(52%_0.194_13.428),0_8px_20px_oklch(var(--primary)/0.38),inset_0_1.5px_0_rgba(255,255,255,0.75)] active:translate-y-[2.5px] active:shadow-[0_1px_0_0_oklch(52%_0.194_13.428),0_2px_4px_oklch(var(--primary)/0.2),inset_0_2px_4px_rgba(0,0,0,0.2)]",
     secondary:
-      "bg-gradient-to-b from-white via-surface-2 to-surface-3 text-text border border-black/[0.08] shadow-[0_3px_0_0_rgba(0,0,0,0.08),0_4px_12px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.9),inset_0_-1px_0_rgba(0,0,0,0.04)] hover:border-black/[0.14] hover:-translate-y-0.5 hover:shadow-[0_4px_0_0_rgba(0,0,0,0.08),0_6px_16px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,1)] active:translate-y-[2px] active:shadow-[0_1px_0_0_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.03),inset_0_2px_4px_rgba(0,0,0,0.06)]",
+      "bg-gradient-to-b from-white via-[#f7f5f1] to-[#ebe7e0] text-text border border-[#d4cfc7] shadow-[0_3.5px_0_0_#cdc7bd,0_6px_14px_rgba(26,25,23,0.06),inset_0_1.5px_0_rgba(255,255,255,1),inset_0_-1px_0_rgba(0,0,0,0.04)] hover:bg-gradient-to-b hover:from-white hover:via-[#fbf9f6] hover:to-[#f0ece5] hover:border-black/[0.16] hover:-translate-y-0.5 hover:shadow-[0_4.5px_0_0_#cdc7bd,0_8px_18px_rgba(26,25,23,0.08),inset_0_1.5px_0_rgba(255,255,255,1)] active:translate-y-[2.5px] active:shadow-[0_1px_0_0_#cdc7bd,0_2px_4px_rgba(26,25,23,0.04),inset_0_2px_4px_rgba(0,0,0,0.06)]",
     outline:
-      "bg-gradient-to-b from-surface/90 to-surface-2/90 backdrop-blur-md text-text border border-border-strong shadow-[0_2.5px_0_0_rgba(0,0,0,0.05),0_3px_8px_rgba(0,0,0,0.03),inset_0_1px_0_rgba(255,255,255,0.8),inset_0_-1px_0_rgba(0,0,0,0.03)] hover:border-text/30 hover:-translate-y-0.5 hover:shadow-[0_3.5px_0_0_rgba(0,0,0,0.06),0_6px_14px_rgba(0,0,0,0.05),inset_0_1px_0_rgba(255,255,255,0.9)] active:translate-y-[2px] active:shadow-[0_0.5px_0_0_rgba(0,0,0,0.04),inset_0_2px_4px_rgba(0,0,0,0.05)]",
+      "bg-gradient-to-b from-white via-[#f7f5f1] to-[#ebe7e0] text-text border border-[#d4cfc7] shadow-[0_3px_0_0_#d8d3cb,0_4px_10px_rgba(26,25,23,0.05),inset_0_1.5px_0_rgba(255,255,255,0.9)] hover:bg-gradient-to-b hover:from-[#fff5f8] hover:via-[#fdebf1] hover:to-[#fbdde8] hover:border-primary/45 hover:text-primary hover:-translate-y-0.5 hover:shadow-[0_4px_0_0_#e4b5c4,0_6px_16px_rgba(168,72,94,0.18),inset_0_1.5px_0_rgba(255,255,255,1)] active:translate-y-[2px] active:shadow-[0_1px_0_0_#d8d3cb,inset_0_2px_4px_rgba(0,0,0,0.06)]",
     ghost:
-      "text-text border border-transparent hover:border-border-strong hover:bg-gradient-to-b hover:from-white/80 hover:to-surface-2/80 hover:shadow-[0_2px_0_0_rgba(0,0,0,0.05),0_3px_8px_rgba(0,0,0,0.03),inset_0_1px_0_rgba(255,255,255,0.8)] hover:-translate-y-0.5 active:translate-y-[1px] active:shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.06)]",
+      "text-text border border-transparent hover:border-[#d4cfc7] hover:bg-gradient-to-b hover:from-white hover:via-[#f8f6f2] hover:to-[#eeeae3] hover:shadow-[0_2.5px_0_0_#dedad2,0_4px_10px_rgba(26,25,23,0.04),inset_0_1.5px_0_rgba(255,255,255,0.9)] hover:-translate-y-0.5 active:translate-y-[1.5px] active:shadow-[0_0.5px_0_0_#dedad2,inset_0_1.5px_3px_rgba(0,0,0,0.06)]",
   };
 
   const sizes = {
     none: "",
-    sm: "px-4 py-2 text-xs min-h-[44px]",
-    md: "px-6 py-2.5 text-sm min-h-[44px]",
-    lg: "px-8 py-3.5 text-base min-h-[48px]",
+    sm: "px-4 py-2 text-xs min-h-[40px]",
+    md: "px-6 py-2.5 text-sm min-h-[46px]",
+    lg: "px-8 py-3.5 text-base min-h-[52px]",
   };
 
   const paddings = {

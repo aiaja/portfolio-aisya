@@ -100,12 +100,11 @@ const SelectedStories = () => {
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex flex-wrap items-center gap-2 pt-2">
+                    <div className="flex flex-wrap items-center gap-2.5 pt-2">
                       <Button
                         href={`/projects/${story.slug}`}
                         variant="primary"
                         size="sm"
-                        className="text-xs py-1.5 px-4"
                         icon={<ArrowRight size={13} />}
                       >
                         {t({ en: "Case Study", id: "Studi Kasus" })}
@@ -113,9 +112,8 @@ const SelectedStories = () => {
                       {projectDetail?.liveUrl && (
                         <Button
                           href={projectDetail.liveUrl}
-                          variant="outline"
+                          variant="secondary"
                           size="sm"
-                          className="text-xs py-1.5 px-3"
                           icon={<ArrowUpRight size={13} />}
                         >
                           {t({ en: "Live", id: "Demo" })}
