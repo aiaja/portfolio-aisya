@@ -109,7 +109,7 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({ item, onOpen, classNam
         onMouseLeave={handleMouseLeave}
         onClick={handleClick}
         className={cn(
-          "relative shrink-0 w-[230px] h-[270px] sm:w-[260px] sm:h-[300px] lg:w-[300px] lg:h-[340px] bg-surface-2 dark:bg-surface/50 border border-border/70 rounded-bento p-3.5 sm:p-4 lg:p-[22px] flex items-center justify-center transition-all duration-300 hover:-translate-y-1.5 hover:bg-primary-10 hover:border-primary/35 hover:shadow-[0_20px_40px_-16px_oklch(var(--primary)/0.22)] cursor-pointer group select-none",
+          "relative shrink-0 w-[230px] h-[270px] sm:w-[260px] sm:h-[300px] lg:w-[300px] lg:h-[340px] bg-gradient-to-b from-[#ffffff] via-[#f8f6f2] to-[#ece8e1] border border-[#dcd6cc] rounded-bento p-3.5 sm:p-4 lg:p-[22px] flex items-center justify-center shadow-skeuo-card hover:bg-gradient-to-b hover:from-[#fff6f8] hover:via-[#fdecf2] hover:to-[#fbdde8] hover:border-primary/45 cursor-pointer group select-none",
           className
         )}
       >
@@ -120,19 +120,19 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({ item, onOpen, classNam
 
   return (
     <CardWrapper>
-      {/* Top-Left Project & Media Tag Badge */}
-      <div className="absolute top-3.5 left-3.5 bg-surface/90 dark:bg-surface-2/90 backdrop-blur-md border border-border px-2.5 py-1 rounded-full text-[10.5px] font-bold text-text z-10 flex items-center gap-1.5 shadow-xs">
+      {/* Top-Left Skeuomorphic Glossy Badge */}
+      <div className="absolute z-50 top-3.5 left-3.5 bg-gradient-to-b from-white/95 to-white/85 backdrop-blur-md border border-white/90 px-2.5 py-1 rounded-full text-[10.5px] font-bold text-text z-10 flex items-center gap-1.5 shadow-[0_2px_6px_rgba(0,0,0,0.08),inset_0_1px_0_0_rgba(255,255,255,0.95)]">
         {isVideo ? (
           <>
-            <span className="w-1.5 h-1.5 rounded-full bg-primary block animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-primary block shadow-[0_0_6px_oklch(var(--primary))] animate-pulse" />
             <span>Demo · {item.projectName}</span>
           </>
         ) : (
           <>
-            <span className="text-muted text-[9.5px] uppercase tracking-wider">
+            <span className="text-muted text-[9.5px] uppercase tracking-wider font-semibold">
               {isMobile ? "Mobile" : "Web"}
             </span>
-            <span className="text-border">·</span>
+            <span className="text-border-strong">·</span>
             <span>{item.projectName}</span>
           </>
         )}
@@ -145,17 +145,17 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({ item, onOpen, classNam
         <BrowserFrame>{renderMedia()}</BrowserFrame>
       )}
 
-      {/* Video Hover Play Button Overlay */}
+      {/* Video Hover Play Button Overlay — Skeuomorphic 3D Bubble */}
       {isVideo && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-          <div className="w-11 h-11 rounded-full bg-surface/95 text-text shadow-[0_8px_20px_rgba(0,0,0,0.2)] flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-200">
-            <Play className="w-4 h-4 fill-current text-text ml-0.5" />
+          <div className="w-12 h-12 rounded-full bg-gradient-to-b from-white via-[#fcfbfa] to-[#ede9e2] text-text shadow-[0_8px_22px_rgba(0,0,0,0.22),inset_0_1.5px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08)] flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-200">
+            <Play className="w-4 h-4 fill-current text-primary ml-0.5" />
           </div>
         </div>
       )}
 
-      {/* Bottom-Right Expand / Link Icon */}
-      <div className="absolute bottom-3.5 right-3.5 w-7.5 h-7.5 rounded-full bg-surface border border-border flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-200 text-text z-10 shadow-xs hover:scale-110">
+      {/* Bottom-Right Expand / Link Icon — Skeuomorphic Tactile Button */}
+      <div className="absolute bottom-3.5 right-3.5 w-8 h-8 rounded-full bg-gradient-to-b from-white to-[#ede8e1] border border-white/90 shadow-[0_3px_8px_rgba(0,0,0,0.12),inset_0_1px_0_0_rgba(255,255,255,1)] flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-200 text-text z-10 hover:scale-110 active:scale-95 active:shadow-inner">
         <Maximize2 className="w-3.5 h-3.5 text-text" />
       </div>
     </CardWrapper>

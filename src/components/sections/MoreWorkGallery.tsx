@@ -80,10 +80,10 @@ export const MoreWorkGallery: React.FC = () => {
           onClick={() => setActiveItem(null)}
         >
           <div
-            className="relative max-w-2xl w-full bg-surface border border-border rounded-bento p-6 shadow-2xl overflow-hidden"
+            className="relative max-w-2xl w-full bg-gradient-to-b from-surface via-[#faf8f5] to-surface-2 border border-white/80 rounded-bento p-6 shadow-[0_24px_64px_-12px_rgba(26,25,23,0.35),inset_0_1.5px_0_0_rgba(255,255,255,1)] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between pb-4 border-b border-border mb-4">
+            <div className="flex items-center justify-between pb-4 border-b border-border/80 mb-4">
               <div>
                 <span className="font-mono text-xs text-primary font-bold uppercase tracking-wider">
                   {activeItem.device} {activeItem.media === "video" ? "· Video Demo" : ""}
@@ -94,14 +94,14 @@ export const MoreWorkGallery: React.FC = () => {
               </div>
               <button
                 onClick={() => setActiveItem(null)}
-                className="w-9 h-9 rounded-full bg-surface-2 hover:bg-surface-3 flex items-center justify-center text-muted hover:text-text transition-colors"
+                className="w-9 h-9 rounded-full bg-gradient-to-b from-white to-surface-2 hover:from-[#fff5f8] hover:to-[#fceef2] border border-border shadow-[0_2px_5px_rgba(0,0,0,0.06),inset_0_1px_0_0_rgba(255,255,255,1)] flex items-center justify-center text-muted hover:text-primary transition-all active:scale-95"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="rounded-xl overflow-hidden bg-surface-2 border border-border mb-5 flex items-center justify-center min-h-[260px] max-h-[420px]">
+            <div className="rounded-xl overflow-hidden bg-surface-2 border border-border/80 shadow-[inset_0_1.5px_4px_rgba(0,0,0,0.06)] mb-5 flex items-center justify-center min-h-[260px] max-h-[420px]">
               {activeItem.media === "video" && activeItem.src ? (
                 <video
                   src={activeItem.src}

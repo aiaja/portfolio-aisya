@@ -29,7 +29,7 @@ export const MarqueeRow: React.FC<MarqueeRowProps> = ({
         className={cn(
           "marquee-row",
           direction === "left" ? "left" : "right",
-          "gap-3.5 sm:gap-4 lg:gap-[22px] py-3.5 px-3 sm:px-4"
+          "gap-3.5 sm:gap-4 lg:gap-[22px] py-6 sm:py-7 lg:py-8 px-3 sm:px-4"
         )}
         style={{
           animationDuration: `${speedSeconds}s`,
